@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+    body{
+        color: red;
+    }
+    /* 继承的优先级最低 其次是通配符选择器*/
+    div{
+        color: green;
+    }
+    /*标签选择器的优先级 大于继承的优先级 */
+    .box{
+        color: palegoldenrod !important;
+    }
+    /* ！important 可以更改优先级 但是对于继承的没用 加了等于没加 */
+    /* 类选择器的优先级大于标签选择器的优先级 */
+    #box{
+        color: aqua;
+    }
+    /* id选择器的优先级大于类选择器的优先级 */
+    </style>
+</head>
+<body>
+    <!-- 行内选择器的优先级大于类选择器的优先级 -->
+    <div class="box" id="box" style="color:blueviolet;">
+     测试优先级  
+    </div>
+</body>
+</html>
