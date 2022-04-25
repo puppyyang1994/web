@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        * {
+       margin: 0;
+       padding: 0;
+        }
+        .nav{
+            margin: 50px auto;
+            width: 640px;
+            height: 50px;
+           
+            background-color: pink;
+        }
+        /* 清楚标签的圆点格式 */
+        ul{
+            list-style: none;
+        }
+        .nav li{
+            float: left;
+           
+        }
+       /* 将a值设为有效果的 而不是li 如果设置的是li 则只会文字选中有效果 如果设置的是a 则整个都会有效果 */
+       .nav li a{
+           /* 用block也一样 因为前面li已经是浮动的了 */
+           display: inline-block;
+           width: 80px;
+           height: 50px;
+          font-size: 12px;
+          text-align: center;
+          line-height: 50px;
+          text-decoration: none;
+          color: #fff;
+       }
+       .nav li a:hover{
+           background-color:green;
+       }
+    </style>
+</head>
+<body>
+    <div class="nav">
+        <!-- 企业里的导航板块以后都默认用ul>li格式 -->
+        <ul>
+            <li><a href="">新闻</a></li>
+            <li><a href="">新闻</a></li>
+            <li><a href="">新闻</a></li>
+            <li><a href="">新闻</a></li>
+            <li><a href="">新闻</a></li>
+            <li><a href="">新闻</a></li>
+            <li><a href="">新闻</a></li>
+            <li><a href="">新闻</a></li>
+           
+          <!-- 一定要注意 这里是一个li包裹一个a 一共需要八个盒子 而不是一个li包裹了八个a -->
+        </ul>
+    </div>
+</body>
+</html>

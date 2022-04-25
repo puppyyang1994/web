@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+    .top{
+        margin: 0 auto;
+        width: 500px;
+        /* height: 200px; */
+        background-color: pink;
+    }
+    .bottom{
+        width: 1000px;
+        height: 200px;
+        background-color: green;
+    }
+    .left{
+        float: left;
+        width: 100px;
+        height: 200px;
+        background-color:blue;
+    }
+    .right{
+        float:right;
+        width: 299px;
+        height: 200px;
+        background-color:rgb(236, 236, 15);
+    }
+    /* clearfix::before 作用是解决外边距塌陷问题 */
+  /* 产生塌陷：父子级标签， 都是块级 子级加margin会影响父级的位置 */
+   /* 双伪元素清除法 */
+
+   .clearfix::before,
+   .clearfix::after{
+    content:'';
+    display: table;
+    /* 这里不是block块级了 改成table了所以不会存在塌陷的问题 */
+   }
+
+   /* 真正清除浮动的标签 */
+   .clearfix::after{
+       clear: both;
+   }
+      
+    </style>
+</head>
+<body>
+    <!-- 父子级标签，子级浮动，腹肌如果没有高度，后面的标准流盒子会受影响。 -->
+    <div class="top clearfix">
+        <div class="left"></div>
+        <div class="right"></div>
+    </div>
+    <div class="bottom"></div>
+</body>
+</html>

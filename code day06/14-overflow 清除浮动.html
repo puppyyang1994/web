@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+    .top{
+        margin: 0 auto;
+        width: 500px;
+        /* height: 200px; */
+        background-color: pink;
+        overflow: hidden;
+        /* 第四种方法：overflow 清除浮动 */
+    }
+    .bottom{
+        width: 1000px;
+        height: 200px;
+        background-color: green;
+    }
+    .left{
+        float: left;
+        width: 100px;
+        height: 200px;
+        background-color:blue;
+    }
+    .right{
+        float:right;
+        width: 299px;
+        height: 200px;
+        background-color:rgb(236, 236, 15);
+    }
+   
+  
+
+  
+    </style>
+</head>
+<body>
+    <!-- 父子级标签，子级浮动，腹肌如果没有高度，后面的标准流盒子会受影响。 -->
+    <div class="top">
+        <div class="left"></div>
+        <div class="right"></div>
+    </div>
+    <div class="bottom"></div>
+</body>
+</html>

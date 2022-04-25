@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+    .top{
+        margin: 0 auto;
+        width: 500px;
+        /* height: 200px; */
+        background-color: pink;
+    }
+    .bottom{
+        width: 1000px;
+        height: 200px;
+        background-color: green;
+    }
+    .left{
+        float: left;
+        width: 100px;
+        height: 200px;
+        background-color:blue;
+    }
+    .right{
+        float:right;
+        width: 299px;
+        height: 200px;
+        background-color:rgb(236, 236, 15);
+    }
+   /* 单伪元素清除浮动 和额外标签法原理一样的  只是它不需要加标签 */
+    .clearfix::after{
+       content:'' ;
+
+       /* 伪元素的标签默认是行内的 */
+       display: block;
+       clear: both;
+       /* 为了兼容性 IE等浏览器 */
+       height: 0；
+       visibility： hidden;
+    }
+    </style>
+</head>
+<body>
+    <!-- 父子级标签，子级浮动，腹肌如果没有高度，后面的标准流盒子会受影响。 -->
+    <div class="top clearfix">
+        <div class="left"></div>
+        <div class="right"></div>
+    </div>
+    <div class="bottom"></div>
+</body>
+</html>
