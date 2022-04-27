@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .father{
+            
+            width: 400px;
+            background-color: pink;
+        }
+
+        img{
+            /* 解决方法一：因为浏览器把行内块和行内标签当做文字处理，默认基线对齐 用display把图片变成块级标签 这样就不会存在基线的问题 */
+            /* display: block; */
+/* 方法二 用vertical-align */
+            /* vertical-align: middle; */
+            font-size:0;
+        }
+        
+    </style>
+</head>
+<body>
+   <div class="father">
+       <img src="0.jpg" alt="">
+   </div>
+</body>
+</html>
