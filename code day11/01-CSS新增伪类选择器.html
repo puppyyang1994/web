@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+    div{
+        width: 100px;
+        height: 100px;
+        background-color: #CCC;
+    }
+    div::before{
+        content: '';
+        /* content属性必须写  他们是行内元素 必须加display 才能设置宽高*/
+        display: inline-block;
+        width: 50px;
+        height: 50px;
+        background-color: aqua;
+    }
+    </style>
+</head>
+<body>
+    <div>
+        haode
+    </div>
+</body>
+</html>

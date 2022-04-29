@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>过渡 transition （谁做过渡就给谁加）</title>
+    <style>
+        div{
+            width: 200px;
+            height: 100px;
+            background-color: pink;
+            transition: width 1s ;
+            transition: width 1s, height 1s;
+            /* 多个属性用逗号隔开或者写 transition： all 1s */
+        }
+        div:hover{
+            width: 400px;
+            height: 400px;
+            
+        }
+        /* 经常和hover一起搭配使用 */
+    </style>
+</head>
+<body>
+    <div></div>
+</body>
+</html>
