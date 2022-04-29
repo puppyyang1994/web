@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        /* div{
+            width: 500px;
+            height: 500px;
+            background-color: pink;
+        } */
+    .box {
+        width: 0;
+        height: 0;
+        /* 把上边框调大 */
+        border-top: 100px solid transparent;
+        border-right: 50px solid yellow;
+        /* 左边和下边的边框设为0 */
+        border-bottom: 0 solid blue;
+        border-left: 0 solid green;
+    }
+    /* 方法二 */
+    /* .box2{
+        float: right;
+        width: 0;
+        height: 0;
+        border-color: transparent red transparent transparent;
+        border-style: solid;
+        border-width: 100px 50px 0 0;
+    } */
+    </style>
+</head>
+<body>
+    <div class="box box2"></div>
+</body>
+</html>

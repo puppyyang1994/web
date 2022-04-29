@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        /* E[属性att] */
+    /* input[value]{
+        color: red;
+    } */
+
+    /* input[type=text]{
+color: pink;
+    } */
+
+
+    /* div[class^=icon]{
+        color: red;
+    } */
+
+    section[class$=data]{
+        color: blue;
+    }
+    /* 类选择器 属性选择器 伪类选择器 权重都是10 */
+    </style>
+</head>
+<body>
+    <!-- 利用属性选择器就不用借助类或者id选择器 -->
+    <input type="text" value="请输入用户名"> 
+    <input type="text">
+
+    <!-- 务必掌握：属性选择器还可以选择属性=值的某些元素 -->
+   <input type="text" name="" id="">
+   <input type="password" name="" id="">
+
+<!-- 属性选择器可以选择属性值开头的某些元素 -->
+   <div class="icon1">1</div>
+   <div class="icon2">2</div>
+   <div class="icon3">3</div>
+
+   <!-- 属性选择器可以选择属性值结尾的某些元素 -->
+   <section class="icon1-data">1</section>
+   <section class="icon2-data">2</section>
+   <section class="icon3-data">3</section>
+</body>
+</html>

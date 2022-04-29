@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>margin 负值</title>
+    <style>
+    ul li{
+        position: relative;
+        float: left;
+        list-style: none;
+        width: 150px;
+        height: 200px;
+        border: 1px solid red;
+        margin-left: -1px;
+    }
+     /* ul li:hover{
+        position: relative; */
+        /*1. 如果盒子没有定位 则鼠标经过添加相对定位 改成相对定位 占用位置 */
+        /* border: 1px solid blue;
+
+    }  */
+    ul li:hover{
+        /* 增加层级 必须要有定位才能生效 所以前面的li加了一个相对定位*/
+      
+        z-index: 1;
+        border: 1px solid blue;
+    }
+    </style>
+</head>
+<body>
+    <ul>
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+        <li>5</li>
+    </ul>
+</body>
+</html>

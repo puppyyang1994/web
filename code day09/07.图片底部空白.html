@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+     div{
+        border: 1px solid red;
+    }
+    img{
+        /* vertical-align: bottom; */
+        /* 只要让图片不是和基线对齐的就行 设置bottom top middle 都可以 */
+         display: block;
+        /* 把图片转为块级元素 */
+    }
+    </style>
+   
+</head>
+<body>
+    <!-- 因为行内快元素默认是和基线对齐的 不是底线 -->
+    <div>
+        <img src="images/ldh.jpg" alt="">
+    </div>
+</body>
+</html>

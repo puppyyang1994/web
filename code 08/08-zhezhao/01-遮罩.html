@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+    *{
+        margin: 0;
+        padding: 0;
+    }
+    .box{
+        position: relative;
+        width: 711px;
+        height: 400px;
+        background-color:pink;
+        border: 2px solid orange;
+        margin: 50px auto;
+    }
+    .mask{
+      
+        width: 100%;
+        height: 100%;
+        background:rgba(0,0,0,.5) url(./images/arr.png) no-repeat center center;
+        /* 子绝父相 */
+        position: absolute;
+        left: 0;
+       top: 0;
+       /* 默认是隐藏 放上去才显示*/
+       display: none;
+    }
+    .box:hover .mask{
+        /* 显示 */
+        display:block;
+    }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <img src="./images/sed.jpg" alt="">
+<!-- 遮罩效果  两个图层叠 用定位  浮动是两个块在一行内显示 -->
+        <div class="mask"></div>
+    </div>
+</body>
+</html>
