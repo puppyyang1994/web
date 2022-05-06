@@ -1,0 +1,65 @@
+.nav{
+    overflow: hidden;
+}
+.sk{
+    position: absolute;
+    left: 186px;
+    top: 40px;
+    padding-left: 14px;
+    border-left: 1px solid #b1191a;
+}
+.sk_list{
+    float: left;
+}
+.sk_list a{
+   
+   line-height: 49px;
+    font-size: 16px;
+    font-weight: 700;
+    color: #000000;
+    padding: 0 25px ;
+}
+.sk_con{
+    float: left;
+}
+
+.sk_con ul li{
+    float: left;
+    color: #000000;
+}
+.sk_con ul li a{
+    padding-right: 45px;
+    line-height: 49px;
+    font-size: 12px;
+   
+    padding: 0 25px ;
+}
+.sk_con ul li:last-child a::after{
+    content:'\e91e';
+    font-family: 'icomoon';
+}
+.sk_bd{
+    margin-top: 20px;
+    margin-bottom: 100px;
+    overflow: hidden;
+    /* 没有给父元素设置高度 而子元素很多 所以要清除 */
+}
+
+.sk_bd ul li{
+    float: left;
+    margin-left: 10px;
+    width: 290px;
+    height: 460px;
+    border: 1px solid transparent;
+}
+.sk_bd ul li:nth-child(4n){
+    margin-right: 0;
+}
+
+.sk_bd ul li:hover{
+    border: 1px solid red;
+}
+.sk_bd ul li img{
+    width: 100%;
+    /* 这样可以保证四条线都出来 */
+}

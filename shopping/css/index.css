@@ -50,7 +50,7 @@
     margin-top: 10px;
 }
   
-}
+
 .news_hd{
     height: 33px;
     border-bottom: 1px dotted #e4e4e4;
@@ -82,10 +82,75 @@
 .bargin{
     margin-top: 10px;
 }       
+
+.floor .w{
+    margin-top: 30px;
+}
+.box_hd {
+    height: 30px;
+    border-bottom: 2px solid #c81623;
+    padding-bottom: 10px;
+}
+.box_hd h3 {
+    float: left;
+    font-size: 18px;
+    color: #c81623;
+    font-weight: normal;
+  
+}
+.box_hd .tab_list{
+    float: right;
+}
+/* li 是左浮动 ul是右浮动 */
+.tab_list ul{
+    float: right;
+   
+}.tab_list ul li{
+    float: left;
+    line-height: 30px;
+    padding-right: 13px;
+}
+.box_bd {
+    height: 360px;
+}
+.tab_list_item>div{
+    float: left;
+    height: 360px;
+}
+.col_210{
+    width: 210px;
+    background-color: #f9f9f9;
+    text-align: center;
+}
+.col_210 ul li{
+    float: left;
+    width: 85px;
+    height: 33px;
+    border-bottom: 1px solid #ededed;
+    margin-right: 13px;
+    line-height: 33px;
+   
+}
+.col_210 ul{
+    padding-left: 12px;
+}
+.col_329{
+    width: 329px;
+}
+.col_219{
+    width: 219px;
+}
+.col_220{
+width: 220px;
+}
+
+
+
 .recom{
     margin-top: 10px;
     height: 163px;
-    background-color: pink;
+    background: #ebebeb;
+   
 }
 .recom_hd{
     float: left;
@@ -96,8 +161,26 @@
     padding-top: 30px;
 }
 .recom_bd{
-    float: right;
-    width: 994px;
-    height: 163px;
-    background-color: rgb(114, 105, 105);
+    float: left;
+ 
+    
 }
+.recom_bd ul li{
+    position: relative;
+    float: left; 
+
+}
+.recom_bd ul li img{
+    width: 248px;
+    height: 163px;
+}
+.recom_bd ul li:nth-child(-n+3)::after{
+  content:'';
+  position: absolute;
+  right:0;
+  top: 10px ;
+  width: 1px;
+  height: 145px;
+  background-color: #ddd;
+}
+

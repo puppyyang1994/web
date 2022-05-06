@@ -1,0 +1,117 @@
+.w {
+    width: 1200px;
+    margin: 0 auto;
+
+}
+header {
+    height: 84px;
+    border-bottom: 2px solid  #b1191a;
+}
+.logo a img{
+    padding-top: 15px;
+}
+.registerarea {
+        position: relative;
+        height: 520px;
+        background-color: #ffffff;
+        border: solid 1px #dfdfdf;
+        margin-top: 21px;
+}
+.registerarea h3 {
+    height: 41px;
+    font-weight: normal;
+    border: solid 1px #dfdfdf;
+    background-color: #ececec;
+    line-height: 41px;
+    padding: 0 10px ;
+}
+.registerarea p{
+    float: right; 
+}
+.registerarea p a {
+    color: red ;
+}
+.reg_form {
+    width: 650px;
+    margin: 50px auto;
+}
+
+.reg_form ul label{
+    width: 85px;
+    display: inline-block;
+    color: #4d4d4d;
+    font-size: 14px;
+    text-align: right;
+}
+.reg_form ul li{
+    margin-bottom: 15px;
+}
+.reg_form ul li .inp{
+    width: 240px;
+    height: 36px;
+    margin: 0px 10px 10px 10px;
+    border: 1px solid #999999;
+}
+
+.reg_form ul li img{
+    margin: 0 5px 0 9px;
+}
+/* 也可以通过i来做 给他插入背景图 用vertical align 保证文字和图片垂直居中 */
+.reg_form ul li span{
+    color: #b1191a;
+}
+.safe {
+ padding-left: 155px;
+  height: 18px;
+
+}
+.safe em{
+    padding: 0 12px;
+    color: #ffffff;
+}
+.ruo{
+    background-color: #de1111;
+}
+.zhong {
+    background-color: #40b83f;;
+}
+.qiang{
+    background-color: #f79100;
+}
+.agree {
+    padding-left: 95px;
+}
+.agree input{
+    vertical-align: middle;
+    margin-right: 13px;
+ 
+}
+.agree a{
+    color: #1ba1e6;;
+}
+.btn {
+    width: 200px;
+	height: 34px;
+	background-color: #c81623;
+    border: 0;
+   margin: 30px 0 30px 92px;
+}
+.mod_copyright .links{
+    padding-top: 15px;
+    height: 35px;
+    line-height: 35px ;
+    text-align: center;
+}
+.mod_copyright .links a{
+    padding-right: 15px;
+}
+.mod_copyright .copyright{
+    padding-top: 15px;
+    height:36px ;
+    text-align: center;
+    font-size: 12px;
+}
+
+
+
+
