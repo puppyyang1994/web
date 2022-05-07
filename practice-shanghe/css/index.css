@@ -1,0 +1,128 @@
+.w {
+    width: 980px;
+    margin: 0 auto;
+}
+.header {
+    position: relative;
+    height: 63px;
+    border-bottom: 1px solid #e1e1e1;
+}
+
+.logo {
+    position: relative;
+    width: 180px;
+    height: 63px;
+}
+.logo a {
+    position: absolute;
+    top: 15px;
+    display: block;
+    height: 63px;
+    width: 180px;
+    background: url(../images/logo.png) no-repeat;
+    font-size: 0;
+}
+
+.search {
+    position: absolute;
+    right: 25px;
+    top: 14px;
+    width: 205px;
+    height: 32px;
+}
+.search input {
+    float: left;
+    width: 170px;
+    height: 32px;
+    outline: none;
+   padding-left: 5px;
+   
+}
+button{
+    float:left;
+    width: 35px;
+    height: 32px;
+}
+.nav{
+    height: 55px;
+    background-color: #eae6e6;
+}
+.nav ul li{
+    float: left;
+    width: 130px;
+    height: 55px;
+    text-align: center;
+    border-right: 1px solid #ffffff;
+    padding: 15px 35px;
+}
+.nav ul a{
+    display: block;
+    float: left;
+    width: 45px;
+    height: 25px;
+    font-size: 16px;
+    font-weight: 700;
+}
+.body .banner img{
+    margin-bottom: 30px;
+}
+
+.footer {
+    height: 300px;
+}
+.footer .info {
+    position: relative;
+    height: 30px;
+   border-top: 1px solid #525050;
+   padding-top: 10px;
+}
+.info img {
+    position: absolute;
+    right: 5px;
+    top: 10px;
+    
+}
+.bottom ul {
+    float: left;
+    margin-top: 15px;
+}
+.bottom ul .left{
+    float: left;
+    width: 310px;
+    height: 220px;
+    border: 1px solid #525050 ;
+    
+}
+.bottom .left .top {
+    height: 33px;
+    padding-top: 10px;
+}
+.left .top h4{
+    float: left;
+    color: #7ab800;
+    font-weight: 700;
+   
+}
+img {
+    vertical-align: middle;
+    padding: 0 5px;
+}
+.bottom .photo {
+    height: 150px;  
+    margin-top: -2px;
+   
+}
+.photo ul li{
+    float: left;
+    padding: 0 20px;
+    line-height:150px ;
+}
+.m {
+    margin: 0 15px;
+}
+
+
+
+
+
+
