@@ -1,0 +1,200 @@
+/* 声明字体图标 这里一定要注意路径的变化 */
+@font-face {
+    font-family: 'icomoon';
+    src:  url('../fonts/icomoon.eot?tomleg');
+    src:  url('../fonts/icomoon.eot?tomleg#iefix') format('embedded-opentype'),
+      url('../fonts/icomoon.ttf?tomleg') format('truetype'),
+      url('../fonts/icomoon.woff?tomleg') format('woff'),
+      url('../fonts/icomoon.svg?tomleg#icomoon') format('svg');
+    font-weight: normal;
+    font-style: normal;
+    font-display: block;
+}
+.w {
+    position: relative;
+    width: 1200px;
+    margin: 0 auto;
+}
+.shortcut {
+    height: 40px;
+    background-color: #26303b;
+}
+
+.logo a {
+    float: left;
+    width: 78px;
+    line-height: 40px;
+    font-size: 0;
+}
+
+.nav {
+    float: right;
+    height: 20px;
+
+}
+.nav ul li {
+    float: left;
+    height: 20px;
+    line-height: 40px;
+}
+.nav ul li a {
+    padding-left: 10px;
+    font-size: 14px;
+    color: #ffffff;
+}
+
+/* main 制作 */
+.main {
+    position: relative;
+    height: 470px;
+    background-color: #181c28;
+    
+}
+.dropdown{
+    /* display: none; */
+    overflow: hidden;
+}
+.dropdown ul {
+    width: 250px;
+    height: 470px;
+    background: #1b2a3f;
+    padding-top: 20px;
+   
+}
+.dropdown ul li{
+    position: relative;
+    height: 50px;
+    padding-left: 20px;
+    line-height: 50px;
+}
+
+.dropdown ul li a{
+    color: #ffffff;
+    font-size: 14px;
+   
+
+}
+.dropdown ul li:hover {
+    background-color: #fff;
+}
+
+.dropdown ul li::after {
+    position: absolute;
+    left: 200px;
+    top: 1px;
+    color: #fff;
+    font-family: 'icomoon';
+    content: '\e920';
+}
+.dropdown ul li:hover a {
+    color: #0b498c;
+}
+/* 一定不能写成.dropdown ul li a:hover 这样出来的效果区域有限 */
+.focus {
+    position: absolute;
+    left: 251px;
+    top: 0;
+    width: 950px;
+    height: 470px;
+    background: url(../images/banner.png);
+}
+
+/* <!-- body 制作 --> */
+.body {
+    height: 740px;
+}
+.body .title {
+    height: 140px;
+    text-align: center;
+    padding: 45px 0 35px 0;
+}
+.body .title h1{
+    margin-bottom: 24px;
+}
+.content {
+    position: relative;
+    height: 460px;
+    border: 1px solid #757676;
+    padding: 35px 45px 72px 45px;
+  
+}
+.content .info .top {
+    width: 105px;
+    height: 45px;
+    border-bottom: 1px solid  #757676;
+}
+.content .info .middle{
+    width: 441px;
+    height: 170px;
+    margin-top: 15px;
+}
+.content .info .middle p{
+    font-size: 15px;
+   line-height: 30px;
+   /* 用linehight来调节段落间的距离 letter-space调整字与字直接 */
+}
+.content .info .submit button {
+    width: 130px;
+    height: 48px;
+    border: 2px solid #ffa500;
+    margin-top: 90px;
+    background-color: #fff;
+}
+.content .left {
+    position: absolute;
+    left: 570px;
+    top: 35px;
+    width: 578px;
+    height: 348px;
+    /* background: url(../images/right.png) no-repeat; */
+}
+.left img{
+    width: 100%;
+    height: 100%;
+}
+/* footer 制作 */
+.section {
+    background-color: #2e3023;
+}
+.footer {
+    position: relative;
+    height: 400px;
+    padding-top: 35px;
+  
+}
+.description {
+    height: 250px;
+    color: #ffffff;
+}
+
+.description li {
+    font-style: 14px;
+    margin-top: 15px;
+   
+}
+.description ul {
+    float: left;
+    margin-right: 115px;
+   
+  
+}
+.copyright {
+    position: absolute;
+    right: 0px;
+    top: 35px;
+    height: 145px;
+    width: 195px;
+   
+}
+.copyright ul {
+    height: 95px;
+    color: #ffffff;
+    line-height: 18px;
+}
+.bt_copyright {
+    width: 190px;
+    height: 33px;
+    background: #00a4ff;
+    border: none;
+    color: #ffffff;
+}
