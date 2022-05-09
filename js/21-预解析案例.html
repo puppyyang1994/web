@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        //案例1：结果是undefined
+        // var num = 10;
+        // fun();
+        // function fun(){
+        //     console.log(num);
+        //     var num = 20;
+        // }
+        //分析：
+      /*   预解析 和执行：
+        var num (当前作用域是全局)
+        function fun(){
+            console.log(num);
+            var num = 20;
+            // function内部：
+            // 预解析和执行：
+            // var num
+            // console.log(num);
+            // num = 20; 结果是undefined
+
+        }
+        num = 10;
+        fun();所以最终的结果是undefined */
+
+
+        //案例2：
+        // var num = 10;
+        // function fn(){
+        //     console.log(num);
+        //     var num = 20;
+        //     console.log(num);
+        // }
+        // fn();
+
+        // // 分析：
+        // var num
+        
+        // function fn(){
+        //     console.log(num);
+        //     var num = 20;
+        //     console.log(num);
+        //     // 内部分析：
+        //     var num
+        //     console.log(num);
+        //     num = 20;
+        //     console.log(num);
+
+        // }
+        ///num = 10;
+        // fn();
+
+        // 案例3
+        // var a = 10;
+        // f1();
+        // function f1(){
+        //     var b = 9;
+        //     console.log(a);
+        //     console.log(b);
+        //     var a = '123';
+        // } //结果是undefined 和 9
+
+        // var a
+        // function fl(){
+        //     var b = 9;
+        //     console.log(a);
+        //     console.log(b);
+        //     var a = '123';
+        //     //相当于
+        //     var b
+        //     var a
+        //     b = 9
+        //     console.log(a);
+        //     console.log(b);
+        //     a = '123'
+            
+        // }
+        // a = 10;
+        // fl()
+        
+            //案例4
+            f1();
+            console.log(c);
+            console.log(b);
+            console.log(a);
+            function f1(){
+                var a = b = c = 9;
+                // var a = 9, b= 9, c= 9 是不一样的
+                // var a = 9 b=9 c=9 这里的b和c只是赋值 没有var声明当全局变量看
+                console.log(a);
+                console.log(b);
+                console.log(c);
+            }
+            //相当于按以下执行
+          /*   function f1(){
+
+              // var a
+                // a = 9
+                // b = 9
+                // c = 9
+                // console.log(a);
+                // console.log(b);
+                // console.log(c);
+               
+
+            }
+            fl();
+            console.log(c);
+            console.log(b);
+            console.log(a); */  //结果为99999 undefined    b c 在这里都是全局变量
+    </script> 
+</head>
+<body>
+    
+</body>
+</html>

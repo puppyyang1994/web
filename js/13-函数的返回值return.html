@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        //函数的返回值 return 函数
+        // function 函数名（）{
+        //     return 需要返回的结果;
+        // }
+        // 函数名（）;
+        //函数只是实现某种功能，最终的结果需要返回给调用的函数 通过return
+        //只要函数遇到return 就把后面的结果返回给函数的调用者 函数名（）=return 返回值；
+
+        function getResult(){
+            return 666;
+        }
+        getResult(); //相当于getResult()= 666;
+        console.log(getResult());
+
+        function getSum( num1, num2){
+            return num1+num2;
+            // return 只能返回一个值 如果逗号隔开返回多个 以最后一个为准
+            //return 后面的语句不会执行
+            //相返回多个值 可以用数组  return [num1+num2, num1-num2]
+            //函数没有return 则返回的是undefined
+            
+        }
+        getSum(1,2);
+        console.log( getSum(1,2));
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

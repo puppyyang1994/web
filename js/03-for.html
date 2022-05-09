@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script>
+    // for (var i = 1; i<=100; i++){
+    //     console.log('你好');
+        
+    // }
+
+    //通过for 循环重复执行不同胡代码
+    // for (var i =1; i<=100; i++){
+    //     console.log('这个人今年'+i+'岁');   
+    // }
+    
+    // 求1-100之间所有数的平均值
+
+    // var sum = 0;
+    // for ( var i =1; i<=100; i++){
+    //     sum +=i;  
+    // }
+    // var result = sum/100;
+    // console.log(result);
+    
+    //求1-100之间所有偶数和寄数的和
+    //  var even = 0;
+    //  var odd = 0;
+    //  for (var i =1; i<=100; i++){
+    //      if(i % 2 == 0){
+    //          even = even + i;
+    //      }else{
+    //          odd = odd + i;
+    //      }
+    //  }
+
+    //  console.log('所有偶数之和为'+ even);
+
+    //  console.log('所有奇数之和为'+ odd);
+
+    //求1-100 之间所有能被三整除的数字的和
+
+    // var sum = 0;
+    // for ( var i = 1; i<=100; i++){
+    //     if (i%3 == 0){
+    //         sum = sum + i;
+    //     }
+    // }
+
+    // console.log(sum);
+    
+
+    //求学生成绩案例
+    // var sum = 0;
+    // var average = 0;
+    // var people = prompt('请输入班级总得人数：');
+    // //一定要注意数据类型的转换  从prompt传输来的是字符型的  
+    // for (var i =1; i<=people; i++){
+    //    var  score = prompt('请输入第'+i+'个同学的成绩');
+    //    sum = sum + parseFloat(score);
+      
+    // }
+    // average = sum / parseFloat(people);
+    // alert('平均成绩为'+ average);
+    // console.log(average);
+    //追加字符串  一行打印五颗星星
+
+    // var str = '';
+    // for (var i = 1; i<=5; i++){
+    //     str = str + '★';
+    // }
+    //  console.log(str);
+     
+     //打印五行星星
+
+    //  var str = '';
+    //  for (var i = 1; i<=5; i++){
+    //      for (var j=1; j<=5; j++)
+    //      str = str + '★';
+    //     //打印5颗之后就要换行换行
+    //      str = str + '\n';
+    //  }
+    //  console.log(str);
+     
+//    var str = '';
+//      for (var i = 1; i<=5; i++){
+//          for (var j=1; j<=3; j++)
+//          str = str + '★';
+//         //打印5颗之后就要换行换行
+//          str = str + '\n';
+//      }
+//      console.log(str);
+//打印倒三角
+    var str = '';
+     for (var i = 1; i<=10; i++){
+         for (var j=i; j<=10; j++)
+         str = str + '★';
+       
+         str = str + '\n';
+     }
+     console.log(str);
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

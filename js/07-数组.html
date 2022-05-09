@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script>
+    // var arr = [1, 2, 3, 'pink', true]; //可以放任何数据类型  1， 2 数组元素
+
+    //遍历数组
+    // var arr = [1, 2, 3];
+    // for (var i = 0; i<3; i++){
+    //     console.log(arr[i]);
+    //     //把i当索引号
+    // }
+  //求数组的和及平均值
+    // var sum = 0;
+    // var average = 0;
+    // var arr = [2, 6, 1, 7, 4];
+    // for ( i = 0; i<arr.length; i++){
+    //     sum += arr[i];
+    // }
+    // average = sum / arr.length ;
+    // console.log(sum);
+    
+    // console.log(average);
+
+    //求数组中的最大值
+
+    // var arr = [2, 6, 1, 77, 52, 25, 7];
+    // var max = arr[0];
+
+    // for (i = 1; i< arr.length; i++){
+    //     if (max<=arr[i]){
+    //         max = arr[i];
+    //     }
+    // }
+
+    // console.log(max);
+    
+    //将数组转换为分割字符
+    // var str = '';
+    // var sep = '!';  //用变量的好处是随时可以修改
+    // var arr = ['red', 'green', 'blue', 'pink'];
+    // for ( var i = 0; i<arr.length; i++){
+    //     str += arr[i] + sep;
+    // }
+    // console.log(str);
+
+
+    //数组中存放1-10
+    // var arr = [];
+    // for (var i = 0; i<100; i++){
+    //     arr[i] = i +1;
+    //     // 不能直接给数组名赋值 arr = i;
+    // }
+    
+    //筛选数组
+
+    // var arr = [2, 0, 6, 11,77];
+    // var newArr = [];
+    // var j =0;
+    // for (var i = 0; i<arr.length; i++){
+    //     if (arr[i]>10){
+    //         newArr[j] = arr[i];
+    //         //新数组下标应该从0开始 依次递增
+    //         j++;
+    //     }
+    // }
+    // console.log(newArr);
+        //方法2
+    // var arr = [2, 0, 6, 11,77];
+    // var newArr = [];
+    //刚开始 newArr.length 就是 0
+    // for (var i = 0; i<arr.length; i++){
+    //     if (arr[i]>10){
+    //         newArr[newArr.length] = arr[i];
+            //每存入一个值 length会自动+1 所以不需要再设置++
+    //     }
+    // }
+    // console.log(newArr);
+
+
+   //将数组内容反转
+   var arr = ['red', 'green', 'blue', 'pink'];
+   var newArr = [];
+   for (var i = arr.length-1; i>=0; i--){
+       newArr[newArr.length] = arr[i];
+   }
+    console.log(newArr);
+    
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
