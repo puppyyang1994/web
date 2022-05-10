@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script>
+    // 随机数取法  Math.random() 里面不包括参数 函数返回一个浮点数,  伪随机数在范围从0到小于1，也就是说，从0（包括0）往上，但是不包括1（排除1）
+
+    console.log(Math.random());
+    // 要两个随机整数 并包含这两个生猪
+    function getRandomIntInclusive(min, max) {
+    return Math.floor(Math.random() * (max - min + 1)) + min; //含最大值，含最小值 
+}
+    console.log( getRandomIntInclusive(1, 6.8));
+
+    // 随机点名
+    var arr = ['张三', '张三丰', '张三丰子'];
+    console.log(arr[getRandomIntInclusive(0, arr.length-1)]); //把arr[0] 里面的0用函数来表示就行
+    
+    
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

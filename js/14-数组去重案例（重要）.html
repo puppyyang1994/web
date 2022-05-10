@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script>
+    // 先遍历旧数组
+
+    //用旧数组的元素和新数组比较 如果该元素不在 则添加 否则 不添加
+    // 利用新数组.indexOf(数组元素) 如果返回-1 说明新数组里没有该元素
+
+    function unique(arr){
+        var newArr = [];
+        for (var i = 0; i<arr.length; i++){
+            if (newArr.indexOf(arr[i])=== -1)  {
+                newArr.push(arr[i]);
+            }
+        }
+        return newArr
+    }
+
+    var demo = unique(['a', 'b', 'c', 'd', 'a', 'b']);
+    console.log(demo);
+</script>
+
+</head>
+<body>
+    
+</body>
+</html>

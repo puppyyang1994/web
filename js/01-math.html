@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script>
+        // Math 数学对象 不是一个构造函数 所以我们不需要new来调用 而是直接使用里面的属性和方法
+    // console.log(Math.PI);
+    // console.log(Math.max(1,99,3));
+
+// 自己封装一个数学对象
+    var MyMath = {
+        PI: 3.141592653,
+        max: function(){
+            var max = arguments[0];
+            for (var i = 1; i<arguments.length; i++){
+                if(arguments[i]>max){
+                    max = arguments[i];
+                }
+            }
+            return max;
+        },
+       min: function(){
+            var min = arguments[0];
+            for (var i = 1; i<arguments.length; i++){
+                if(arguments[i]<min){
+                    min = arguments[i];
+                }
+            }
+       return min;
+    }
+    }
+    console.log(MyMath.max(1,2,3,4));
+    
+      
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

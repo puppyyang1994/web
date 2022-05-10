@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script>
+    // 随机生成1-10的整数 Math.random()
+    function getRandomIntInclusive(min, max) {
+        return Math.floor(Math.random() * (max - min + 1)) + min;}
+
+        var random =  getRandomIntInclusive(1, 10);
+        while(true){ //死循环
+            var num =prompt('你来猜？输入1-10之间的数字：');
+            if (num > random){
+                alert('你猜大了');
+
+            } else if (num<random ){
+                    alert ('你猜小了');
+                }
+                else {
+                    alert('猜对了');
+                    break;   //猜对了就退出整个循环   一定要给一个退出条件 不然就是死循环
+                }
+            }
+
+        // 要求用户猜1-50之间的数字 但是只有十次机会   用for循环 表次数
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
