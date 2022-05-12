@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        body{
+            background-color: #333;
+        }
+    .map {
+        position: relative;
+        width: 747px;
+        height: 6616px;
+        background: url(./map.png) no-repeat;
+        margin: 0 auto;
+    }
+    .city {
+        position: absolute;
+        top: 227px;
+        right: 193px;
+        color: #fff;
+    }
+    /* 上面city写的是 top right 下面的tb也必须是 top right */
+    .tb {
+        top: 500px;
+        right: 80px;
+    }
+    .gz {
+        top: 550px;
+        right: 174px;
+    }
+    .dotted{
+        width: 8px;
+        height: 8px;
+        background-color: #09f;
+        border-radius: 50%;
+    }
+    /* 属性选择器 因为pulse前面的写法都一样 */
+    .city div[class^='pulse']{
+        /* 保证小波纹在父盒子的中心（水平居中垂直居中） 放大之后就从中心向外扩散*/
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 8px;
+        height: 8px;
+        /* 给阴影 不要给边框 效果更好 */
+        box-shadow: 0 0 12px #009dfd;
+        border-radius: 50%;
+        animation: pulse 1.2s infinite;
+    }
+    /* 注意权重问题 */
+    .city div.pulse2 {
+        animation-delay: 0.5s;
+    }
+    .city div.pulse3 {
+        animation-delay: 0.8s;
+    }
+    @keyframes pulse {
+        0%{
+
+        }
+        70% {
+            width: 40px;
+            height: 40px;
+            /* transform: scale(5); 不要scale放大 会把阴影放大 */
+            /* 透明度 */
+            opacity: 1;
+        }
+        100% {
+            width: 70px;
+            height: 70px;
+            opacity: 0;
+            /* 0 看不到了 */
+        }
+    }
+    </style>
+</head>
+<body>
+    <div class="map">
+        <div class="city">
+            <div class="dotted"></div>
+            <div class="pulse1"></div>
+            <div class="pulse2"></div>
+            <div class="pulse3"></div>
+        </div>
+        <div class="city tb">
+            <div class="dotted"></div>
+            <div class="pulse1"></div>
+            <div class="pulse2"></div>
+            <div class="pulse3"></div>
+        </div>
+        <div class="city gz">
+            <div class="dotted"></div>
+            <div class="pulse1"></div>
+            <div class="pulse2"></div>
+            <div class="pulse3"></div>
+        </div>
+    </div>
+</body>
+</html>

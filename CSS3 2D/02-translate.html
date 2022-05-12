@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+       * {
+            box-sizing: border-box;
+        }
+        /* 用translate的办法让盒子垂直居中 */
+    div{
+     
+        position: relative;
+        width: 500px;
+        height: 500px;
+        background-color: pink;
+        /* translate 里面的参数是可以用% */
+        /* 如果里面的参数是% 移动的距离是盒子自身的高度或宽度的% */
+        /* transform: translateX(50%); */
+    }
+    p {
+       
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 200px;
+        height: 200px;
+        transform: translate(-50%, -50%); 
+        background-color: purple;
+
+    }
+    span{
+        display: block;
+        width: 100px;
+        height: 100px;
+        background-color: blue;
+        transform: translate(20px,20px);
+        /* 对行内元素 无效 */
+    }
+    </style>
+</head>
+<body>
+    <div>
+        <p></p>
+    </div>
+    <span></span>
+</body>
+</html>
