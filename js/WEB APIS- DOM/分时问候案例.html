@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+    img {
+        width: 200px;
+        height: 200px;
+    }
+    </style>
+</head>
+<body>
+    <img src="./images/ldh.jpeg" alt="">
+    <div>上午好</div>
+
+    <script>
+    var img = document.querySelector('img');
+    //一个div元素 显示不同的问候语
+    var div = document.querySelector('div');
+ //日期内置对象 来获取当前的时间
+    var date = new Date();
+    //得到当年的小时数
+    var h = date.getHours();
+// 利用分支语句来设置不同的图片
+    if(h<12){
+        img.src='./images/ldh.jpeg';
+        div.innerHTML = '上午好';
+    }else if (h<18){
+        img.src='./images/zxy.jpeg';
+        div.innerHTML = '中午好';
+    }else{
+        img.src='./images/sw.jpeg';
+        div.innerHTML = '晚上好';
+    }
+    </script>
+</body>
+</html>

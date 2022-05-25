@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+    img{
+        display: block;
+        margin-top: 50px;
+        width: 300px;
+        height: 300px;
+    }
+    </style>
+</head>
+<body>
+    <button id='ldh'>刘德华</button>
+    <button id='zxy'>张学友</button>
+    <img src="./images/ldh.jpeg" alt="" title = '刘德华'>
+
+    <script>
+    var btn = document.getElementById('ldh');
+    var btn2 = document.getElementById('zxy');
+    var img = document.querySelector('img');
+
+    btn2.onclick = function(){
+        img.src='./images/zxy.jpeg';
+        img.title = '张学友';
+    }
+    btn.onclick = function(){
+        img.src='./images/ldh.jpeg';
+        img.title = '刘德华';
+    }
+    </script>
+</body>
+</html>

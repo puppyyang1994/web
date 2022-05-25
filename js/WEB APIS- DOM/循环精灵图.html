@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box {
+            width: 260px;
+            margin: 100px auto;
+        }
+
+        li{
+            float: left;
+            width: 23px;
+            height: 24px;
+            background-color: pink;
+            list-style: none;
+            margin: 15px;
+            background: url(sprite.png) no-repeat;
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <ul>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+        </ul>
+    </div>
+    <script>
+        // 图片必须是有规律的 竖着的 
+        var lis = document.querySelectorAll('li');
+        // 获取的元素是一个伪数组
+        for(var i = 0; i<lis.length; i++){
+            // 让索引号×44 就是每个li的背景Y坐标 index 就是我们的y坐标
+            var index = i*44;
+            lis[i].style.backgroundPosition='0 -' + index + 'px';
+        }
+    </script>
+</body>
+</html>

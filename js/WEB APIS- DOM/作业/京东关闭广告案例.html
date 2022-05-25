@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {
+            position: relative;
+            width: 400px;
+            height: 150px;
+            background: url(sw.jpeg) no-repeat;
+           
+        }
+        div p {
+            position: absolute;
+            right: 4px;
+            top: -13px;
+            width: 12px;
+            height: 12px;
+            border: 1px solid #ccc;
+            color: aliceblue;
+            line-height: 12px;
+            text-align: center;
+            cursor: pointer;
+            
+        }
+    </style>
+</head>
+<body>
+    <div id="box">
+        <p>×</p>
+    </div>
+    <script>
+        var box = document.getElementById('box');
+        var p = document.querySelector('p');
+
+        p.onclick = function(){
+            box.style.display = 'none';
+        }
+    </script>
+</body>
+</html>

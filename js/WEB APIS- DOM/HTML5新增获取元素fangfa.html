@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div class="box">盒子</div>
+    <div class="box">盒子</div>
+    <div id='nav'>
+        <ul>
+            <li>首页</li>
+            <li>产品</li>
+        </ul>
+    </div>
+    <!-- // 1. getElementsByClassName 根据类选择器 获得元素标签 -->
+    <script>
+    var box = document.getElementsByClassName('box');
+    console.log(box);
+    
+    // 2. docunment.querySecletor() 返回指定选择器的第一个元素  切记里面的选择器要加符号
+    var firstBox = document.querySelector('.box');
+    console.log(firstBox);
+    var nav = document.querySelector('#nav');
+    console.log(nav);
+    var lis = document.querySelector('li');
+    console.log(lis);
+
+    //3.querySelectorAll() 返回指定选择器的所有元素对象集合
+    var allBox = document.querySelectorAll('.box');
+    console.log(allBox);
+    
+    
+    
+    
+    </script>
+</body>
+</html>

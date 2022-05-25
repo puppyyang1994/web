@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        
+        li {
+            list-style-type: none;
+        }
+        
+        .tab {
+            width: 978px;
+            margin: 100px auto;
+        }
+        
+        .tab_list {
+            height: 39px;
+            border: 1px solid #ccc;
+            background-color: #f1f1f1;
+        }
+        
+        .tab_list li {
+            float: left;
+            height: 39px;
+            line-height: 39px;
+            padding: 0 20px;
+            text-align: center;
+            cursor: pointer;
+        }
+        
+        .tab_list .current {
+            background-color: #c81623;
+            color: #fff;
+        }
+        
+        .item_info {
+            padding: 20px 0 0 20px;
+        }
+        
+        .item {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <!-- 整个做一个大盒子tab -->
+    <div class="tab">
+        <!-- 大盒子里面分成两部分 一个是上半部分list -->
+        <div class="tab_list">
+            <ul>
+                <li class="current">商品介绍</li>
+                <li>规格与包装</li>
+                <li>售后保障</li>
+                <li>商品评价（50000）</li>
+                <li>手机社区</li>
+            </ul>
+        </div>
+        <!-- 一个是下半部分tab con -->
+        <div class="tab_con">
+            <div class="item" style="display: block;">
+                <!-- 只显示第一个 其他的模块都display：none -->
+                商品介绍模块内容
+            </div>
+            <div class="item">
+                规格与包装模块内容
+            </div>
+            <div class="item">
+                售后保障模块内容
+            </div>
+            <div class="item">
+                商品评价（50000）模块内容
+            </div>
+            <div class="item">
+                手机社区模块内容
+            </div>
+
+        </div>
+    </div>
+<script>
+    //1. 上面模块选项卡，点击某一个，当年这个底色会是红色，其他不变（排他思想） 通过修改类名的方式
+    //获取元素
+    var tab_list = document.querySelector('.tab_list');
+    var lis = tab_list.querySelectorAll('li');
+    var items = document.querySelectorAll('.item');
+    // for 循环绑定点击事件
+    for(var i = 0; i<lis.length; i++){
+        //给5个li设置 索引号 （怎么知道点击的是第几个li) 这个索引号是重点
+        lis[i].setAttribute('index', i);
+        //1.模块1
+        lis[i].onclick = function(){
+            //干掉其他人
+            for (var i = 0; i<lis.length; i++){
+                lis[i].className = '';
+            }
+            //保留自己
+           this.className = 'current';
+           // 2.模块二
+       var index = this.getAttribute('index') //获取当前的索引号
+       
+       for(var i = 0; i<items.length; i++){
+           // 先干掉其他（排他思想）
+           items[i].style.display = 'none';
+       }
+      //留下自己 让对应的item显示出来
+       items[index].style.display= 'block' ;
+
+        }
+        
+    }
+    //2. 下面模块的内容 会跟随上面的选项卡变化 所以下面模块变化要写在点击事件里面
+    // 规律：下面的模块显示内容和上面的选项卡一一对应，相匹配
+    //核心思路：给上面的tab_list里面的所有小li添加自定义属性，属性值从0开始编号
+</script>
+</body>
+</html>
