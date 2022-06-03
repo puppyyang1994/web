@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <!-- 视口设置：视口的宽度和设备一致， 默认的缩放比例和PC端一致， 用户不能自行缩放 -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge"> 
+    <!-- 要求当前网页使用IE浏览器最高版本的内核来渲染 -->
+    
+    <!-- 引入样式 -->
+    <link rel="stylesheet" href="./bootstrap/css/bootstrap.min.css">
+    <title>Document</title>
+    <style>
+    /* 自己修改样式 --  加个类名*/
+    /* 有时候不生效 可能是权重问题 修改权重就可以了 */
+    .login {
+        color: aqua;
+    }
+    </style>
+</head>
+<body>
+        <button type="button" class="btn btn-success">（成功）Success</button>
+        <div  class="btn btn-success login">登录</div>
+        <div  class="btn btn-danger">未成功</div>
+        <!-- bootstrap 通过类来控制样式 预定义类.container-->
+</body>
+</html>

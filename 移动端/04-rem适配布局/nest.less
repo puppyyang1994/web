@@ -1,0 +1,24 @@
+//less 嵌套
+// less 嵌套 子元素的样式直接写到父元素里面
+ .header {
+     width: 200px;
+     height: 200px;
+     background-color: pink;
+     a {
+         //需要加&符号
+         color: red;
+         &:hover {
+             color: blue;
+         }
+         //伪类选择器
+     }
+ }
+ //后代选择器
+ .nav{
+     .logo{
+         color:green;
+     }
+     &::before{
+         content: '';
+     }
+ }

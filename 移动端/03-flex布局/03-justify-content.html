@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+   <style>
+       /* 一定要先设置主轴是哪一个 */
+        div {
+        display: flex;
+        width: 800px;
+        height: 300px;
+        background-color: pink;
+        /* 默认从左往右 */
+        flex-direction: column;
+        justify-content: flex-end;
+        /* 居中对齐 */
+        justify-content: center;
+        /* 平均分配剩余空间 */
+        /* justify-content: space-around; */
+        /* 先两边贴边 再分配剩余空间 */
+        /* justify-content: space-between; */
+
+        
+    }
+    div span {
+        width: 100px;
+        height: 50px;
+        background-color: blue;
+        margin-top: 5px;
+    }
+   </style>
+</head>
+<body>
+    <div>
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+</body>
+</html>

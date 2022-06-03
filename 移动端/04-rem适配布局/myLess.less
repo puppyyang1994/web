@@ -1,0 +1,14 @@
+//less 变量 （数值 颜色等的修改） @变量名：值; 
+//less 编译
+
+// 定义一个粉色的变量
+// 变量名区分大小写 错误的变量名@1color  @color~@#
+@color:rgb(35, 81, 231); //定义变量
+@font14:14px;
+body{
+    background-color: @color; //使用变量
+}
+div {
+    color: @color;
+    font-size: @font14;
+}

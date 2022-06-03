@@ -1,0 +1,64 @@
+body {
+    min-height: 4.2667rem;
+    max-width: 10rem; 
+    /* 设置一个最大尺寸 */
+    width: 10rem; 
+    /* 750px / 75 rem  (分成十等分750/10) */
+    margin: 0 auto;
+    line-height: 1.5;
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #F2F2F2;
+}
+a {
+    text-decoration: none;
+    font-size: .3333rem;
+}
+/* 如果屏幕超过了750px 则按750设计稿走 不会让页面超过750px */
+@media screen and (min-width:750px){
+    html{
+        font-size: 75px!important;
+    }
+}
+/* 插件默认的html文字大小 cssroot 16px 需要手动修改默认值 */
+
+.search-content{
+    display: flex;
+    position: fixed;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 10rem;
+    height: 1.1733rem;
+    background-color: #FFC001;
+}
+.classify {
+    /* flex盒子不用担心塌陷问题 前面父盒子写了flex 所以a不用display：block */
+    width: .5867rem;
+    height: .9333rem;
+    background: url(../images/classify.png) no-repeat;
+    background-size:.5867rem auto ;
+    margin: .1467rem .3333rem .0933rem .32rem;
+}
+.search-content input {
+    flex: 1;
+    height: .88rem;
+    border-radius: .44rem;
+    border: 0;
+    outline: none;
+    margin: .16rem 0;
+    padding: .0133rem .0267rem .0133rem .7333rem;
+    font-size: .5rem;
+    font-family: Arial, Helvetica, sans-serif;
+    color: #757575;
+}
+.login {
+    width: 1rem;
+    height: .9333rem;
+    text-align: center;
+    line-height: .9333rem;
+    font-size: .3333rem;
+    font-family: Arial, Helvetica, sans-serif;
+    margin: .1333rem;
+    color: #fff;
+    
+}

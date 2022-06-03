@@ -1,0 +1,218 @@
+body {
+    width: 100%;
+    max-width: 640px;
+    min-width: 320px;
+    margin: 0 auto;
+   
+    font-size: 14px;
+    font-family: -apple-system, Helvetica, sans-serif;
+    line-height: 1.5;
+    /* 行高不带单位表示 字体的倍数 */
+    color: #666;
+   
+    /* 暂时设置一个 后面在取消 */
+}
+ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+img {
+    vertical-align: top;
+    /* 去除图片的空白部分*/
+}
+a {
+    color: #666;
+    text-decoration: none;
+}
+
+.app {
+    height: 45px;
+}
+ .app ul li {
+    float: left;
+    height: 45px;
+    line-height: 45px;
+    background-color: #333333;
+    text-align: center;
+    color:#fff;
+}
+.app ul li:nth-child(1){
+    width: 8%;
+  
+    
+}
+.app ul li:nth-child(1) img{
+   width: 10px;
+    /* 只设置一个宽 会等比例缩放 */    
+   vertical-align: baseline;
+   /* 因为权重问题 让图片和基线对齐 */
+  
+}
+.app ul li:nth-child(2){
+    width: 10%;
+}
+.app ul li:nth-child(2) img{
+    width: 30px;
+    vertical-align: middle;
+    /* 图片默认和文字基线对齐 让图片和文字集中对齐（行内块经常用到） */
+}
+.app ul li:nth-child(3){
+    width: 57%;
+}
+.app ul li:nth-child(4){
+    width: 25%;
+    background-color:rgb(246, 53, 21);
+}
+/* 搜索 */
+.search-wrap {
+    overflow: hidden;
+      /* 固定定位 */
+    position: fixed;
+    height: 44px;
+    width: 100%;
+    /* 固定定位的盒子必须给一个100%的宽; */
+    min-width: 320px;
+    max-width: 640px;
+    /* 设定了缩放的最大和最小范围 */
+  
+}
+.search-btn {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 40px;
+    height: 44px;
+}
+.search-btn::before {
+    content: '';
+    display: block;
+    width: 20px;
+    height: 18px;
+    background: url(../images/s-btn.png) no-repeat;
+    background-size: 20px 18px ;
+    margin: 14px 0 0 15px ;
+    color: #333333;
+}
+.search-log {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 40px;
+    height: 44px;
+    line-height: 44px;
+    text-align: center;
+    color: #fff;
+}
+.search {
+    position: relative;
+    height: 30px;
+    /* 不用给宽度 标准流 和符父盒子一样 因为旁边两个盒子会脱标不占位 */
+    background-color: #fff;
+    margin: 0 50px;
+    /* 这样能保证宽度和页面缩放一起改变 */
+    border-radius: 15px;
+    margin-top: 7px;
+    /* 会产生外边距合并 给父级加一个overflowhidden */
+}
+.search .jd-icon {
+    width: 20px;
+    height: 15px;
+    position: absolute;
+    top: 8px;
+    left: 15px ;
+    background: url(../images/jd.png);
+    background-size: 20px 15px;
+}
+.jd-icon::after {
+    position: absolute;
+    top:0;
+    left: 25px;
+    content: '';
+    display: block;
+    width: 1px;
+    height: 15px;
+    background-color: #ccc;
+}
+.sou {
+    position: absolute;
+    top:8px;
+    left: 50px;
+    width: 18px;
+    height: 15px;
+    background-color: pink;
+    background: url(../images/jd-sprites.png) no-repeat -81px 0;
+    background-size: 200px auto;
+    /* 二倍精灵图 */
+}
+.search-ipt{
+    position: absolute;
+    top: 7px;
+    left: 80px;
+    width: 450px;
+    height: 15px;
+    border: 0;
+    line-height: 16px;
+    vertical-align: middle;
+    outline-style: none;  
+}
+.main-content .slider img{
+    width: 100%;
+}
+.brand {
+    overflow: hidden;
+    /* 把多余的隐藏起来 这样能保证圆角显示 */
+    border-radius: 10px 10px 0 0;
+    
+}
+.brand div{
+    float: left;
+    width: calc(100% / 3);
+}
+.brand div img {
+    width: 100%;
+}
+.nav {
+   overflow: hidden;
+    padding-top: 5px;
+   
+}
+.nav a{
+    float: left;
+    width: 20%;
+    text-align: center;
+}
+.nav a img {
+    width: 40px;
+    margin-top: 10px;
+}
+.nav a span {
+    display: block;
+}
+
+.news {
+    height: 360px;
+    padding: 0;
+    margin-top: 20px;
+  
+}
+.news a {
+  
+    float: left;
+   box-sizing: border-box;
+} 
+.news img {
+    width: 100%;
+   
+}
+.news a:nth-child(1){
+    width:50%;
+}
+.news a:nth-child(n+2)
+{
+    width:25%;
+    border-left: 1px solid #666;
+
+    
+}
