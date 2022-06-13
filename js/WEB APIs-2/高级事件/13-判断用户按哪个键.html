@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+   
+    <script>
+         // e.KeyCode已经弃用 现在是e.code 不区分大小写  e.key区分大小写
+        
+        document.addEventListener('keyup', function(e){
+            // console.log(e.code);
+            console.log(e.key); //要确定哪个字符与键事件对应，请改用KeyboardEvent.key属性。
+        })
+    </script>
+</body>
+</html>

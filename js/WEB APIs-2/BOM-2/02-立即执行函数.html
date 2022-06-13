@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //立即执行函数: 不需要调用 立马能自己执行的函数
+        function fn (){
+            console.log(1);
+        }
+        fn();
+        // 2. 写法
+        //1 . (function(){})()    
+        // 2. (function(){}());
+        (function(a, b){
+            console.log(a+ b);
+        })(1, 2); // 第二个（）可以看做是调用函数
+
+        (function(a, b){
+            console.log(a + b);
+            var num = 10; //局部变量
+        }(1, 2));  
+        // 也可以给函数一个名字   (多个立即执行函数 结尾要记得加上;)
+        (function sum(a, b){
+            console.log(a + b);
+            var num = 10; //局部变量
+        }(1, 2)); 
+
+        // 3. 立即执行函数最大的作用就是 独立创建了一个作用域
+        // 两个num 不会影响  是不同的作用域  都是局部变量 避免了命名冲突问题
+    </script>
+</body>
+</html>

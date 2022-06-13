@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div></div>
+    <script>
+    console.log(location.search); //?unmae = andy
+    // 1. 先去掉？ substring ('起始的位置', 截取几个字符)；  
+    var params = location.search.substring(1); //unmae = andy
+    console.log(params);
+    // 2. 利用等号把字符串分割为数组 split('=')
+    var arr = params.split('=');
+    console.log(arr); //  ['name', 'andy']
+    var div = document.querySelector('div');
+    div.innerHTML = arr[1] + '欢迎你'; //得到了andy 
+    // 不支持中文 会乱码
+    
+    </script>
+</body>
+</html>

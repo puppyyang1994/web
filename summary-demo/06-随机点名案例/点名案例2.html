@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        h2 {
+            text-align: center;
+        }
+
+        .box {
+            width: 600px;
+            margin: 50px auto;
+            display: flex;
+            font-size: 25px;
+            line-height: 40px;
+        }
+
+        .qs {
+
+            width: 450px;
+            height: 40px;
+            color: red;
+
+        }
+
+        .btns {
+            text-align: center;
+        }
+
+        .btns button {
+            width: 120px;
+            height: 35px;
+            margin: 0 50px;
+        }
+    </style>
+</head>
+<body>
+    <h2>随机点名</h2>
+    <div class="box">
+        <span>名字是：</span>
+        <div class="qs">这里显示姓名</div>
+    </div>
+    <div class="btns">
+        <button class="start">开始</button>
+        <button class="end">结束</button>
+    </div>
+    <script>
+        // 需求：点击开始随机抽取，点击结束输出结果
+        let start = document.querySelector('.start');
+        let end = document.querySelector('.end');
+        let qs = document.querySelector('.qs');
+        // 数组数据
+        let arr =  ['马超', '黄忠', '赵云', '关羽', '张飞']
+        let timer = 0;
+        let random = 0;
+        // 随机函数
+        function getRandom(min, max){
+            return Math.floor(Math.random()*(max - min + 1))+min;
+        }
+        start.addEventListener('click', function(){
+            // 利用定时器 快速不断的抽取
+           timer = setInterval(function(){
+            random = getRandom(0, arr.length - 1);
+            qs.innerHTML = arr[random];
+            }, 25)
+           
+            // 到了最后一个 禁用两个按钮 (这个必须放在click里面)
+            if(arr.length === 1){
+                start.disabled = end.disabled = true;
+            }
+        })
+        end.addEventListener('click', function(){
+            clearInterval(timer);
+            arr.splice(random, 1);
+        })
+        
+    </script>
+</body>
+</html>

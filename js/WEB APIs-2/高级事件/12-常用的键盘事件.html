@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+    //常用的键盘事件
+    //1. keyup 按键弹起的时候触发
+    // document.onkeyup = function(){
+    //     console.log('123');
+    // }
+    // 使用addEventListener 不能加on
+    document.addEventListener('keyup', function(e){
+        console.log('asd');
+    })
+    // 2. keydown 按键按下的时候触发
+    document.addEventListener('keydown', function(e){
+        console.log('123');
+    })
+    // 3. onkeypress 和2差不多 但是他不识别功能键 比如Ctrl shift 箭头灯
+    document.addEventListener('keypress', function(e){
+        console.log('567');
+    })
+
+    // 执行顺序 先执行down 再是press 再是keyup
+    </script>
+    
+</body>
+</html>

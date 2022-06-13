@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div>123</div>
+    <ul>
+        <li>abc</li>
+        <li>abc</li>
+        <li>abc</li>
+    </ul>
+    <script>
+        //常见事件对象的属性和方法
+        // e.target 返回的是触发事件的对象（元素） this 触发的是绑定事件的对象
+        // 区别： e.target 点击了哪个元素就返回哪个元素  this哪个元素绑定了这个点击事件，那么就返回谁
+        // var div = document.querySelector('div');
+        // div.addEventListener('click', function(e){
+        //     console.log(e.target);
+        //     console.log(this);
+        // })
+        var ul = document.querySelector('ul');
+        // this指向的是绑定事件的对象 这里绑定的是ul 所以this 指向的是ul
+        ul.addEventListener('click', function(e){
+            console.log(this); // <ul></ul>
+            console.log(e.currentTarget);
+            //e.target 指向我们点击的那个对象 谁触发了 指向谁
+            console.log(e.target); // <li></li>
+        })
+
+        // div.onclick = function(e){
+        //     e = e|| window.event;
+        //     var target = e.target || e.srcElement; // ie浏览器兼容性写法
+        //     console.log(target);
+        // }  了解即可
+
+
+        //  this有个非常相似的属性 currentTarget (有兼容性问题)
+    </script>
+</body>
+</html>

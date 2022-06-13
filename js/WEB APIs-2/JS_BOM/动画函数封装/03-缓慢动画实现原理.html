@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+    div{
+        position: absolute;
+        width: 100px;
+        height: 100px;
+        background-color: aquamarine;
+        margin-top: 500px;
+    }
+    </style>
+</head>
+<body>
+    <button>点击夏雨荷才停下来</button>
+    <button class="btn500">btn500</button>
+    <div>夏雨荷</div>
+    
+    <script>
+
+    function animation(obj, target, callback){
+        console.log(callback);
+        
+    clearInterval(obj.timer);
+     obj.timer =  setInterval(function(){
+        //  step步长值 取整数   math.ceil 往上取整  math,floor 往下取整
+        // 步长值为正和为负数 向上和向下取的情况不一样
+         var step = (target-obj.offsetLeft)/10;
+         step = step > 0?  Math.ceil(step) : Math.floor(step);
+         if (obj.offsetLeft == target){
+             clearInterval(obj.timer);
+            //  回调函数写到定时器里面
+             if(callback){
+                //  调用函数
+                 callback();
+             }
+         }else {
+          obj.style.left = obj.offsetLeft + step + 'px';
+         }      
+      }, 30);
+  }
+  
+   var div = document.querySelector('div');
+   var btn = document.querySelector('button');
+    var btn500 = document.querySelector('.btn500');
+//   匀速就是  盒子当前的位置+ 固定值
+// 缓慢变化的就是 盒子当前的位置 + step
+  btn.addEventListener('click', function(){
+      animation(div, 200);
+  })
+  btn500.addEventListener('click', function(){
+    animation(div, 500, function(){
+        // alert('你好吗');
+        div.style.backgroundColor = 'red';
+    });
+  })
+    </script>
+</body>
+</html>

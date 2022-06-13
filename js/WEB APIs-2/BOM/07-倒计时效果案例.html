@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+     div {
+         width: 500px;
+         margin: 0 auto;
+         margin-top: 100px;
+     }
+     span {
+         float: left;
+         display: block;
+         width: 150px;
+         height: 150px;
+         background-color: black;
+         margin: 15px 5px;
+         text-align: center;
+         line-height: 150px;
+         color: #fff;
+         font-size: 100px;
+     }
+
+    </style>
+</head>
+<body>
+    <div>
+        <span class="hour"></span>
+        <span class="minute"></span>
+        <span class="second"></span>
+    </div>
+    <script>
+        // 1. 这个计时器是不断变化的，因此需要定时器来自动变化(setInterval)
+        // 2. 三个盒子里分别存放时分秒
+        // 3. 三个黑色盒子利用innerHTML 放入计算的小时分钟秒数
+         var hour = document.querySelector('.hour');
+         var minute = document.querySelector('.minute')
+         var second = document.querySelector('.second');
+         var inputTime = +new Date('2022-6-7 17:30:00');// 返回的是用户输入时间总的毫秒数
+         countDown(); //先调用一次这个函数，防止第一次刷新页面空白
+        //  2. 开启定时器
+        setInterval(countDown, 1000);
+
+         function countDown(){
+           var nowTime = +new Date(); //返回的是当前时间总得毫秒数
+           var times = (inputTime - nowTime)/1000; //times 是剩余时间总得毫秒数
+           var h = parseInt (times/60/60%24);
+           h = h< 10 ? '0' + h : h;
+           hour.innerHTML = h; //把剩余的小时给小时黑色盒子
+           var m = parseInt (times/60%60);
+           m = m< 10 ? '0' + m : m;
+           minute.innerHTML = m;
+           var s = parseInt (times % 60);
+           s = s < 10 ? '0' + s : s;
+           second.innerHTML = s;
+           
+        }   
+    </script>
+</body>
+</html>

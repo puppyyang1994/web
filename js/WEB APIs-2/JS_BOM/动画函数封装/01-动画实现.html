@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+    div {
+        position: absolute;
+        width: 100px;
+        height: 100px;
+        background-color: pink;
+        margin-top: 100px;
+    }
+    span{
+        display: block;
+        position: absolute;
+        width: 200px;
+        height: 200px;
+        background-color: purple;
+        margin-top:500px;
+    }
+    </style>
+</head>
+<body>
+    <div></div>
+    <span></span>
+    <button>点击</button>
+    <script>
+//     2. 实现步骤：
+// - 获得当前位置
+// - 让盒子在当前的位置加上一个移动
+// - 利用定时器不断重复这个操作
+// - 加一个结束定时器的条件
+// - 注意此元素需要添加定位 才能使用element.style.left
+// 函数封装  传递两个参数 一个目标对象  target 目标位置
+// 给不同的元素指定了不同的定时器 obj.timer
+    function animation(obj, target){
+      
+        // 不用var timer  不用每一次都开辟一次新的空间 直接用对象 obj.timer 来赋值
+        // 当我们不断点击按钮，这个元素的速度会越来越快，因为点击一次就会开启一次 所以会开启很多次定时器
+        // 解决方案就是 让元素只有一个定时器执行
+        clearInterval(obj.timer);
+       obj.timer =  setInterval(function(){
+         
+           if (obj.offsetLeft >= target){
+            //    停止动画本质是停止定时器
+               clearInterval(obj.timer);
+           }else {
+            obj.style.left = obj.offsetLeft + 1 + 'px';
+           }
+        //    offsetLeft 只读 要更改数值 用style.left
+           
+        }, 30);
+    
+    }
+    
+     var div = document.querySelector('div');
+     var span = document.querySelector('span');
+     var btn = document.querySelector('button');
+    //  调用函数
+     animation(div, 300);
+    btn.addEventListener('click', function(){
+        animation(span, 200);
+    })
+      
+    </script>
+</body>
+</html>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .father {
+            width: 80px;
+            height: 80px;
+            background-color: pink;
+        }
+        .son {
+            width:50px;
+            height: 50px;
+            background-color: purple;
+        }
+    </style>
+</head>
+<body>
+    <div class="father">
+        <div class="son">son盒子</div>
+    </div>
+    <script>
+        //dom事件流三个阶段
+        // docunment->html->body->father->son
+        // var son = document.querySelector('.son');
+        // son.addEventListener('click', function(){
+        //     alert('son');
+        // }, true) //捕获阶段
+        // var father = document.querySelector('.father');
+        // father.addEventListener('click', function(){
+        //     alert('father');
+        // }, true) //捕获阶段
+
+        // 冒泡阶段 第三个参数如果是false 
+        var son = document.querySelector('.son');
+        son.addEventListener('click', function(e){
+            alert('son');
+            e.stopPropagation();
+            e.cancelBubble = true; // 兼容性写法
+            // if (e&&e.stopPropagation){
+            //     e.stopPropagation();
+            // }else{
+            //     window.event.cancelBubble = true;
+            // }
+            // 阻止冒泡
+        }, false) //冒泡阶段
+        var father = document.querySelector('.father');
+        father.addEventListener('click', function(){
+            alert('father');
+        }, false) //冒泡阶段
+        document.addEventListener('click', function(){
+            alert('document');
+        })
+    </script>
+</body>
+</html>

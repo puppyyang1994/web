@@ -1,0 +1,411 @@
+.w{
+    width: 1240px;
+    margin: 0 auto;
+}
+a:hover {
+    color: #27ba9b;
+}
+
+.shortcut {
+    height: 50px;
+    background-color: #333;
+}
+.container ul li {
+   float: right;
+   display: block;
+   height:50px;
+   color: #dcdcdc;
+   font-size: 14px;
+   padding: 0 10px;
+   line-height: 50px;
+
+}
+.container ul li span {
+    margin-right: 15px;
+    color: #5a5a5a;
+    font-size: 16px;
+    font-weight: 700;
+}
+
+.mobile::before{
+    display: inline-block;
+    /* 伪元素是行内元素 要先转化成行内块才能设置宽高 */
+    content: ''; 
+    width: 13px;
+    height: 20px;
+    background: url(../images/sprites.png) -160px -70px;
+    background-color: #333;
+    margin-right: 10px;
+    /* 图片和文字垂直对齐 */
+    vertical-align: middle;
+}
+/* main-nav 主导航 */
+.main-nav {
+    position: relative;
+    height: 100px;
+    background-color: #fff;
+    padding-top: 30px;
+}
+.logo a {
+    position: absolute;
+    left: 0;
+    top: 22px;
+    display: block;
+    background: url(../images/logo.png) no-repeat;
+    width: 215px;
+    height: 80px;
+    background-size: 100%;
+    /* 字体大小设置为0 就看不到字了 */
+    font-size: 0;
+}
+
+/* 中间导航 */
+.lf {
+    position: absolute;
+    left: 220px;
+    top: 25px;
+    width: 730px;
+    padding-top: 30px;
+}
+
+.lf li {
+    float: left;
+    width: 40px;
+    height: 40px;
+    margin-left: 40px;
+}
+.lf  li a {
+    font-size: 16px; 
+    color:#333;
+    padding-bottom: 8px;
+}
+.lf li a:hover {
+    color: #27ba9b;
+    border-bottom: 1px solid #27ba9b;
+}
+.search {
+    position: absolute;
+    right:65px;
+    top: 30px;
+    width: 175px;
+    height: 70px;
+    padding-top: 30px;
+    
+}
+/* 左侧搜索框 */
+.search input {
+    position: relative;
+    width: 145px;
+    border: none; 
+    border-bottom: 2px solid #e7e7e7 ; 
+    outline: none;
+    padding-left: 35px;
+    padding-bottom: 8px;
+    
+   
+}
+.search::before{
+   content: '';
+   display: inline-block;
+   position: absolute;
+   top: 29px;
+   left: 2px;
+   width: 24px;
+   height: 24px;
+   background: url(../images/sprites.png) no-repeat -76px -69px;
+    z-index: 1;
+} 
+.search::after {
+    content: '';
+   display: inline-block;
+   position: absolute;
+   top: 30px;
+   right: -42px;
+   width: 29px;
+   height: 29px;
+   background: url(../images/sprites.png) no-repeat -115px -67px;
+   
+}
+.search span {
+    content: '';
+    display: inline-block;
+    position: absolute;
+    right: -50px;
+    top: 22px;
+    width:18px;
+    height: 14px;
+    border: 1px solid red;
+    text-align: center;
+    line-height: 14px;
+    border-radius: 40%;
+    color: #fff;
+    background-color: #e26237;
+    z-index: 1;
+    /* 提权 */
+}
+.entry {
+    position: relative;
+    height: 500px;
+    background-color: #f5f5f5;
+    
+}
+.entry .w {
+    position: relative;
+}
+.cataloge {
+    /* display: none; */
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+.cataloge ul{
+   
+    width: 250px;
+}
+.cataloge ul li {
+    position: relative;
+    display: block;
+    float: left;
+    width: 250px;
+    height: 50px;
+    background-color:rgb(0, 0, 0, .8);
+   
+}
+.cataloge ul li a {
+    width: 250px;
+    height: 50px;
+    padding: 18px 40px;
+    line-height: 50px;
+    text-align: center;
+    font-size: 16px;
+	letter-spacing: 0px;
+    
+
+}
+.cataloge li:hover{
+   background-color:#27ba9b;
+   
+}
+.cataloge li:hover a {
+    color: #fff;
+}
+.cataloge li::after{
+    position: absolute;
+    right: 15px;
+    top:17px;
+    display: block;
+   content: '';
+   width: 14px;
+   height: 14px;
+   background: url(../images/sprites.png) no-repeat -38px -74px;
+   
+}
+
+
+/* footer部分 */
+
+.ft_top {
+    height: 300px;
+    
+}
+.ft_top ul li {
+    float: left;
+    width: 270px;
+    padding-top: 80px;
+    padding-left: 30px;
+
+   
+}
+.ft_top dt {
+ padding-left: 55px;
+ color: #999999;
+ font-size: 20px;
+}
+.ft_top .ft_lf dd {
+    float: left;
+    width: 85px;
+    height: 85px;
+    border: 1px solid #eeeeee;
+    margin-top: 30px;
+    margin-right: 8px;
+    text-align: center;
+    color: #999999;
+   
+}
+.ft_lf a {
+    display: block;
+    margin: 10px auto;
+    width: 35px;
+    height: 35px;
+}
+.ft_lf dd .a_lf {
+    display: block;
+    background: url(../images/sprites.png) no-repeat -202px -70px;
+}
+.ft_lf dd .a_rg{
+    display: block;
+    background: url(../images/sprites.png) no-repeat -297px -66px;
+}
+
+.ft_md {
+    position: relative;
+   
+}
+
+.ft_top .ft_md dd {
+    float: left;
+    width: 95px;
+    height: 95px;
+    border: 1px solid #eeeeee;
+    margin-top: 30px;
+    margin-right: 20px;
+    text-align: center;
+    color: #999999; 
+}
+.ft_top .ft_md dd img {
+    width: 95px;
+    height: 95px;
+}
+.ft_top .ft_md  p{
+    font-size: 12px; 
+}
+.ft_top .ft_md .dd_2 {
+   text-align: left;
+    border: none;
+}
+
+.ft_top .ft_md .dd_2 button {
+    outline: none;
+    width: 103px;
+    height: 32px;
+    background-color: #27ba9b;
+    border: 0;
+    color: #fff;
+    font-size: 14px;
+    margin-top: 10px;
+}
+.ft_top .ft_md::after {
+    /* display: block; */
+    content: '';
+    border-left: 1px solid #eeeeee;
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 200px;
+    margin-top: 50px;
+    margin-right: 20px;
+}
+.ft_top .ft_rg {
+    
+padding-left: 50px;
+}
+
+.contact {
+    margin-top: 50px;
+    margin-left: 25px;
+}
+
+.ft_rg h2{
+    font-weight: 400;
+    color:#999999;
+    font-size: 22px;
+
+}
+.ft_rg p {
+    font-size: 14px;
+   color:#999999;
+}
+.ft_bottom {
+    /* 之后再修改固定值 */
+    background-color:  #333;
+}
+
+.ft_bottom .top ul {
+    height: 175px;
+    border-bottom: 1px solid #434343;
+    
+}
+.ft_bottom .top li {
+    float: left;
+    height: 60px;
+    width: 186px;
+    color: #fff;
+    text-align: center;
+    line-height: 60px;
+    margin-top: 55px;
+    padding:20px 110px 20px 110px;
+}
+.ft_bottom .top a {
+    position: relative;
+    display: block;
+    height: 60px; 
+    font-size: 28px; 
+    padding-left: 50px; 
+}
+.ft_bottom .top a:hover{
+    color: #fff;
+}
+.ft_bottom .top .a_lf::before{
+    position: absolute;
+    top: 0;
+    left: -8px;
+    content: '';
+    display: block;
+    width: 60px;
+    height: 60px;
+    background: url(../images/sprites.png) no-repeat 0 0;  
+}
+.ft_bottom .top .a_md::before{
+    position: absolute;
+    top: 0;
+    left: -8px;
+    content: '';
+    display: block;
+    width: 60px;
+    height: 60px;
+    background: url(../images/sprites.png) no-repeat -126px 0 ;  
+}
+.ft_bottom .top .a_rg::before{
+    position: absolute;
+    top: 0;
+    left: -8px;
+    content: '';
+    display: block;
+    width: 65px;
+    height: 60px;
+    background: url(../images/sprites.png) no-repeat -60px -1px;  
+}
+
+.ft_bottom .info ul {
+   height: 200px;
+   margin-top: 30px;
+   padding-left: 350px;
+ 
+}
+.ft_bottom .info li {
+    float: left;
+    width: 65px;
+    height: 38px;
+    font-size: 14px;
+    padding: 5px 5px;
+    color: #999999;
+}
+.ft_bottom .info li a {
+    color: #999999;
+}
+.ft_bottom .info li span {
+    margin-left: 1px;
+}
+.ft_bottom .info p {
+    clear: both;
+    height:40px;
+    width: 150px;
+    color: #999999;
+    font-size: 14px;
+   padding-left: 170px;
+    
+  
+}
+.ft_bottom .info a:hover{
+    color: #999999;
+}

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        img {
+            position: absolute;
+            /* 添加绝对定位让图片不占位 */
+            top:2px;
+            /* 一定要先给一个单位 否则无法生效 */
+        }
+    </style>
+</head>
+<body>
+    <img src="./images/angel.gif" alt="">
+    <script>
+        var pic = document.querySelector('img');
+        //获取页面坐标
+        document.addEventListener('mousemove', function(e){
+          var x = e.pageX;
+          var y = e.pageY;
+        // 把坐标分别给图片 (px单位一定不能忘记)
+        pic.style.left = x - 50 + 'px';
+        pic.style.top= y - 40 + 'px';
+
+        })
+
+    </script>
+</body>
+</html>

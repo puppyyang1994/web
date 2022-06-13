@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            height: 3000px;
+        }
+    </style>
+</head>
+<body>
+    <script>
+        // 可视区 和屏幕大小无关 不论屏幕是否滚动
+        // client 鼠标在可视区的x和y坐标
+        // document.addEventListener('click', function(e){
+        //     console.log(e.clientX);//可视区X轴位置
+        //     console.log(e.clientY);//可视区Y轴位置
+        // })
+
+        // page 鼠标在页面文档的x和y坐标  (实际中多)
+        document.addEventListener('click', function(e){
+            console.log(e.pageX);//可视区X轴位置
+            console.log(e.pageY);//可视区Y轴位置
+        })
+        // screen （不常用） 到屏幕的距离
+    </script>
+</body>
+</html>

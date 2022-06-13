@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div>我是div</div>
+     <span>我是span</span>
+     <ul>
+         <li>我是li</li>
+         <li>我是li</li>
+         <li>我是li</li>
+         <li>我是li</li>
+     </ul>
+     <ol>
+        <li>我是li1</li>
+        <li>我是li2</li>
+        <li>我是li3</li>
+        <li>我是li4</li>
+     </ol>
+     <div class="box">
+         <span class="erweima">×</span>
+     </div>
+     <script>
+        var ol = document.querySelector('ol');
+        //1. firstChild 返回的是第一个子节点（包括文本和元素）
+        console.log(ol.firstChild); //
+        console.log(ol.lastChild);
+      //2. firstElementChild 有兼容性问题 ie9 以上支持
+        console.log(ol.firstElementChild);
+        // lastElementChild
+        console.log(ol.lastElementChild);
+       
+
+        //3. 开发中常用的方法
+        console.log(ol.children[0]);
+        console.log(ol.children[ol.children.length-1]);
+    
+     </script>
+</body>
+</html>

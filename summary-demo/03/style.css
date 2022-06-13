@@ -1,0 +1,45 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+body {
+    height: 100vh;
+    font-family: 'Roboto', sans-serif;
+}
+.final {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+}
+
+.replay {
+    background-color: #3498db;
+    border: 0;
+    border-radius: 3px;
+    margin-top: 20px;
+}
+.replay span {
+    display: inline-block;
+    height: 20px;
+    font-size: 14px;
+    color: #fff;
+    padding: 3px;
+    line-height: 20px;
+    cursor: pointer;
+}
+
+.counter {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+.nums {
+    color:#3498db;
+    font-size: 50px;
+    width: 250px;
+    height: 50px;
+}

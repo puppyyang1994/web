@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {
+            width: 200px;
+            height: 40px;
+            border: 1px solid pink;
+            text-align: center;
+            line-height: 40px;
+        }
+    </style>
+</head>
+<body>
+    <div>开始抽奖吧</div>
+    <button>点击点名</button>
+    <script>
+        let arr = ['刘备', '曹操', 'pink老师'];
+        function getRandom(min, max){
+            return Math.floor(Math.random()*(max-min+1))+min;
+        }
+        let btn = document.querySelector('button');
+        let div = document.querySelector('div');
+        btn.addEventListener('click', function(){
+            let num = getRandom(0, arr.length-1);
+            // 一定要在div里面显示点的名字
+            div.innerHTML = arr[num];
+            // 删除已经点名的
+            arr.splice(num, 1);
+            // 如果都点完了 数组为空 则禁用按钮
+            if(arr.length === 0){
+                btn.disabled = true;
+                btn.innerHTML = '已经点名完毕';
+            }
+        })
+    </script>
+</body>
+</html>

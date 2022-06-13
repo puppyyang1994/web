@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <link rel="stylesheet" href="css/weibo.css">
+</head>
+
+<body>
+  <div class="w">
+    <div class="controls">
+      <img src="images/tip.png" alt=""><br>
+      <textarea placeholder="说点什么吧..." id="area" cols="30" rows="10" maxlength="200"></textarea>
+      <div>
+        <span class="useCount">0</span>
+        <span>/</span>
+        <span>200</span>
+        <button id="send">发布</button>
+      </div>
+
+    </div>
+    <div class="contentList">
+      <ul>
+      </ul>
+    </div>
+  </div>
+  <script>
+    // 需求：用户输入文字，可以计算用户输入的字数
+    // 判断用输入事件 input
+    // 不断取得文本框里面的字符长度
+    // 把获得数字给下面文本框
+    let textarea = document.querySelector('textarea');
+    let count = docuemtn.querySelector('.useCount');
+    textarea.addEventListener('input', function(){
+      // // area.value.length 得到输入字符的长度
+      count.innerHTML = textarea.value.length;
+    })
+
+  </script>
+</body>
+
+</html>

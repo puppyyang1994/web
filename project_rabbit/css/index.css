@@ -1,0 +1,937 @@
+/* 好物版块 */
+.goods {
+    height: 500px;
+    padding-top: 10px;
+   
+}
+.goods_nav {
+    position: relative;
+    height: 60px; 
+    padding-bottom: 10px;
+}
+.goods_nav h3 {
+    height: 60px;
+    line-height: 60px;
+    font-weight: 400;
+    font-size: 29px;
+    color: #333333;
+}
+.goods_nav .goods_md{
+    position: absolute;
+    top: 20px;
+    left: 160px;
+    font-size: 16px;
+    color: #999999;
+}
+.goods_nav a {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    color: #999999;
+}
+.goods_nav a::after{
+    position: absolute;
+    top: 4px;
+    right: -21px;
+    display: block;
+    content: '';
+    width: 15px;
+    height: 15px;
+   background: url(../images/sprites.png) no-repeat -38px -109px;
+   background-color:  #e2e2e2; 
+}
+.goods_show {
+    height: 405px;
+}
+
+.goods_show li {
+    float: left;
+    width: 304px;
+    height: 405px;
+    color: #3333;
+}
+
+.goods_show li a img{
+    display: block;
+    height: 305px;
+    width: 100%;     
+}
+.goods_show li a div {
+    height: 100px;
+    width: 100%; 
+    background-color: #f0f9f4;
+}
+.goods_show li a span {
+    display: block;
+   height: 20px;
+    font-size: 20px;
+    text-align: center;
+    padding-top: 10px;
+    color: #333333;
+}
+.goods_show li .price {
+    height: 18px;
+    font-size: 23px; 
+    color: #9a2e1f;
+}
+.goods_show ul li:nth-child(-n+3){
+    margin-right: 8px;
+}
+
+/* 人气推荐 */
+.recom {
+    height: 520px;  
+}
+.recom_nav {
+    position: relative;
+    height: 60px;
+}
+.recom_nav h3 {
+    height: 60px;
+    line-height: 60px;
+    font-weight: 400;
+    font-size: 29px;
+    color: #333333;
+}
+.recom_nav .recom_md{
+    position: absolute;
+    top: 20px;
+    left: 160px;
+    font-size: 16px;
+    color: #999999;
+}
+.recom_nav a {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    color: #999999;
+}
+.recom_nav a::after{
+    position: absolute;
+    top: 4px;
+    right: -21px;
+    display: block;
+    content: '';
+    width: 15px;
+    height: 15px;
+   background: url(../images/sprites.png) no-repeat -38px -109px;
+   background-color:  #e2e2e2; 
+}
+.recom_show {
+    height: 405px;
+}
+
+.recom_show li {
+    float: left;
+    width: 304px;
+    height: 405px;
+    color: #3333;
+}
+.recom_show li a div {
+    height: 100px;
+    width: 100%; 
+    background-color: #f0f9f4;
+}
+.recom_show li a img{
+    display: block;
+    height: 305px;
+    width: 100%;  
+     
+}
+.recom_show li a span {
+    display: block;
+   height: 20px;
+    font-size: 20px;
+    text-align: center;
+    padding-top: 10px;
+    color: #333333;
+}
+.recom_show li .price {
+    height: 18px;
+    font-size: 23px; 
+    color: #9a2e1f;
+}
+.recom_show ul li:nth-child(-n+3){
+    margin-right: 8px;
+}
+/* 热门 */
+.hot {
+    height: 520px;
+    background-color:#f5f5f5 ;
+   padding-top: 30px;
+   
+   
+}
+.hot_nav {
+    position: relative;
+    height: 60px;
+   margin-top: 10px;
+  
+}
+.hot_nav h3 {
+    height: 60px;
+    line-height: 60px;
+    font-weight: 400;
+    font-size: 29px;
+    color: #333333;
+}
+.hot .hot_md{
+    position: absolute;
+    top: 20px;
+    left: 160px;
+    font-size: 16px;
+    color: #999999;
+}
+.hot_nav a {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    color: #999999;
+}
+.hot_nav  a .zuo {
+    background: url(../images/sprites.png) no-repeat -77px -109px;
+    width: 15px;
+    height:15px;
+    position: absolute;
+    top: 13px;
+    right: -16px;
+    background-color: #27ba9b; 
+    
+}
+.hot_nav  a .you {
+    background: url(../images/sprites.png) no-repeat -77px -109px;
+    width: 15px;
+    height:15px;
+    position: absolute;
+    top: 13px;
+    right: 6px;
+    background-color:  #e2e2e2;   
+    transform: rotateY(180deg);
+
+}
+
+.hot_show {
+    height: 405px;
+}
+
+.hot_show li {
+    float: left;
+    width: 244px;
+    height: 405px;
+    color: #3333;
+    padding-top: 30px;
+}
+
+.hot_show li a img{
+    display: block;
+    height: 310px;
+    width: 100%;      
+}
+
+.hot_show ul li:nth-child(-n+4){
+    margin-right: 5px;
+}
+.fresh {
+    height: 705px;
+    box-sizing: border-box;
+}
+.fresh_nav {
+    height: 95px;
+    position: relative;
+}
+.fresh_nav h3 {
+    width: 60px;
+    line-height: 95px;
+    font-weight: 400;
+    font-size: 29px;
+    color: #333333;
+}
+.fresh_nav .type{
+    position: absolute;
+    top: 43px;
+    right: 65px;
+    width: 500px;
+   
+}
+
+.fresh_nav .type li {
+    float: left;
+    height: 16px;
+    padding: 0 10px;
+}
+
+.fresh_nav .type li a {
+    display: block;
+    color:  #333333;
+    height: 16px;
+}
+.fresh .fresh_nav .type .first-cd a{
+    display: block;
+    width: 44px;
+    height: 22px;
+    color: #fff;
+    background-color: #27ba9b ;
+    text-align: center;
+}
+.fresh_nav .more {
+    position: absolute;
+    top: 44px;
+    right: 43px;
+    width: 64px;
+	height: 16px;
+    color: #999999;  
+}
+.fresh_nav .more::after {
+    position: absolute;
+    top: 4px;
+    right: -38px;
+    display: block;
+    content: '';
+    width: 15px;
+    height: 15px;
+   background: url(../images/sprites.png) no-repeat -38px -109px;
+   background-color:  #e2e2e2; 
+}
+.fresh_show {
+    position: relative;
+   
+}
+.fresh .fresh_show .right{
+  position: absolute;
+  top:0;
+  left: 240px;
+  height: 610px;
+  margin-left: 20px;
+  
+}
+.fresh .fresh_show .right li {
+    float: left;
+    width: 192px;
+    height: 290px;
+   margin-left: 30px;
+    padding: 5px;
+    margin-bottom: 10px;
+}
+
+.fresh_show .right a .description{
+    height: 87px;
+    color:  #333333;
+    font-size: 16px;
+    padding-left:10px;
+    padding-top: 5px;
+    
+}
+.fresh_show .right a span {
+    color: #9a2e1f;
+    font-size: 22px;
+    
+}
+
+.fresh_show .right img {
+    display: block;
+    width: 184px;
+    height: 184px;
+    /* 给宽 不要给高 让他自适应 */
+}
+.fresh .fresh_show .find{
+    position: absolute;
+    top:0;
+    left: 240px;
+    height: 610px;
+    margin-left: 20px;
+    
+  }
+.fresh .fresh_show .find li {
+    display: none;
+    float: left;
+    width: 192px;
+    height: 290px;
+    margin-left: 30px;
+    padding: 5px;
+    margin-bottom: 10px;
+    border: 1px solid #27ba9b;
+}
+.cloth {
+    height: 705px;
+    box-sizing: border-box;
+}
+.cloth_nav {
+    height: 95px;
+    position: relative;
+}
+.cloth_nav h3 {
+    width: 60px;
+    line-height: 95px;
+    font-weight: 400;
+    font-size: 29px;
+    color: #333333;
+}
+
+.cloth_nav .type{
+    position: absolute;
+    top: 43px;
+    right: 65px;
+    width: 500px;   
+}
+
+.cloth_nav .type li {
+    float: left;
+    height: 16px;
+    padding: 0 10px;
+}
+.cloth_nav .type li a {
+    display: block;
+    color:  #333333;
+    height: 16px;
+}
+.cloth .cloth_nav .type .first-cd a{
+    display: block;
+    width: 44px;
+    height: 22px;
+    color: #fff;
+    background-color: #27ba9b ;
+    text-align: center;
+}
+.cloth_nav .more {
+    position: absolute;
+    top: 44px;
+    right: 43px;
+    width: 64px;
+	height: 16px;
+    color: #999999;  
+}
+.cloth_nav .more::after {
+    position: absolute;
+    top: 4px;
+    right: -38px;
+    display: block;
+    content: '';
+    width: 15px;
+    height: 15px;
+   background: url(../images/sprites.png) no-repeat -38px -109px;
+   background-color:  #e2e2e2; 
+}
+.cloth_show {
+    position: relative;
+   
+}
+.cloth_show .left img {
+    display: block;
+    height: 610px;
+    width: 240px;
+}
+.cloth .cloth_show .right{
+  position: absolute;
+  top:0;
+  left: 240px;
+  height: 610px;
+  margin-left: 20px;
+  
+}
+.cloth .cloth_show .right li {
+    float: left;
+    width: 192px;
+    height: 290px;
+    margin-left: 30px;
+    padding: 5px;
+    margin-bottom: 10px;
+}
+
+.cloth .cloth_show  a .description{
+    height: 87px;
+    color:  #333333;
+    font-size: 16px;
+    padding-left:10px;
+    padding-top: 5px;
+    
+}
+.cloth_show .right a span {
+    color: #9a2e1f;
+    font-size: 22px;
+    
+}
+
+.cloth_show .right img {
+    display: block;
+    width: 184px;
+    height: 184px;
+}
+
+/* 餐厨 */
+.kitchen {
+    height: 705px;
+    box-sizing: border-box;
+}
+.kitchen_nav {
+    height: 95px;
+    position: relative;
+}
+.kitchen_nav h3 {
+    width: 60px;
+    line-height: 95px;
+    font-weight: 400;
+    font-size: 29px;
+    color: #333333;
+}
+
+.kitchen_nav .type{
+    position: absolute;
+    top: 43px;
+    right: 65px;
+    width: 500px;   
+}
+
+.kitchen_nav .type li {
+    float: left;
+    height: 16px;
+    padding: 0 10px;
+}
+.kitchen .type li a {
+    display: block;
+    color:  #333333;
+    height: 16px;
+}
+.kitchen .kitchen_nav .type .first-cd a{
+    display: block;
+    width: 44px;
+    height: 22px;
+    color: #fff;
+    background-color: #27ba9b ;
+    text-align: center;
+}
+.kitchen_nav .more {
+    position: absolute;
+    top: 44px;
+    right: 43px;
+    width: 64px;
+	height: 16px;
+    color: #999999;  
+}
+.kitchen_nav .more::after {
+    position: absolute;
+    top: 4px;
+    right: -38px;
+    display: block;
+    content: '';
+    width: 15px;
+    height: 15px;
+   background: url(../images/sprites.png) no-repeat -38px -109px;
+   background-color:  #e2e2e2; 
+}
+.kitchen_show {
+    position: relative;
+   
+}
+.kitchen_show .left img {
+    display: block;
+    height: 610px;
+    width: 240px;
+}
+.kitchen .kitchen_show .right{
+  position: absolute;
+  top:0;
+  left: 240px;
+  height: 610px;
+  margin-left: 20px;
+  
+}
+.kitchen .kitchen_show .right li {
+    float: left;
+    width: 192px;
+    height: 290px;
+    margin-left: 30px;
+    padding: 5px;
+    margin-bottom: 10px;
+}
+
+.kitchen .kitchen_show  a .description{
+    height: 87px;
+    color:  #333333;
+    font-size: 16px;
+    padding-left:10px;
+    padding-top: 5px;
+    
+}
+.kitchen_show .right a span {
+    color: #9a2e1f;
+    font-size: 22px;
+    
+}
+
+.kitchen_show .right img {
+    display: block;
+    width: 184px;
+    height: 184px;
+}
+/* 居家 */
+.cloth {
+    height: 705px;
+    box-sizing: border-box;
+}
+.cloth_nav {
+    height: 95px;
+    position: relative;
+}
+.cloth_nav h3 {
+    width: 60px;
+    line-height: 95px;
+    font-weight: 400;
+    font-size: 29px;
+    color: #333333;
+}
+
+.cloth_nav .type{
+    position: absolute;
+    top: 43px;
+    right: 65px;
+    width: 500px;   
+}
+
+.cloth_nav .type li {
+    float: left;
+    height: 16px;
+    padding: 0 10px;
+}
+.cloth_nav .type li a {
+    display: block;
+    color:  #333333;
+    height: 16px;
+}
+.cloth .cloth_nav .type .first-cd a{
+    display: block;
+    width: 44px;
+    height: 22px;
+    color: #fff;
+    background-color: #27ba9b ;
+    text-align: center;
+}
+.cloth_nav .more {
+    position: absolute;
+    top: 44px;
+    right: 43px;
+    width: 64px;
+	height: 16px;
+    color: #999999;  
+}
+.cloth_nav .more::after {
+    position: absolute;
+    top: 4px;
+    right: -38px;
+    display: block;
+    content: '';
+    width: 15px;
+    height: 15px;
+   background: url(../images/sprites.png) no-repeat -38px -109px;
+   background-color:  #e2e2e2; 
+}
+.cloth_show {
+    position: relative;
+   
+}
+.cloth_show .left img {
+    display: block;
+    height: 610px;
+    width: 240px;
+}
+.cloth .cloth_show .right{
+  position: absolute;
+  top:0;
+  left: 240px;
+  height: 610px;
+  margin-left: 20px;
+  
+}
+.cloth .cloth_show .right li {
+    float: left;
+    width: 192px;
+    height: 290px;
+    margin-left: 30px;
+    padding: 5px;
+    margin-bottom: 10px;
+}
+
+.cloth .cloth_show  a .description{
+    height: 87px;
+    color:  #333333;
+    font-size: 16px;
+    padding-left:10px;
+    padding-top: 5px;
+    
+}
+.cloth_show .right a span {
+    color: #9a2e1f;
+    font-size: 22px;
+    
+}
+
+.cloth_show .right img {
+    display: block;
+    width: 184px;
+    height: 184px;
+}
+
+/* 餐厨 */
+.home {
+    height: 705px;
+    box-sizing: border-box;
+}
+.home_nav {
+    height: 95px;
+    position: relative;
+}
+.home_nav h3 {
+    width: 60px;
+    line-height: 95px;
+    font-weight: 400;
+    font-size: 29px;
+    color: #333333;
+}
+
+.home_nav .type{
+    position: absolute;
+    top: 43px;
+    right: 65px;
+    width: 500px;   
+}
+
+.home_nav .type li {
+    float: left;
+    height: 16px;
+    padding: 0 10px;
+}
+.home .type li a {
+    display: block;
+    color:  #333333;
+    height: 16px;
+}
+.home .home_nav .type .first-cd a{
+    display: block;
+    width: 44px;
+    height: 22px;
+    color: #fff;
+    background-color: #27ba9b ;
+    text-align: center;
+}
+.home_nav .more {
+    position: absolute;
+    top: 44px;
+    right: 43px;
+    width: 64px;
+	height: 16px;
+    color: #999999;  
+}
+.home_nav .more::after {
+    position: absolute;
+    top: 4px;
+    right: -38px;
+    display: block;
+    content: '';
+    width: 15px;
+    height: 15px;
+   background: url(../images/sprites.png) no-repeat -38px -109px;
+   background-color:  #e2e2e2; 
+}
+.home_show {
+    position: relative;
+   
+}
+.home_show .left img {
+    display: block;
+    height: 610px;
+    width: 240px;
+}
+.home .home_show .right{
+  position: absolute;
+  top:0;
+  left: 240px;
+  height: 610px;
+  margin-left: 20px;
+  
+}
+.home .home_show .right li {
+    float: left;
+    width: 192px;
+    height: 290px;
+    margin-left: 30px;
+    padding: 5px;
+    margin-bottom: 10px;
+}
+
+.home .home_show  a .description{
+    height: 87px;
+    color:  #333333;
+    font-size: 16px;
+    padding-left:10px;
+    padding-top: 5px;
+    
+}
+.home_show .right a span {
+    color: #9a2e1f;
+    font-size: 22px;
+    
+}
+
+.home_show .right img {
+    display: block;
+    width: 184px;
+    height: 184px;
+}
+/* 最新 */
+.latest {
+    height: 520px;  
+    background-color:#f5f5f5 ;
+    margin-top: 80px;
+    padding-top:60px;
+    
+}
+.latest_nav {
+    position: relative;
+    height: 60px;
+}
+.latest_nav h3 {
+    height: 60px;
+    line-height: 60px;
+    font-weight: 400;
+    font-size: 29px;
+    color: #333333;
+}
+.latest_nav .latest_md{
+    position: absolute;
+    top: 20px;
+    left: 160px;
+    font-size: 16px;
+    color: #999999;
+}
+.latest_nav a {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    color: #999999;
+}
+.latest_nav a::after{
+    position: absolute;
+    top: 4px;
+    right: -21px;
+    display: block;
+    content: '';
+    width: 15px;
+    height: 15px;
+   background: url(../images/sprites.png) no-repeat -38px -109px;
+   background-color:  #e2e2e2; 
+}
+.latest_show {
+    height: 405px;
+    margin-top: 20px;
+}
+
+.latest_show li {
+    position: relative;
+    padding-top: 10px;
+    float: left;
+    width: 404px;
+    height: 355px;
+    color: #3333;
+}
+.latest_show li a div {
+    height: 100px;
+    width: 100%; 
+    
+}
+.latest_show li a img{
+    display: block;
+    width: 100%;
+    height: 285px;     
+}
+
+.latest_show ul li:nth-child(2){
+    margin:0 14px;
+}
+
+.latest_show ul li .description {
+    position: absolute;
+    left: 16px;
+    bottom: 79px;
+    height: 60px;
+    width: 100%;
+}
+.latest_show ul li h3 {
+
+    font-size: 20px;
+	font-weight: normal;
+	color: #ffffff;
+}
+.latest_show ul li p {
+    font-size: 16px;
+	color: #999999;
+    padding-top: 5pxs;
+}
+.latest_show ul li span {
+    width: 81px;
+	height: 27px;
+    position: absolute;
+    top: 12px;
+    right: 44px;
+    font-size: 17px;
+	color: #9a2e1f;
+    background-color: #fff;
+    text-align: center;
+}
+.latest_show ul li .bottom {
+    height: 70px;
+    width: 100%;
+    background-color: #fff;
+}
+.latest_show ul{
+    position: relative;
+    height: 70px;
+}
+
+.latest_show ul li .bottom li {
+    color: #333333;
+    width: 58px;
+}
+.latest_show ul li .bottom .like {
+    position: absolute;
+    top: 15px;
+    left: 44px;
+}
+.latest_show ul li .bottom .like::before {
+    content: '';
+    position: absolute;
+    top: 14px;
+    left: -21px;
+    width: 18px;
+    height: 18px;
+    background: url(../images/sprites.png) no-repeat -117px -109px;
+   
+}
+.latest_show ul li .bottom .see {
+    position: absolute;
+    top: 15px;
+    left:145px;
+}
+.latest_show ul li .bottom .see::before {
+    content: '';
+    position: absolute;
+    top: 14px;
+    left: -21px;
+    width: 18px;
+    height: 18px;
+    background: url(../images/sprites.png) no-repeat -158px -109px;
+   
+}
+.latest_show ul li .bottom .remark {
+    position: absolute;
+    top: 15px;
+    right: -17px;
+}
+.latest_show ul li .bottom .remark::before {
+    content: '';
+    position: absolute;
+    top: 14px;
+    left: -21px;
+    width: 18px;
+    height: 18px;
+    background: url(../images/sprites.png) no-repeat -197px -109px;
+   
+}

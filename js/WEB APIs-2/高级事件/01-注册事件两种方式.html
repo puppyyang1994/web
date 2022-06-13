@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button>传统事件</button>
+    <button>高级事件</button>
+    <button>ie9</button>
+    <script>
+        var btns = document.querySelectorAll('button')
+        btns[0].onclick = function(){
+            alert('hi')
+        }
+        btns[0].onclick = function(){
+            alert('hello')    
+        }
+   //2. 事件监听注册事件
+   //(1) 同一个元素 同一个事件可以添加多个侦听器（事件处理程序）
+   btns[1].addEventListener('click', function(){
+       alert('22')
+   })
+   btns[1].addEventListener('click', function(){
+       alert('33')
+   })
+   //3. attachEvent ie9 版本之前
+   btns[2].attachEvent('onclick', function(){
+       alert('ie')
+   })
+   // 注册事件 兼容性解决方案 
+   function addEventListener(element, eventName, fn){
+       //判断当前浏览器是否支持addEventListener方法
+       if (element.addEventListener){
+           element.addEventListener(eventName, fn); //第三个参数 默认是false
+
+       }else if (element.attachEvent) {
+        element.attachEvent('on'+ eventName, fn)
+       }else {
+           //相当于 element.onclick = fn;
+           element['on'+eventName]=fn;
+       }
+   }
+    </script>
+</body>
+</html>
