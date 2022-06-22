@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>显示页面时间</title>
+    <style>
+        div {
+            width: 400px;
+            height: 50px;
+            background-color: pink;
+            text-align: center;
+            line-height: 50px;
+        }
+    </style>
+</head>
+<body>
+    <div></div>
+    <script>
+        let div = document.querySelector('div');
+        let arr = ['星期日', '星期一', '星期二', '星期三', '星期四', '星期五', '星期六'];
+       
+        // console.log(time); 当前的时间
+        // 先调用一次 可以省去一秒钟的空白期  因为定时器是过一秒钟才调用一次getTime
+        getTime();
+        setInterval(getTime, 1000);
+        function getTime(){
+            // 实例化对象new Date() 一定要写到定时器里面
+            let time = new Date();
+            let year = time.getFullYear();
+            let month = time.getMonth() + 1;
+            let date = time.getDay();
+            let hour = time.getHours();
+            let minute = time.getMinutes();
+            let second = time.getSeconds();
+            let day = time.getDay();//注意她返回的是数字
+            div.innerHTML = `今天是：${year}年${month}月${date}日${hour}:${minute}:${second} ${arr[day]}`;
+        }
+
+    </script>
+</body>
+</html>

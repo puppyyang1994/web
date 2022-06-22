@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>跟随鼠标的天使</title>
+    <style>
+        /* 一定一定要记得加定位 */
+        img{
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+    </style>
+</head>
+<body>
+    <img src="./images/tianshi.gif" alt="">
+    <script>
+        let img = document.querySelector('img');
+        // 鼠标在页面中移动
+        // e.pageX 得到当前的鼠标坐标 给图片
+        document.addEventListener('mousemove', function(e){
+            img.style.left = e.pageX - 50 + 'px';
+            img.style.top = e.pageY - 50 + 'px';
+        })
+    </script>
+</body>
+</html>

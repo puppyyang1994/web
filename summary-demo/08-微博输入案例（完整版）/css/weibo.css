@@ -55,6 +55,7 @@ ul {
 .contentList li {
   padding: 20px 0;
   border-bottom: 1px dashed #ccc;
+  position: relative;
 }
 .contentList li .info {
   position: relative;
@@ -80,4 +81,11 @@ ul {
   padding-left: 100px;
   color: #666;
   word-break: break-all;
+}
+.contentList li .the_del {
+  position: absolute;
+  right: 0;
+  top: 0;
+  font-size: 28px;
+  cursor: pointer;
 }

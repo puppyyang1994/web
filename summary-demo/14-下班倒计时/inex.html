@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .countdown {
+          width: 240px;
+          height: 305px;
+          text-align: center;
+          line-height: 1;
+          color: #fff;
+          background-color: brown;
+          /* background-size: 240px; */
+          /* float: left; */
+          overflow: hidden;
+          margin: 500px auto;
+          
+        }
+    
+        .countdown .next {
+          font-size: 16px;
+          margin: 25px 0 14px;
+        }
+    
+        .countdown .title {
+          font-size: 33px;
+         
+        }
+    
+        .countdown .tips {
+          margin-top: 50px;
+          font-size: 23px;
+        }
+    
+        .countdown small {
+          font-size: 17px;
+        }
+    
+        .countdown .clock {
+          width: 100%;
+          margin: 20x auto 20px;
+          padding-left: 8px;
+          overflow: hidden;
+         
+        }
+    
+        .countdown .clock span,
+        .countdown .clock i {
+          display: block;
+          text-align: center;
+          line-height: 34px;
+          font-size: 22px;
+          float: left;
+        }
+      #day {
+        width: 60px;
+      }
+        .countdown .clock span {
+          width: 34px;
+          height: 34px;
+          border-radius: 2px;
+          background-color: #303430;
+        }
+    
+        .countdown .clock i {
+          width: 20px;
+          font-style: normal;
+        }
+      </style>
+</head>
+<body>
+    <div class="countdown">
+        <p class="next">今天是2022年6月15日</p>
+        <p class="title">瘦成猴子倒计时</p>
+        <p class="clock">
+          <span id="day">00</span>
+          <i>:</i>
+          <span id="hour">00</span>
+          <i>:</i>
+          <span id="minutes">25</span>
+          <i>:</i>
+          <span id="scond">20</span>
+        </p>
+        <p class="tips">
+          18:30:00
+        </p>
+      </div>
+      <script>
+      
+        let next = document.querySelector('.next');
+        let tips = document.querySelector('.tips');
+        let day = document.querySelector('#day')
+        let hour = document.querySelector('#hour');
+        let minutes = document.querySelector('#minutes');
+        let scond = document.querySelector('#scond');
+       
+         // 1. 获得现在的时间  (实时动态的时间)
+        getTime();
+        setInterval(getTime,1000);
+        function getTime(){
+        let date = new Date();
+        // 把现在的实时时间给tips
+        let month = date.getMonth() + 1;
+        month = month <10? '0' + month : month;
+        let day = date.getDate();
+        day = day <10? '0' + day : day;
+        let h = date.getHours();
+        h = h<10? '0'+ h : h;
+        let m = date.getMinutes();
+        m = m<10? '0'+ m : m;
+        let s = date.getSeconds();
+        s = s<10? '0'+ s : s;
+        next.innerHTML = `今天是2022年${month}月${day}日`;
+        tips.innerHTML = `${h}时:${m}分:${s}秒`;
+
+         
+        }
+        getTime2();
+        setInterval(getTime2,1000);
+        function getTime2(){
+        //    当前时间戳
+        let date1 = +new Date();
+        //     下班点的时间戳
+        let date2 = +new Date('2022-11-15 17:30:00');
+        // 时间差（毫秒）
+        let date3 = (date2 - date1)/1000;
+        // 转化为整数这个别忘了 
+        
+        let day1 = parseInt(date3/60/60/24) + '天';
+        let h1 = parseInt(date3/60/60%24) ;
+        h1 = h1<10? '0'+ h1 : h1;
+        let m1= parseInt(date3/60%60);
+        m1 = m1<10? '0'+ m1  : m1;
+        let s1 = parseInt(date3%60); 
+        s1 = s1<10? '0'+ s1 : s1;
+
+        day.innerHTML = day1 + '天';
+        hour.innerHTML = h1;
+        minutes.innerHTML = m1;
+        scond.innerHTML = s1;
+        }
+      
+        
+
+      </script>
+</body>
+</html>

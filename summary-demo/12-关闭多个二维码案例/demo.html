@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .erweima {
+          width: 149px;
+          height: 152px;
+          border: 1px solid #000;
+          background: url(./images/456.png) no-repeat;
+          position: relative;
+        }
+    
+        .close {
+          position: absolute;
+          right: -52px;
+          top: -1px;
+          width: 50px;
+          height: 50px;
+          background: url(./images/bgs.png) no-repeat -159px -102px;
+          cursor: pointer;
+          border: 1px solid #000;
+    
+        }
+        </style>
+</head>
+<body>
+    <div class="erweima">
+        <span class="close"></span>
+      </div>
+      <div class="erweima">
+        <span class="close"></span>
+      </div>
+      <div class="erweima">
+        <span class="close"></span>
+      </div>
+      <div class="erweima">
+        <span class="close"></span>
+      </div>
+      <div class="erweima">
+        <span class="close"></span>
+      </div>
+      <script>
+        let close = document.querySelectorAll('.close');
+        // 得到的是伪数组 这个很重要
+
+        //一定要记得是 要给每一个close都绑定事件
+        for(let i = 0; i< close.length; i++){
+            close[i].addEventListener('click', function(){
+            // this.parentNode.style.display = 'none';
+            this.parentNode.style.visibility = 'hidden';
+        })
+        }
+       
+      </script>
+</body>
+</html>
