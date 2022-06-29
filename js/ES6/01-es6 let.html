@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script type='text/javascript'>
+
+// 使用let关键字声明的变量具有块级作用域（{}里面的）
+// 在大括号中使用let关键字声明的变量才具有块级作用域 var 不具有这个特点
+
+// 防止循环变量变成全局变量
+//  if(true){
+//      let b = 20;
+//      console.log(b);
+//      if(true){
+//          let c = 30;
+//      }
+//      console.log(c); // not defined
+     
+//  }
+
+// if(true){
+//     let num = 100;
+//     var abc = 200;
+// }
+// console.log(abc);
+// console.log(num); // not defined
+// 防止循环变量变成全局变量
+// for(let i = 0; i<2 ; i++){
+//     // i在外面是访问不到的
+// }
+// 2. 使用let 关键字 不存在变量提升 （只能先声明 再使用）
+
+// console.log(a);
+// let a = 20;
+
+// 3. 暂时性死区
+// var temp = 123;
+// if(true){
+//    console.log(num);
+// //    报错 undefined
+//     let num = 20;
+// }
+
+// 经典面试题
+// 1. var
+var arr = [];
+for(var i = 0; i<2; i++){
+    arr[i] = function(){
+        console.log(i);
+        
+    }
+}
+arr[0](); //2
+arr[1]();//2
+// 此时的a是全局作用域 
+
+let arr = [];
+for(let i = 0; i<2; i++){
+    arr[i] = function(){
+        console.log(i);
+        
+    }
+}
+arr[0](); //0
+arr[1]();//1
+// 此时的i是块级作用域  每次循环都会产生一个块级作用域 每个块级作用域中的变量都是不同的 函数执行时输出的是自己上一级（循环产生的块级作用域）作用域下的iz值每一个i都对应一个块级作用域
+
+
+    </script>
+</body>
+</html>

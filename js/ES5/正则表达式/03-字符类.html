@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 字符类 []
+        // let rg = /[abc]/; //只要包含有a 或b 或c 都返回true
+        // console.log(rg.test('12a5'));//true
+        // console.log(rg.test('att'));//true
+
+        // let rg1 = /^[abc]$/; //加上了边界符  （多选一）只有是a 或b 或c 才返回true
+        // console.log(rg1.test('a'));//true
+        // console.log(rg1.test('b'));
+        // console.log(rg1.test('c'));
+        // console.log(rg1.test('ca'));//false
+        // - 表示的是范围
+        let rg2 = /^[a-z]$/; //26个英文字母任何一个字母返回true
+        console.log(rg2.test('a')) //true
+        console.log(rg2.test('z'))//true
+        console.log(rg2.test('A'))//false
+        // 多选一
+        // 如果中括号里面有 ^ 表示取反 
+        let rg3 = /^[^a-zA-Z0-9_-]$/; 
+    </script>
+</body>
+</html>

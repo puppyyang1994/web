@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 中括号 字符集合  匹配方括号中的任意字符（多选一）
+        let reg = /^[abc]$/; // a 或 b 或 c
+
+        // 大括号 量词符  里面表示重复次数
+        let rg = /^a{3}$/; // a重复三次
+        let r1g = /^abc{3}$/;  //只是让c重复三次
+
+
+        // 小括号 表示优先级
+        let rg2 = /^(abc){3}$/; //让abc重复三次
+
+        // 菜鸟教程有在线监测工具
+    </script>
+</body>
+</html>

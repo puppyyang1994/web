@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 特殊字符 也被称为元字符
+        // 1. 边界符 ^ $
+        let rg = /abc/; //正则表达式里不需要加引号
+        console.log(rg.test('abc'));//true
+        console.log(rg.test('aabc'));//true
+        console.log(rg.test('abcd'));//true
+
+        let reg = /^abc$/;//^ 开头 $结尾
+        console.log(reg.test('abc')); //true
+        console.log(reg.test('abcabc'));//false
+        console.log(reg.test('abcd'));//false
+        console.log(reg.test('aabcd'));//false
+
+     
+    </script>
+</body>
+</html>

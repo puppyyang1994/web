@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 一个函数在内部可以调用其本身，那么这个函数就是递归函数
+        //递归函数的作用和循环效果一样 由于递归很容易发生栈溢出错误（overf）
+        // 所以必须要加退出条件return
+    //    let num = 1;
+    //     function fn(){
+    //         console.log('我要打印六句话');
+    //         if(num == 6){
+    //             return ;
+    //         }
+    //         num++;
+    //         fn();
+    //     }
+  //     fn();
+
+    // 利用递归求阶层
+
+//     function fn(n){
+//         if(n==1){
+//             return 1;
+//         }
+//         return n* fn(n-1);
+//     }
+
+//    console.log( fn(1));
+//  详细思路   加入用户输入的是3
+// 3*fn(2); fn(2) = 2* f(1);
+
+// 利用递归求 斐波那契数列
+  function fn(n){
+    if(n==1 || n==2){
+        return 1;
+    }
+    return fn(n-1) + f(n-2);
+  }
+  console.log(fn(2));
+    </script>
+</body>
+</html>

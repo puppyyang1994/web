@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+<h1>JavaScript 函数闭包</h1>
+
+<p>使用局部变量计数。</p>
+
+<p id="demo"></p>
+<script>
+//     var counter = 0;
+
+//     function add(){
+//         var counter = 0;
+//         counter++;
+//         console.log(counter);
+//     }
+   
+//     add();  // 第一次打印的是1  counter是局部的 函数调用完了就会销毁
+//    add(); //第二次打印的是1  counter是局部的 函数调用完了就会销毁
+//    add(); ///第三次打印的是1  counter是局部的 函数调用完了就会销毁
+   
+
+//    function add(){
+//     var counter = 0;
+//     counter +=1;
+//     return counter;
+//    }
+//    add();
+//    add();
+//    add(); //都是1 因为每一次函数执行完 都会重置
+
+var add = (function add(){
+    var counter = 0;
+    return function(){
+        return counter +=1;
+    }
+   
+})();
+add();//1
+add();//2
+add();//3
+</script>
+</body>
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+    //     function fun(){
+    //     // 函数内部有一个特殊的对象 arguments(用于接收所有的实参)
+    //     // console.log(arguments); //Arguments(0)
+    //     for(let i = 0; i<arguments.length; i++){
+    //         console.log(arguments[i]);// arguments = [1, 2, 3......]
+    //     }
+    // }
+    // fun(1,2,3,4,'a');
+    // 求若干个数的最大值
+    // 如果参数固定写形参
+    // 如果不固定用arguments
+    function getMax(){
+        let max = arguments[0];
+        for(let i = 0; i< arguments.length; i++){
+            if(max<arguments[i]){
+                max = arguments[i];
+            }
+            console.log(max);
+        }
+    }
+    getMax(23, 66, 78, 123, 4, 9, 3, 12345, 456, 65,67, 34);
+    </script>
+</body>
+</html>

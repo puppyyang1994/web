@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+    class Star {
+
+    }
+    console.log(typeof Star); //function  类的本质也是一个函数 就是构造函数的另一种写法
+   
+//    类就是语法糖（一种便捷的写法）
+    // 类有原型对象prototype
+    console.log(Star.prototype); //
+   
+    console.log(Star.prototype.constructor);  //constructor指向了类本身
+   
+    // 类可以通过原型对象添加方法
+    Star.prototype.sing = function(){
+        console.log('唱歌');
+        
+    }
+    var ldh = new Star();
+    console.log(ldh.__proto__ === Star.prototype); //true
+    
+    </script>
+</body>
+</html>

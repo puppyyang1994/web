@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+    //     // 思考1：没有闭包产生
+    //     var name = 'The Window';
+    //     var object = {
+    //         name: 'My Object',
+    //         getNameFunc: function(){
+    //             return function(){
+    //                 return this.name;
+    //             };
+    //         }
+    //     }
+    //    console.log( object.getNameFunc()());
+    //    var f = object.getNameFunc();//这个函数调用 会返回一个匿名函数
+   
+    // // 相当于：
+    // var f = function(){
+    //     return this.name;
+    // }
+    // f(); //    在调用下一个匿名函数 拿到了this.name
+    // // function(){this}();立即执行函数   立即执行函数来自window
+
+    // 思考2：产生闭包
+    var name = 'The Window';
+    var object = {
+        name: 'My Object',
+        getNameFunc:function(){
+            // 这里的this指向的是对象
+            var that = this;
+            return function(){
+                return that.name;
+            };
+        }
+    };
+    console.log(object.getNameFunc()());//My Object
+    var f = object.getNameFunc();
+    f(); //调用return的匿名函数 拿到了 返回的 that.name 返回的是对象的name
+    </script>
+</body>
+</html>

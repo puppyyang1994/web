@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+      
+    // 1. forEach() 遍历数组  里面放一个回调函数
+    // let arr = [1, 2, 3]
+    // let sum = 0;
+    // arr.forEach(function(value, index, array){
+    //     console.log('每一个数组元素' + value);
+    //     console.log('每一个数组元素' + index);
+    //     console.log('每一个数组元素' + array);
+    //     sum +=value;
+    // })
+
+
+    // 2. filter() 筛选数组  返回一个新数组 参数里的array可以省略
+    // let arr = [22, 10, 19, 70];
+
+    // let newArr = arr.filter(function(value, index){
+    //     return value >= 20;
+    //     // 因为返回的是一个新数组 所以把返回值赋给一个变量
+    // });
+    // console.log(newArr);//返回的是一个新数组
+
+
+    // 3. some 检测数组中的元素是否满足指定条件（也就是说 查找不到就返回false）
+    let arr = [10, 30 , 4];
+    let flag = arr.some(function(value){
+        return value >=20;
+    })
+    console.log(flag); // true
+    
+    let arr1 = ['pink', 'red'];
+    let flag1 = arr1.some(function(value){
+        return value === 'pink';
+    })
+    console.log(flag1); //true
+
+    // filter 也是查找满足条件的元素 返回的是一个新数组 而且把所有满足条件的元素返回
+    // some 也是查找满足条件的元素 但是返回的是一个布尔值 如果查找到第一个满足的元素 就种终止循环
+    
+    
+    </script>
+</body>
+</html>

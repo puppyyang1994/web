@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+    function Star(uname, age){
+        this.unam = uname;
+        this.age = age;
+    }
+    Star.prototype.sing = function(){
+        console.log('唱歌');
+        
+    }
+    Star.prototype.sex = 'female'
+    let ldh = new Star('liu', 20);
+    ldh.sex = 'male';
+    console.log(ldh.sex);
+    // 如果Object的原型对象也没有 那就显示undefined
+    console.log(ldh.toString()); //[object object]
+    
+    </script>
+</body>
+</html>

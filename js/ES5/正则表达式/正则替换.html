@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <textarea name="" id="message" cols="30" rows="10"></textarea> <button>提交</button>
+    <div></div>
+    <script> 
+    // 替换 replace（）只能替换一次  加上g全局匹配   i忽略大小写  gi全局匹配+忽略大小写
+        // let str = 'pink and Jerry'
+        // // newStr = str.replace('pink', 'tom')
+        // // console.log(newStr);
+        // let newstr = str.replace(/pink/, 'Tom');
+        // console.log(newstr);
+        // 过滤敏感词
+        let text = document.querySelector('textarea');
+        let btn = document.querySelector('button')
+        let div = document.querySelector('div')
+        btn.onclick = function(){
+          div.innerHTML = text.value.replace(/激情|gay/g, '**');
+        }
+        
+    </script>
+</body>
+</html>

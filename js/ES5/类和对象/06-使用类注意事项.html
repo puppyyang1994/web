@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button>点击</button>
+    <script>
+        let that;
+        let _that;
+        class Star {
+            constructor(uname, age){
+                // this指向的是实例化对象
+             that = this;
+               console.log(this)
+               
+               
+                this.uname = uname;
+                this.age = age;
+                // this.sing();
+                this.btn = document.querySelector('button');
+                this.btn.onclick = this.sing;
+                // 点击之后再调用 所以sing后面不要加（）立即调用
+                // 直接在构造函数里调用
+            }
+            sing(){
+                // 这个里面的this指向的是btn这个按钮 因为按钮调用了这个函数
+               
+                console.log(this); //<button>点击</button>
+                console.log(that.uname); //that 是constructor里面的this 因为that是全局变量
+                // 不能直接写uname
+            }
+            dance(){
+                // 这个dance里的this 指向的是实例对象 ldh 因为ldh调用了这个函数
+                _that = this;
+                console.log(this);
+            }
+        }
+        let ldh = new Star('刘德华');
+        console.log(that === ldh); //true
+        ldh.dance();
+        console.log(_that === ldh)
+        // 在ES6中类没有变量提升 所以必须先定义类，才能通过类实例化对象
+        // 在类里面的公有属性和方法 一定要加this使用
+        // 类里面this的指向问题
+        // constuctor 里的this 指向的是实例化的对象 方法里面的this指向这个方法的调用者
+
+    </script>
+</body>
+</html>

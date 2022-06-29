@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+    let arr = ['red', 'green', 'blue', 'pink'];
+    //  1. forEach()迭代 遍历
+    arr.forEach(function(value){
+        if(value==='green'){
+            console.log('找到该元素了');
+            return true; //forEach 里面的return不会终止迭代
+        }
+        console.log(1); //会打印四次
+        
+    })
+    arr.some(function(value){
+        if(value==='green'){
+            console.log('找到该元素了');
+            return true; //some 里面的return  true 会终止迭代
+        }
+        console.log(1); //只会打印一次1 
+        
+    })
+    arr.filter(function(value){
+        if(value==='green'){
+            console.log('找到该元素了');
+            return true; //filter 里面的return不会终止迭代
+        }
+        console.log(1); //会打印四次
+        
+    })
+    </script>
+</body>
+</html>

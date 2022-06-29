@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div{
+            position: absolute;
+            width: 100px;
+            height: 100px;
+            background-color: pink;
+        }
+    </style>
+</head>
+<body>
+    <div></div>
+    <script>
+        // 函数也是一种数据类型 同样可以作为参数 传递给另外一个函数使用 最经典的就是回调函数
+        // 高阶函数是对其他函数进行操作的函数他接受 函数可以作为参数传递 或将函数作为返回值输出
+        function fn(a, b, callback){
+            console.log(a+b);
+            callback&&callback();
+        }
+        fn(1,2, function(){
+            console.log('我是最后调用');
+        });
+        $("div").animate({
+            left:500
+        }, function(){
+            $("div").css("backgroundColor", "purple");
+        })
+    </script>
+</body>
+</html>

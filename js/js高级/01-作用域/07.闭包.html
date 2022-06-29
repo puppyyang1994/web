@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // function fn(){
+        //     let n = 2;
+            
+        // }
+        // fn();
+        // console.log(n);
+
+        // 闭包：一个作用域有权访问另外一个作用域的局部变量
+        // 作用：延伸变量的使用范围
+            function fn(){
+                let num = 123;
+                // 作用域链 
+                return function fun(){
+                    console.log(num);
+                }
+                // fun(); 可以不写
+            }
+            let re = fn();
+            console.log(re);
+            re();//123
+            re();//123
+            re();//123
+
+
+            // function father(){
+            //     let num = 66;
+            //     // 闭包
+            //     return function (){
+            //         console.log(num);
+            //     }
+            // }
+            // let o = father();
+            // o(); //66
+            
+    </script>
+</body>
+</html>

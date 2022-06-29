@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	
+	
+
+	<script type="text/javascript">
+			
+
+		// let n = 10;
+		// let m = 11;
+
+		// function fn (a, b) {
+		// 	// a = n
+		// 	// b = m
+		// 	a = 100;
+		// 	b = 200;
+		// }
+
+		// fn(n, m);
+
+
+		// console.log(n, m); // 10 11 
+		// // 相当于n和m传给了a 和 b 导致a 和 b 也指向了 n 和m指向的地址
+
+
+		// let o = {uname : '张三丰', age : 22, sex : '男'};
+
+		// function fun (obj) {
+		// 	// obj = o
+		// 	obj.uname = '李寻欢';
+		// }
+
+		// fun(o);
+
+		// console.log(o); //uname 变成了 李寻欢
+		// 相当于实参o传给了形参obj o和obj都指向了同一块地址 obj.uname改变了 o,uname也会改变
+
+
+
+
+
+		let arr = ['张飞', '关羽', '赵云'];
+
+		function fn (ary) {
+			ary[0] = '张辽';
+		}
+
+		fn(arr);
+
+		console.log(arr); //['张辽', '关羽', '赵云']
+	</script>
+
+
+</body>
+</html>

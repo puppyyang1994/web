@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+    // 声明常量 常量就是值（内存地址） 不能变化的量
+    // 1. 具有块级作用域
+    // if(true){
+    //     const a = 10;
+    //     if(true){
+    //         const a = 20;
+    //         console.log(a); //20
+            
+    //     }
+    //     console.log(a); //正常 10
+        
+    // }
+    // console.log(a); //报错
+
+    // 2. 声明常量时必须附chushizhi
+    // const PI;//报错
+    // const PI = 3.14; //正常
+
+    // 3. 常量赋值后 值不能修改  
+    // const PI = 3.14;
+    // PI = 2.14;
+    // 不能分配值给常量
+
+    const ary = [100, 200];
+    ary[0] = 123;
+    console.log(ary); //对于复杂数据类型 里面的值是可以更改的 【123. 200
+    ary = []; //重新给常量分配了一个新地址
+    console.log(ary); //报错  内存地址不能被修改
+    
+
+    
+    </script>
+</body>
+</html>

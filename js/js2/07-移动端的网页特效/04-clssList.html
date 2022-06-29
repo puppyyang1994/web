@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+    .bg {
+        background-color: black;
+    }
+    </style>
+</head>
+<body>
+    <button>开关</button>
+    <script>
+        // classList.add('')和className的区别是 不会覆盖以前的类名  注意不用加.
+        // classList.remove(') 删除类名
+    let btn = document.querySelector('button');
+    btn.addEventListener('click', function(){
+        document.body.classList.toggle('bg');
+        // toggle类名切换  有就去掉 没有就加上
+    })
+    </script>
+</body>
+</html>

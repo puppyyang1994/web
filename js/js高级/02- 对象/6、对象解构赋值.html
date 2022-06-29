@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	
+
+	<script type="text/javascript">
+		
+		// 把属性名当做变量名即可
+		// let obj = {
+		// 	uname : '张三丰',
+		// 	age : 22,
+		// 	sex : '男',
+		// 	score : 99,
+		// 	index : 6,
+		// }
+
+
+		// let uname = '阿飞';
+
+		// // 把对象解开解构赋值给变量
+		// // 用冒号改名字
+		// let {uname:userName, sex} = {
+		// 	uname : '张三丰',
+		// 	age : 22,
+		// 	sex : '男',
+		// 	score : 99,
+		// 	index : 6,
+		// }
+
+		// console.log( userName, sex );
+
+
+		// let { dog:{uname} } = {
+		// 	uname : '张三丰',
+		// 	dog : {
+		// 		uname : '小狗子',
+		// 		age : 1,
+		// 	},
+		// 	age : 22,
+		// 	sex : '男',
+		// 	score : 99,
+		// 	index : 6,
+		// }
+		// console.log( uname ); //小狗子
+		
+
+		// function person ( {uname, age, sex} ) {
+		// 	// let uname = obj.uname;
+		// 	// let age = obj.age;
+		// 	// let sex = obj.sex;
+
+
+		// 	console.log(`我叫${uname}今年${age}岁是${sex}性`);
+		// }
+
+
+		// person( {uname : '阿飞', age : 22, sex : '男'} )
+
+// let options = {
+// title: "Menu"
+// };
+
+// let {width = prompt("width?"), title = prompt("title?")} = options;
+
+// alert(title);  // Menu
+// alert(width);  // (prompt 的返回值)
+
+// let options = {
+//   size: {
+//     width: 100,
+//     height: 200
+//   },
+//   items: ["Cake", "Donut"],
+//   extra: true
+// };
+
+// // 为了清晰起见，解构赋值语句被写成多行的形式
+// let {
+//   size: { // 把 size 赋值到这里
+//     width,
+//     height
+//   },
+//   items: [item1, item2], // 把 items 赋值到这里
+//   title = "Menu" // 在对象中不存在（使用默认值）
+// } = options;
+
+// alert(title);  // Menu
+// alert(width);  // 100
+// alert(height); // 200
+// alert(item1);  // Cake
+// alert(item2);  // Donut
+
+// 我们传递一个对象给函数
+
+	</script>
+
+</body>
+</html>

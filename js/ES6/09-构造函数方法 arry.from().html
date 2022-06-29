@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+//         // Array.from(伪数组， 函数)
+//     let arrayLike = {
+//         '0': '张三',
+//         '1': '李四',
+//         '2': '王五',
+//         'length': 3
+//     }
+//   var arry = Array.from(arrayLike)
+//   console.log(arry); //输出了一个真正的数组
+  
+//   接收第二个参数 作用类似于数组map的方法 用来对每个元素进行处理， 将处理后的值放入返回的数组
+let arrayLike = {
+        '0': 1,
+        '1': 2,
+        '2': 4,
+        '3': 5,
+        'length': 4
+    }
+    let newArry = Array.from(arrayLike, item => item *2)
+    console.log(newArry);
+    
+    </script>
+</body>
+</html>

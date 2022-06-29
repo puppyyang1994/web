@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 类名首字母大写 后面不加小（） 
+    class Star {
+        constructor(uname, age){
+            this.uname = uname;
+            this.age = age;
+            // constructor接收参数 同时把实例返回 不需要我们自己return
+        }
+    }
+// new 的时候 自动调用constructor函数 如果我们不写constructor 系统会自己生成
+// 生成实例 new后面要加（） constructor 不需要function
+   let ldh = new Star('刘德华', 18); //对象实例
+   console.log(ldh);
+   
+
+    // constructor() 方法是类的构造函数默认方法 用于传递参数 返回实例对象
+    // 通过new 命令生成实例时，自动调用该方法， 如果没有显示定义， 类内部会给我们自动
+    // 创建一个constructor()
+    </script>
+</body>
+</html>

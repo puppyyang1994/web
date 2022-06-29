@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+    function Star(uname, age){
+        this.uname = uname;
+        this.age = age;
+    }
+   Star.prototype = {
+    //    如果修改了原型对象 而且是以对象的方式来进行赋值的 那一定要给他手动添加一个constructor指回去原来的构造函数
+    
+       constructor: Star,
+
+  sing:  function(){
+        console.log('唱歌');
+        
+    },
+   movie: function(){
+        console.log('电影');
+        
+    }
+   }
+
+    let person1 = new Star('pink', 18);
+    let person2 = new Star ('yellow', 20);
+
+    // person1.sing();
+    // console.log(person1); //对象身上系统自己添加了一个__protp__指向构造函数的原型对象 prototype
+    // console.log(person1.__proto__ === Star.prototype); //true
+     
+    
+    </script>
+</body>
+</html>

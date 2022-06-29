@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <!-- object.defineProperty() 定义新属性或修改原有的属性 -->
+    <script>
+    let obj = {
+        id: 1,
+        pname: '小米',
+        price: 999
+    };
+    // 1. 传统的对象添加和修改的方式
+
+    // object
+    Object.defineProperty(obj, 'num', {
+        value:1000
+    });
+    console.log(obj);
+    Object.defineProperty(obj, 'price', {
+        value:1000
+    });
+    console.log(obj);
+    Object.defineProperty(obj, 'id', {
+        // 不可重写 false（也是默认值） 可重写true
+       writable:false
+    });
+    console.log(obj);
+    obj.id = 2
+    
+    Object.defineProperty(obj, 'address', {
+        // 不可重写 false（也是默认值） 可重写true
+        value: '兰溪',
+        writable:false,
+        // 不可遍历出来
+        enumerable: false,
+        // 不允许删除这个属性 不允许修改里面的特效
+        configurable:false
+    });
+    console.log(Object.keys(obj));
+    delete obj.pname;
+    console.log(obj);
+    </script>
+</body>
+</html>

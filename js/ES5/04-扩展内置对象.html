@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+    // 原型对象的应用 扩展内置对象方法
+    console.log(Array.prototype);
+    Array.prototype.sum = function(){
+        let sum = 0;
+        // this指向实例对象 this的长度就是实例队形的长度
+        for(var i = 0; i< this.length; i++){
+            sum += this[i]; 
+        }
+        return sum;
+    }
+
+    // 注意 不能用  这样会把原型的方法都覆盖掉了
+    // Array.prototype = {
+    //     sum: function(){
+    //         let sum = 0;
+    //         for(var i = 0; i< this.length; i++){
+    //         sum += this[i]; 
+    //     }
+    //     return sum;
+    //     }
+    // }
+
+    var arr = [1, 2, 3];
+    console.log(arr.sum());
+    console.log(Array.prototype); //里面有sum方法
+
+    // 写法2 
+    let arr2 = new Array(1, 2, 3);
+    console.log(arr2.sum());
+    
+    
+    
+    </script>
+</body>
+</html>

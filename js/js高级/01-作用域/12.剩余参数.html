@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // function fn(...a){
+        //     console.log(a);
+        // }
+        // fn(1,2,3); // 输出一个数组
+        function getSum(...a){
+            let sum = 0;
+            for(let i = 0; i<a.length; i++){ // a = [1, 2, 3......]
+                sum = sum + a[i]
+            }
+            console.log(sum);
+        }
+
+        getSum(1,2,3)
+    </script>
+</body>
+</html>

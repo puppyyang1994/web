@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+    // 剩余参数语法允许我们将一个不定数量的参数表示为一个数组
+    // 函数内部的arguments在箭头函数这里不生效
+    // function sum (first,...args){
+    //     console.log(first);//10
+    //     console.log(args);//array(2)
+    // }
+    // sum(10, 20, 30);
+
+
+    const sum = (...args)=>{
+        let total = 0;
+        args.forEach (item=> total +=item)
+            return total;
+            // forEach 就是用来循环数组的  
+    }
+
+  console.log(  sum(10, 20));
+  console.log(  sum(10,20,30));
+  
+ 
+    </script>
+</body>
+</html>

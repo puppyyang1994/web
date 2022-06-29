@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 1.为脚本开启严格模式 -->
+    <script>
+        'use strict';
+        // strict mode 严格模式 (IE 10)
+        // 消除一些不合理的语法
+    </script>
+    <script>
+        // 立即执行函数里
+        (function(){
+            'use strict';
+        })();
+    </script>
+    <!-- 2. 为函数开启严格模式 -->
+  <script>
+      function fn(){
+        'use strict';
+        // 下面的代码按照严格模式执行
+      }
+    //   严格模式中的变化：
+    // 1.变量规定
+    // 在正常模式中，如果一个变量没有声明就赋值，默认是全局变量，严格模式禁用这种用法，所有
+    // 变量都必须声明 然后使用
+
+    // 2. 不能随意删除已经声明的变量
+
+    // 3. this指向
+    // 以前普通函数this指向的都是window， 如果严格模式下 在全局作用域中的函数
+    // this指向的是undefined
+
+    // 4. 构造函数 以前不用new 也可以调用的（把他当普通函数）
+    // 严格模式下， 构造函数 必须用new 进行调用 this指向实例化对象
+
+    // 5. 定时器函数 严格模式下 this指向的还是window
+
+    // 6. 事件 对象 还是指向调用者
+
+    // 7. 函数变化：（1）不能有重名的参数
+    //   （2） 
+  </script>
+</body>
+</html>

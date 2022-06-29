@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 变量作用域 （全局变量 局部变量）
+        // 函数内部可以使用全局变量  函数外部不可以使用局部变量 
+        // 当函数执行完毕 本作用域内的局部变量会销毁
+        // 闭包（closure） 有权访问另一个函数作用域变量的函数
+        // 简单理解：一个作用域可以访问另外一个函数内部的局部变量
+        // 闭包：fun这个函数作用域 访问了另外一个函数fn里面的局部变量  fn是闭包函数
+        // fn外面的作用域 可以访问fn内部的局部变量
+        // 闭包的主要作用：延伸了变量的作用范围
+        function fn(){
+            let num = 10;
+            return function(){
+                console.log(num);
+            };
+            // 返回的是一个函数  高阶函数
+        }
+       let f = fn();
+       f();
+       //类似于
+    //    let f =  function fun(){
+    //             console.log(num);
+    //         }
+    </script>
+</body>
+</html>

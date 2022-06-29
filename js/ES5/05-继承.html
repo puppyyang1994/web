@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+    // // call 方法
+
+    // function fn(x, y){
+    //     console.log('喝咖啡');
+    //     console.log(this); //window 指向的是window
+    //     console.log(x+y);//3
+        
+    // }
+    // var o = {
+    //     uname: 'pink'
+    // }
+    // // fn.call(); //调用函数 
+    // fn.call(o, 1, 2); //改变this指针 
+
+
+// 1.  利用父构造函数 继承子 构造函数的属性
+// 2.   利用父构造函数 继承子 构造函数的属性
+function Father(uname, age){
+    // 这里面的this是father的this
+    this.uname = uname;
+    this.age = age;
+}
+Father.prototype.money = function (){
+    console.log(1000);
+    
+}
+function Son(uname, age, score){
+    // 这里面的this是son的this 
+    Father.call(this, uname, age);
+    this.score = score;
+}
+
+Son.prototype = new Father(); // 这样不会让father会多了一个子原型对象的exam方法
+// new Father ()是重新开辟的一个对象 {}， 所以 如果利用对象修改了son原型对象 要用constructor 指回来原来的构造函数
+
+Son.prototype.constructor = Son;
+//  Son.prototype = Father.prototype  //这样直接赋值会有问题 如果修改了子原型对象 父原型对象也会跟着变化
+Son.prototype.exam = function(){
+    console.log('孩子要考试');
+    
+}
+let son = new Son('刘德华', 20, 100);
+console.log(son);
+console.log(Father.prototype); //father会多了一个子原型对象的exam方法
+
+
+    </script>
+</body>
+</html>

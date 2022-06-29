@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // let n = 2
+        // function fn(){
+        //     // 	// 是否有申明这个变量
+		// // 	// 如果当前作用域没有这个变量，就会去上级作用域查找
+        //     // n = 3;
+        //     console.log(n); //输出结果为3
+        // }
+        // fn();
+        let m = 6;
+        function fn(){
+            function fun(){
+                console.log(m);
+            }
+            fun();
+        }
+        fn();
+        // 如果当前作用域不存在一个变量的话，就会去上面作用域查找
+        // 作用域链：由作用域串联起来的链状结构
+        // 作业：提供我们查找变量的机制
+    </script>
+</body>
+</html>
