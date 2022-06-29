@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        div {
+            width: 150px;
+            height: 150px;
+            background-color: pink;
+            overflow: auto;
+            padding: 10px;
+            border: 10px solid red;
+            margin: 100px;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        我有很多很多的内容哦
+        我有很多很多的内容哦
+        我有很多很多的内容哦
+        我有很多很多的内容哦
+        我有很多很多的内容哦
+        我有很多很多的内容哦
+        我有很多很多的内容哦
+        我有很多很多的内容哦
+        我有很多很多的内容哦
+        我有很多很多的内容哦
+        我有很多很多的内容哦
+        我有很多很多的内容哦
+        我有很多很多的内容哦
+        我有很多很多的内容哦
+    </div>
+    <script>
+        let div = document.querySelector('div');
+        // console.log(div.scrollWidth);
+        // div.addEventListener('scroll', function(){
+        //     console.log(this.scrollHeight);
+        // })
+        console.log(div.offsetLeft); //100 返回的是盒子距离左边的距离
+        console.log(div.offsetTop);//100 返回的是盒子距离顶部的距离
+        console.log(div.offsetWidth);//190 返回的是盒子的宽度+padding值+border值
+        console.log(div.offsetHeight);//190 返回的是盒子的高度+padding值+border值
+        console.log(document.documentElement.scrollTop);
+    </script>
+</body>
+</html>
