@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="jquery.min.js"></script>
+    <style>
+        div {
+            height: 200px;
+            width: 200px;
+            background-color: pink;
+            transition: all 0.5s;
+        }
+        .current {
+            background-color: red;
+            transform: rotate(360deg);
+        }
+    </style>
+</head>
+<body>
+    <div class="one"></div>
+    <script>
+        // let one = document.querySelector('.one');
+        // one.className = 'two'; //会覆盖之前的类名
+        $(function(){
+            $('.one').addClass('two'); //增加一个类名 不会覆盖以前的类
+        })
+    </script>
+</body>
+</html>

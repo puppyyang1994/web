@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!-- 引入jQuery  要用script 而不是link-->
+    <script src="./jquery.min.js"></script>
+    <title>Document</title>
+    <style>
+    div {
+        width: 100px;
+        height: 100px;
+        background-color: pink;
+    }
+    </style>
+</head>
+<body>
+    <div>
+
+    </div>
+   
+    <script>
+    // $('div').hide();
+    //1.  等着页面DOM加载完毕再去执行js代码
+    // $(document).ready(function(){
+    //     $('div').hide();
+        
+    // })
+    // 2. 等着页面DOM加载完毕再去执行js代码 (常用)
+    // 相当于原生js中的DOMContentLoaded, 不同于原生JS中的load事件 是等页面文档 外部JS CSS文件 图片等加载完毕才执行代码
+    // $(function(){
+    //     $('div').hide();
+    // })
+
+    // 1.$是jQuery的别称（另外的名字）
+    // $(function(){
+    //     alert(11)
+    // });
+    // jQuery(function(){
+    //     alert(11)
+    // })
+    // 2. $同时也是jQuery的 顶级对象    
+
+    // 1. DOM 对象
+    let mydiv = document.querySelector('div')
+    console.dir(mydiv) //mydiv是DOM对象
+    $(mydiv); //jQuery 对象
+
+    // 2. jQuery对象 用jQuery获取过来的对象 本质：通过$把DOM元素进行了包装
+    // $('div') 是jQuery对象
+    // S('video') jQuery对象
+   console.dir( $('div'));
+
+//  jQuery 对象没有play方法 所以把jquery对象转化为DOM对象
+//    3.jQUery对象只能使用jQuery方法，DOM对象只能使用js原生属性和方法
+//    把JQuery对象转化为DOM对象
+// [索引号]
+// get(索引号)
+   $('video')[0].play();
+   $('video').get(0).play();
+   </script>
+</body>
+</html>

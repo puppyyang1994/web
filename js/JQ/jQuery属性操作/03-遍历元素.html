@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="jquery.min.js"></script>
+</head>
+<body>
+    <div>1</div>
+    <div>2</div>
+    <div>3</div>
+    <script>
+       $(function(){
+         // 1 each()遍历
+        // i 是索引号 domEle 是DOM对象 不能用 domEle.css()
+        // let sum = 0;
+        let arr = ['red', 'green', 'blue'];
+        // $('div').each(function(i, domEle){
+        //     // 回调函数第一个参数一定是索引号 名称可以自己取
+        //     console.log(i);
+        //     // 第二个参数一定是DOM元素
+        //     // $(domEle).css('color', 'red');
+        //     $(domEle).css('color', arr[i]);
+        //     // 为每一个元素指定了不同的颜色
+        //     // 获取每个对象的值 转换为数字型
+        //     sum += parseFloat($(domEle).text())
+        //     console.log(sum);
+        // })
+
+        // $.each()方法遍历元素 主要用于遍历数据 处理数据
+        $.each($('div'),function(i, ele){
+            console.log(i);
+            console.log(ele);
+        });
+        // $.each(arr, function(i, ele){
+        //     console.log(i);
+        //     console.log(ele);
+        // })
+        $.each({
+            name: 'andy',
+            age: 18
+        }, function(i, ele){
+            console.log(i); //输出的是属性名
+            console.log(ele); //输出的是属性值
+        })
+       })
+    </script>
+</body>
+</html>

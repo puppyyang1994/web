@@ -1,0 +1,64 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="jquery.min.js"></script>
+</head>
+<body>
+    <script>
+        // 如果想要把某个对象拷贝（合并） 给另外一个对象使用，此时可以使用$.extend()
+        // 语法： $.extend([deep], target, object1, [objectN])
+        // deep如果为true 则是深拷贝 如果为false 则是浅拷贝 target要拷贝的目标对象 object带拷贝的第一个对象的对象
+        // 浅拷贝是把被拷贝的对象复杂数据类型中的地址拷贝给目标对象,修改目标对象会影响被拷贝的对象
+
+        $(function(){
+            // let targetObj = {};
+            // let obj = {
+            //     id: 1,
+            //     name: 'andy'
+            // }
+
+            // $.extend(targetObj, obj);
+            // console.log(targetObj); 
+            // let targetObj = {
+            //     id:0
+            // };
+            // let obj = {
+            //     id: 1,
+            //     name: 'andy'
+            // }
+
+            // $.extend(targetObj, obj);
+            // console.log(targetObj);  //会覆盖原来的内容
+            let targetObj = {
+                id:0,
+                msg: {
+                    sex: '男'
+                }
+            };
+            let obj = {
+                id: 1,
+                name: 'andy',
+                msg: {
+                    age:18
+                }
+            }
+
+            // $.extend(targetObj, obj);
+            // console.log(targetObj);  //会覆盖原来的内容
+            // targetObj.msg.age = 20;
+            // console.log(obj); //obj中的age也会变成20
+
+                // 2. 完全克隆（拷贝的对象 而不是地址） 修改目标不会影响被拷贝的对象
+                $.extend(true, targetObj, obj);
+            console.log(targetObj);  //不会覆盖原来的内容
+            targetObj.msg.age = 20;
+            console.log(obj); //obj中的age不会变化
+        })
+    </script>
+</body>
+</html>

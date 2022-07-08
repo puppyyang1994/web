@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="jquery.min.js"></script>
+</head>
+<body>
+    <ul>
+        <li>选</li>
+        <li>选</li>
+        <li>选</li>
+        <li>选</li>
+    </ul>
+    <ol>
+        <li>多谢</li>
+        <li>多谢</li>
+        <li>多谢</li>
+        <li>多谢</li>
+    </ol>
+    <script>
+       $(function(){
+        $('ul li:first').css('color', 'red');
+        $('ul li:last').css('color', 'blue');
+        $('ol li:odd').css('color', 'orange');
+        $('ol li:even').css('color', 'pink');
+        $('ul li:eq(2)').css('color', 'yellow')
+        // 索引号从0开始
+       })
+
+    </script>
+</body>
+</html>

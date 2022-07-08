@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {
+            width: 100px;
+            height: 100px;
+            background-color: red;
+        }
+    </style>
+    <script src="jquery.min.js"></script>
+    <script>
+        $(function(){
+            $('div').on({
+                click: function(){
+                    console.log('点击错了');
+                },
+                mouseover: function(){
+                    console.log('鼠标经过');
+                }
+            });
+
+            $('ul').on('click','li',function(){
+                alert('11');
+            })
+
+            // 1.事件解绑 off
+            // $('div').off(); //解除了div身上的所有属性
+
+            
+            $('div').off('click'); //解除了div click
+
+            $('ul').off('click', 'li'); // 解除了 li的click
+
+
+            // 如果有的事件只想触发一次 可以使用one()方法来绑定事件
+
+            $('p').one('click', function(){
+                alert(11);  //只会触发一次
+            })
+
+
+
+        })
+    </script>
+</head>
+<body>
+    <div></div>
+    <ul>
+       
+        <li>好孩子</li>
+        <li>好孩子</li>
+        <li>好孩子</li>
+        <li>好孩子</li>
+        
+    </ul>
+    <p>woshi</p>
+</body>
+</html>

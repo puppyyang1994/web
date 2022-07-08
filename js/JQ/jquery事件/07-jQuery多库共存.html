@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="jquery.min.js"></script>
+</head>
+<body>
+    <div></div>
+    <span></span>
+    <script>
+        $(function(){
+            function $(ele){
+                return document.querySelector('div');
+            }
+            console.log($('div'));
+            // $.each(); 会报错  如果$符号冲突 用jQuery代替$
+            jQuery.each();
+         
+            // $作为jQuery标识符 随着jQuery的流行 其他js库也会用$作为标识符
+            // 让jQuery和其他的js库不存在冲突 可以同时存在 这就叫做多库共存
+            // 解决方案： 把$改成  jquery
+            // 2. 让jQuery 释放对$ 的控制权 让用户自己控制
+            let suibian = jQuery.noConflict();  
+            console.log(suibian('span'));
+            suibian.each()
+        })
+    </script>
+</body>
+</html>

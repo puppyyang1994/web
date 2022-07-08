@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="jquery.min.js"></script>
+    <style>
+        div {
+            height: 200px;
+            width: 200px;
+            background-color: pink;
+            transition: all 0.5s;
+        }
+        .current {
+            background-color: red;
+            transform: rotate(360deg);
+        }
+    </style>
+</head>
+<body>
+    <div></div>
+    <script>
+        // $(function(){
+        //    console.log( $('div').css('width')); //200
+        // //    console.log($('div').css('background-color', 'red'));
+        // //    $('div').css({
+        //     // 以对象的形式来写 里面不需要加引号
+        //     width: 400,
+        //     height:400,
+        //     backgroundColor: 'red'
+        //     // 复合属性必须驼峰命名法
+        //    })
+
+
+        $(function(){
+            // $('div').click(function(){
+            //     // 添加类
+            //     $(this).addClass('current');
+            // })
+            // $('div').click(function(){
+            //     // 删除类
+            //     $(this).removeClass('current');
+            // });
+
+            // 切换类 toggle()  有这个类名 就去掉  没有就加上
+            $('div').click(function(){
+                // 添加类
+                $(this).toggleClass('current');
+            })
+        })
+       
+    
+        
+    </script>
+</body>
+</html>
