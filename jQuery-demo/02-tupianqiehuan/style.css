@@ -1,0 +1,43 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+
+html,body {
+    background-color: #c9c9c9;  
+
+}
+a {
+    text-decoration: none;
+}
+.mask {
+    height:640px;
+    position: relative;
+    
+}
+.mask .center {
+   /* 一定要给父元素设一个固定值 否则center的效果不生效 */
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+.center a {
+    /* 添加一个动画效果 */
+    transition: 0.5s;
+    opacity: 0.5;
+}
+.center a:hover{
+    opacity: 0.8;
+}
+.center .right {
+    position: absolute;
+    top: 140px;
+    right: 5px;
+}
+.center .left {
+    position: absolute;
+    top: 140px;
+    left: 5px;
+    display: none;
+}

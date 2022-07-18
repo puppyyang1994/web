@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="./lib/bootstrap.css"/>
+    <script src="./lib/jquery.js"></script>
+    
+    
+    
+</head>
+<body style="padding: 15px">
+    <!--评论列表  -->
+    
+    <div class="panel panel-primary">
+          <div class="panel-heading">
+                <h3 class="panel-title">发表评论</h3>
+          </div>
+          <!-- 把 div变成 form -->
+          <form class="panel-body" id="formAddCmt">
+                <div>评论人：</div>
+                <!-- 一定要加name  名字根据文档来-->
+                <input type="text" class="form-control" name="username"/>
+                <div>评论内容：</div>
+                <textarea  class="form-control" name="content"></textarea>
+                <button type="submit" class="btn btn-primary">发表评论</button>
+          </form>
+    </div>
+    
+    <ul class="list-group" id="cmt-list">
+        <li class="list-group-item">
+            <!-- 这里是右浮动 所以评论人在后 -->
+            <span class="badge" style="background-color: #F0AD4E;">评论时间</span>
+            <span class="badge" style="background-color:#5BC0DE; ">评论人</span>
+            Item 1
+        </li>
+    </ul>
+    <script src="./js/cmt.js"></script>
+</body>
+</html>

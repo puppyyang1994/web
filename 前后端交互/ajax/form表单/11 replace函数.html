@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- replace函数 替换字符 -->
+    <script>
+        // let result = '123456'.replace('123', 'abc');
+        // console.log(result);//abc456
+
+    //     let str = '<div>我是{{cindy}}</div>';
+    //     let pattern = /{{([a-zA-Z]+)}}/
+
+    //     let patternResult = pattern.exec(str);
+    // //    console.log(patternResult); //返回的是一个数组  索引为0 的是 {{name}}  索引为1的是 ‘name
+    //     str = str.replace(patternResult[0], patternResult[1]);
+    //     console.log(str);//<div>我是name</div>
+
+
+        // 实现字符串的多次replace操作
+       
+        // let str = '<div>{{name}}今年{{age}}岁了</div>'
+        // // 正则代表出现一次及以上
+        // let pattern = /{{\s*([a-zA-Z]+)\s*}}/
+
+        //  // 第一次匹配
+        // let result = pattern.exec(str);
+        // str =str.replace(result[0], result[1])
+        // // console.log(result);//
+
+
+        // // 第二次匹配
+
+        // let result2 = pattern.exec(str);
+        // str = str.replace(result2[0], result2[1])
+        // // console.log(str);
+
+        // // 第三次匹配
+
+        // let result3 = pattern.exec(str);
+        // console.log(result3); //结果为null 没有可在匹配的
+
+        // 用循环来进行简化的写法
+        // let str = '<div>{{name}}今年{{age}}岁了</div>';
+        // let pattern = /{{\s*([a-zA-Z]+)\s*}}/;
+
+        // let res = null
+        // while(res = pattern.exec(str)){
+        //     str = str.replace(res[0], res[1]);
+        // }
+        // console.log(str);//<div>name今年age岁了</div>
+        
+        //replace 替换为真值
+        let data = {name: 'zhangsan', age:20}
+        
+        let str = '<div>{{name}}今年{{age}}岁了</div>';
+        let pattern = /{{\s*([a-zA-Z]+)\s*}}/;
+
+        let res = null
+        while(res = pattern.exec(str)){
+            // res[1]是name 或者 age data[name]是属性的值
+            str = str.replace(res[0], data[res[1]]);
+        }
+        console.log(str);
+    </script>
+</body>
+</html>

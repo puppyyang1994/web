@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./lib/jquery.js"></script>
+</head>
+
+<body>
+    <button id="btn1">GET请求</button>
+    <button id="btn2">POST请求</button>
+    <!-- 请求行 请求header 空格 请求体 -->
+
+    <script>
+        $(function () {
+            // 发起get请求
+            $('#btn1').on('click', function () {
+                $.ajax({
+                    method: 'GET',
+                    url: 'http://ajax.frontend.itheima.net:3006/api/get',
+                    data: {
+                        name: 'zs',
+                        age: 20
+                    },
+                    success: function (res) {
+                        console.log(res);
+                    }
+                })
+            })
+            // 发起post请求
+            // $('#btn2').on('click', function () {
+            //     $.ajax({
+            //         method: 'POST',
+            //         url: 'http://ajax.frontend.itheima.net:3006/api/get',
+            //         data: {
+            //             name: 'zs',
+            //             age: 20
+            //         },
+            //         success: function (res) {
+            //             console.log(res);
+            //         }
+            //     })
+            // })
+
+
+
+
+
+
+
+        })
+    </script>
+</body>
+
+</html>

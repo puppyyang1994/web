@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="jquery.min.js"></script>
+</head>
+<body>
+    <button id="getInfo">获取信息</button>
+    <script >
+        // $.ajax();  type url data success
+        $(function(){
+        //    1. 发起get请求
+            $('#getInfo').on('click', function(){
+            //     $.ajax({
+            //         type: 'GET',
+            //         url: 'http://www.liulongbin.top:3006/api/getbooks',
+            //         data: {id: 1},
+            //         success: function(res){
+            //             //请求成功后的回调函数
+            //             console.log(res);
+            //             // {status: 200, msg: '获取图书列表成功', data: Array(1)}
+                        
+            //         }
+
+            //     })
+            // })
+                $.ajax({
+                    type: 'POST',
+                    url: 'http://www.liulongbin.top:3006/api/addbook',
+                    data: {
+                        bookname: '水浒传',
+                        author: "施耐庵",
+                        publisher: "天津图书出版社"
+                    },
+                    success: function(res){
+                        //请求成功后的回调函数
+                        console.log(res);
+                        // {status: 201, msg: '添加图书成功'}
+                        
+                    }
+
+                })
+            })
+
+
+
+        })
+    </script>
+</body>
+</html>

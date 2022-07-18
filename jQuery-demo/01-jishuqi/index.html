@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./jquery/jquery-3.5.1.min.js"></script>
+    <link rel="stylesheet" href="./styl.css">
+</head>
+
+<body>
+    <div class="ipt-num">
+        <button class="btn-left">-</button>
+        <span class="num">0</span>
+        <button class="btn-right">+</button>
+    </div>
+
+    <!-- js部分 -->
+    <script>
+        $(function () {
+            let n = 0;
+            $('.btn-left').on('click', function () {
+                if (n > 0) {
+                    n--;
+                    $('.num').text(n);
+                } else {
+                    alert('数字已小于0')
+                }
+            })
+
+            $('.btn-right').on('click', function () {
+                if (n < 20) {
+                    n++;
+                    $('.num').text(n)
+                } else {
+                    alert('已超过最大数字')
+                }
+            })
+
+        })
+    </script>
+</body>
+
+</html>

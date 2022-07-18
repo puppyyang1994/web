@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./lib/jquery.js"></script>
+    <style>
+        html,
+        body {
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+        }
+
+        #angel {
+            position: absolute;
+        }
+    </style>
+</head>
+
+<body>
+    <img src="./angel.gif" alt="" id="angel">
+
+    <script>
+        //使用节流阀优化效果
+        $(function () {
+            // 1.获取图片
+            let angel = $('#angel')
+            //步骤1：定义一个节流阀
+            let timer = null;
+            //    2. 绑定mousemove事件
+            $(document).on('mousemove', function (e) {
+                // 判断节流阀是否为空,不为空 则证明距离上次执行不足16毫秒
+                if (timer) {
+                    return
+                }
+                // 步骤2： 开启延时器
+                timer = setTimeout(function () {
+
+                    $(angel).css('left', e.pageX + 'px').css('top', e.pageY + 'px')
+                }, 16)
+                // console.log(1);
+                // 当设置了鼠标跟随效果后 清空timer节流阀 方便下次开启
+                timer = null;
+
+
+            })
+        })
+    </script>
+</body>
+
+</html>
