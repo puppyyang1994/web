@@ -1,0 +1,62 @@
+1. node.js的概念
+2. Node.js可以做什么
+3. Node.js中的JS组成部分
+使用fs模块读写和操作文件
+使用path模块处理文件
+HTTP模块
+
+
+回顾技术
+
+html 网页的结构
+CSS
+JS 交互
+
+浏览器中的JS的组成部分
+①JS核心语法：变量，数据类型，循环，分支，判断，函数，作用域，this
+②WEBAPI：DOM操作 BOM操作 基于XMLhttpRequest的Ajax操作
+
+
+为什么JS可以在浏览器中执行：
+待执行的JS代码
+javascript解析引擎  Chrome v8 (性能最好) firefox odinMonkey
+safri JScore  IE chakra
+
+为什么JS可以操作DOM和BOM：
+DOM API  BOM API Ajax API （浏览器提供的内置API）
+待执行的JS代码（调用WEB API）
+javascript解析引擎
+
+浏览器中的JS运行环境（代码运行所必需的必要环境）
+每一个浏览器都是运行环境（以Chrome运行环境为例）
+V8解析引擎 +内置API （dom bom canvas XMLhttprequest JS内置对象）
+V8解析引擎负责解析和执行JS代码
+内置API是运行环境（也就是浏览器）提供的特殊接口，只能在所属的环境中被调用
+
+
+JS能否做后端开发（Java Python PHP）
+Node.js 是一个运行环境 通过node JavaScript可以进行后端开发
+
+Node.js是什么： 是一个基于Chrome v8引擎的 JavaScript运行环境
+
+
+Node.js中的JavaScript运行环境
+Node.js运行环境：
+V8引擎 + 内置API（fs path http JS内置对象  querystring）
+
+注意：浏览器是JavaScript的前端运行环境
+Node.js是JavaScript的后端运行环境， Node.js中无法调用DOM和BOM等浏览器内置API
+
+Node.js可以做什么？
+基于express框架 可以快速构建web应用
+基于electron框架 可以构建跨平台的桌面应用
+基于 restify 可以快速构建API接口项目
+读写和操作数据库 创建使用的命令行工具辅助开发
+
+好学好学好学！ 怎么学：
+js学习路径回顾：
+JavaScript基础语法+浏览器内置API（DOM+BOM）+第三方库（jQuery+art-template等）
+路径：
+JavaScript基础语法+Node.js内置API（fs path http等）+第三方API（express + mysql等）
+
+查看已安装的node.js版本号
