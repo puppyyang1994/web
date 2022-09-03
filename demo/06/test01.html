@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        html,
+        body {
+            margin: 0;
+            padding: 0;
+        }
+
+        .search {
+            display: none;
+            position: absolute;
+            left: 260px;
+            top: 10px;
+            width: 150px;
+            height: 40px;
+            padding: 5px;
+            border: 1px solid black;
+
+        }
+
+        .search:hover {
+            cursor: default;
+        }
+
+        .choose {
+            display: none;
+            position: absolute;
+            left: 260px;
+            top: 64px;
+            float: left;
+            width: 163px;
+            height: 200px;
+            padding: 20px 5;
+            overflow-y: auto;
+            outline: none;
+        }
+
+        span {
+            padding: 0 3px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <input type="radio" name="choice" id="all" checked>下级全部区划
+    <input type="radio" name="choice" id="part">下级部分区划
+    <div>
+        <div class="search">
+            <!-- <span></span> -->
+        </div>
+        <select name="" class="choose" automatic-dropdown size="20">
+            <option value="1" selected>海口</option>
+            <option value="2">三亚</option>
+            <option value="3">琼海</option>
+            <option value="4">万宁</option>
+            <option value="5">文昌</option>
+            <option value="6">陵水</option>
+            <option value="7">三沙</option>
+        </select>
+
+        <script>
+            let part = document.getElementById('part')
+            let all = document.getElementById('all')
+            let search = document.querySelector('.search')
+            let choose = document.querySelector('.choose')
+
+            part.addEventListener('click', function () {
+                showPart()
+            })
+
+            all.addEventListener('click', function () {
+                noDisplay()
+            })
+
+            function showPart() {
+                search.style.display = 'block'
+                choose.style.display = 'block'
+            }
+
+            showText()
+
+            function noDisplay() {
+                search.style.display = 'none'
+                choose.style.display = 'none'
+            }
+
+            function showText() {
+                choose.addEventListener('change', function () {
+                    let index = this.selectedIndex
+                    let options = this.options
+                    let span = document.createElement('span')
+                    search.innerHTML += `<span>${options[index].text}</span>`
+                    let children = search.children
+                    for (let i = 0; i < children.length; i++) {
+                        children[i].addEventListener('click', function () {
+                            event.stopPropagation()
+                            search.removeChild(this)
+                        })
+                    }
+                })
+            }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        </script>
+
+</html>

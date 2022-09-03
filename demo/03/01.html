@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+
+</head>
+
+<body>
+    <div id="div1">
+        <p id="p1">这是一段文字</p>
+        <p id="p2">这是另一段文字</p>
+    </div>
+    <script>
+        let p = document.createElement('p')
+        let node = document.createTextNode('这是新文本')
+
+        p.appendChild(node)
+
+        let e = document.getElementById('div1')
+        let child = document.getElementById('p2')
+        e.insertBefore(p, child)
+    </script>
+</body>
+
+</html>

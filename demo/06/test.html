@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        for (let i = 0; i < 10; i++) {
+            let drop = getWhiskey()
+            smell(drop)
+            add(drop, glass)
+        }
+
+        for (let t = 0; t < 3; t++) {
+            let tomato = getTomato()
+            examine(tomato)
+            let juice = press(tomato)
+            add(juice, glass)
+        }
+
+
+        addWhiskey(glass)
+        addJuice(glass)
+        function addWhiskey(container) {
+            for (let i = 0; i < 10; i++) {
+                let drop = getWhiskey()
+            }
+        }
+
+        function addJuice(container) {
+            for (let t = 0; t < 3; t++) {
+                let tomato = getTomato()
+            }
+        }
+    </script>
+</body>
+
+</html>
