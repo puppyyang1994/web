@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        html,
+        body {
+            font-family: sans-serif;
+            background: #ffc600;
+        }
+
+        .inbox {
+            max-width: 400px;
+            margin: 50px auto;
+            background: white;
+            border-radius: 5px;
+            box-shadow: 10px 10px 0 rgba(0, 0, 0, 0.1);
+        }
+
+        .item {
+            display: flex;
+            align-items: center;
+            border-bottom: 1px solid #F1F1F1;
+
+        }
+
+        p {
+            margin: 0;
+            padding: 20px;
+            flex: 1;
+            font-family: 'helvetica neue';
+            font-size: 20px;
+            font-weight: 200;
+            border-left: 1px solid #D1E2FF;
+            transition: background 0.2s;
+        }
+
+        /* 属性选择器的写法 */
+        input[type="checkbox"] {
+            margin: 20px;
+        }
+
+        /* 选中checkbox之后 p标签的内容加上中横线 */
+        input:checked+p {
+            background: #f9f9f9;
+            text-decoration: line-through;
+        }
+
+        .item:last-child {
+            border-bottom: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="inbox">
+        <div class="item">
+            <input type="checkbox">
+            <p>This is an inbox layout.</p>
+        </div>
+        <div class="item">
+            <input type="checkbox">
+            <p>Check one item</p>
+        </div>
+        <div class="item">
+            <input type="checkbox">
+            <p>Hold down your Shift key</p>
+        </div>
+        <div class="item">
+            <input type="checkbox">
+            <p>Check a lower item</p>
+        </div>
+        <div class="item">
+            <input type="checkbox">
+            <p>Everything in between should also be set to checked</p>
+        </div>
+        <div class="item">
+            <input type="checkbox">
+            <p>Try do it without any libraries</p>
+        </div>
+        <div class="item">
+            <input type="checkbox">
+            <p>Just regular JavaScript</p>
+        </div>
+        <div class="item">
+            <input type="checkbox">
+            <p>Good Luck!</p>
+        </div>
+        <div class="item">
+            <input type="checkbox">
+            <p>Don't forget to tweet your result!</p>
+        </div>
+    </div>
+
+    <script>
+        // 1. 获取所有的CheckBox
+        const checkboxes = document.querySelectorAll('.inbox input[type="checkbox"]')
+        // 转换Nodelist为数组
+        const boxArr = Array.from(checkboxes)
+        let lastChecked
+        let onOff = false
+
+
+        // 2. 遍历所有的checkbox, 当触发了点击事件后调用函数
+        checkboxes.forEach(checkbox => checkbox.addEventListener('click', handleCheck))
+
+
+        function handleCheck(e) {
+            if (!lastChecked) lastChecked = this
+            // 确定选中 or 取消选中
+            onOff = lastChecked.checked ? true : false
+            if (e.shiftKey) {
+
+                let start = boxArr.indexOf(this)
+                let end = boxArr.indexOf(lastChecked)
+                // 截取应该选中的范围 改成选中状态
+                boxArr.slice(Math.min(start, end), Math.max(start, end) + 1)
+                    .forEach(input => input.checked = onOff)
+                console.log(start + '+' + end);
+            }
+
+            lastChecked = this
+
+        }
+    </script>
+</body>
+
+</html>
