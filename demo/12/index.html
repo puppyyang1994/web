@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>输入密码出现菜单</title>
+    <script src="https://www.cornify.com/js/cornify.js"></script>
+</head>
+
+<body>
+    <script>
+        // // 声明一个空数组，用于存放输入的字符
+        // const pressed = [];
+        // // 声明暗号
+        // const secretCode = 'wesbos';
+        // // 添加键盘的keyup事件
+        // // keydown 只要按着就会一直触发 所以不能使用keydown
+        // window.addEventListener('keyup', (e) => {
+        //     //键盘对应的值
+        //     console.log(e.key);
+        //     // 把按下的值放到数组里
+        //     pressed.push(e.key)
+        //     //-secretCode.length - 1 可以直接写为0 因为一直是复数 不会执行
+        //     // 只有当输入的按键个数大于或者等于7了 press.length-secretCode.length 才会有真的意义 splice(0,0)是没有意义的
+        //     pressed.splice(0, pressed.length - secretCode.length)//截取数组
+        //     if (pressed.join('').includes(secretCode)) {//判断是否符合暗号
+        //         console.log('Ding Ding');
+        //         cornify_add()
+        //     }
+        //     console.log(pressed);
+
+
+        // })
+
+        // 这篇主要涉及到的是数据结构里的队列
+        // 还是应该少用splice  overflowstack 上有人推荐的这种写法更加的通俗易懂
+        const pressed = [];
+        var secretCode = 'wesbos';
+        window.addEventListener('keyup', e => {
+            pressed.push(e.key);
+
+            while (pressed.length > secretCode.length) {
+                // shift()从数组头部删除一个元素
+                pressed.shift();
+            }
+
+            if (pressed.join('').toLowerCase() === secretCode) {
+                console.log("SECRET COMMAND ACTION CODE TRIGGERED! COMMENCE KAMEHAMEHA");
+                cornify_add()
+            }
+
+
+        })
+    </script>
+</body>
+
+</html>
