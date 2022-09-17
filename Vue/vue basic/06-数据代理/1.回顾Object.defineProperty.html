@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Object.definedProperty回顾</title>
+</head>
+
+<body>
+
+    <script>
+        let number = 18
+        let person = {
+            name: '张三',
+            sex: 'nan'
+        }
+        // 给对象添加属性
+        Object.defineProperty(person, 'age', {
+            // value: 18,
+            // // 控制属性是否可枚举，默认值是false
+            // enumerable: true,
+            // // 可写
+            // writable: true,
+            // configurable: true //控制属性是否可以被删除
+
+
+            // 除了上面四个基本配置项，还有高级配置项
+            //当有人读取person的age属性时，get函数就会被调用，返回值就是age的值
+            // getter
+            get: function () {
+                return number
+                // 以后就可以通过number来更改age的值
+
+            },
+            // 当修改person的age属性时，set函数（setter）就会被调用，且会收到修改的具体值
+
+            set(value) {
+                console.log('有人修改了age的属性,且值是' + value);
+                // 要加上这一句 才可以真正修改
+                number = value;
+            }
+
+
+        })
+        // 不可遍历（枚举）
+        // console.log(Object.keys(person)); //age 不可枚举
+        console.log(person);
+
+        // for (let k in person) {
+        //     console.log(person[k]);//也不会有age
+        // }
+
+
+    </script>
+</body>
+
+</html>

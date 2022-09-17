@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>初识vue</title>
+    <script src="../vue.js"></script>
+</head>
+
+<body>
+    <!-- 准备好一个容器 -->
+    <div id="root">
+        <h1>Hello {{name.toUpperCase()}}</h1>
+    </div>
+    <script>
+        Vue.config.productionTip = false
+        // 创建vue实例
+        new Vue({
+            el: '#root', //el用于指定当前Vue实例为拿个容器服务，值通常为CSS选择器
+            data: {
+                // data中用于存储数据，数据供el所指定的容器去使用，值暂时先写成一个对象
+                name: 'Shang'
+            }
+        })
+
+// 容器和实例之间是一一对应的关系
+// 注意区分JS表达式 和JS代码
+// JS表达式：一个表达式会生成一个值，可以放在任何一个需要值的地方 a a+b  demo(1)[函数调用表达式]   x===y ? 'a' : 'b'
+// JS 代码（语句）  if(){}  for(){}
+    </script>
+</body>
+
+</html>
