@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>事件的基本使用</title>
+    <script src="./vue.js"></script>
+</head>
+
+<body>
+    <div id="root">
+        <h2>欢迎来到{{name}}</h2>
+        <button v-on:click="showInfo">点我提示信息(不传参）</button>
+        <!-- 传参加一个（）里面写上参数就可以；  -->
+        <button @click="showInfo2(66, $event)">点我提示信息</button>
+    </div>
+
+    <script>
+        Vue.config.productionTip = false
+        const vm = new Vue({
+            el: '#root',
+            data: {
+                name: '尚硅谷'
+                // 只有放在data里面的内容才会做数据劫持和数据代理
+                // 不要把函数方法写在data里，因为这样会变成数据代理
+            },
+            methods: {
+                showInfo(event) {
+                    // console.log(event.target);
+                    // console.log(event.target.innerText);
+                    // console.log(this); //此处的this 是vm
+
+                },
+                showInfo2(number, a) {
+                    console.log(number, a);
+
+                }
+            }
+        })
+
+
+    </script>
+</body>
+
+</html>

@@ -361,3 +361,237 @@ const vm = new Vue({
 
 
 
+#### 7. 事件处理
+
+##### 7.1 事件的基本使用
+
+1. 使用`v-on:xxx`或者`@xxx`绑定事件，其中`xxx`是事件名。
+2. 事件的回调需要配置在`methods`对象中,最终会在`vm`上。
+3. `methods`中配置的函数，不要用箭头函数，否则`this`就不是`vm`了。
+4. `methods`中配置的函数，都是被`Vue`所管理的函数，`this`的指向是`vm`或者组件实例对象。
+5. `@ckick="demo"`和`@click="demo($event)"`效果一致，但后者可以传参。
+
+```html
+ <div id="root">
+        <h2>欢迎你{{name}}</h2>
+        <button v-on:click="showInfo">点我提示信息（不传参数）</button>
+        <button @click="showInfo2(66, $event)">点我提示信息2（传递参数）</button>
+    </div>
+```
+
+```javascript
+<script>
+        Vue.config.productionTip = false
+        const vm = new Vue({
+            el: '#root',
+            data: {
+                  // 只有放在data里面的内容才会做数据劫持和数据代理
+                // 不要把函数方法写在data里，因为这样会变成数据代理
+                name: 'Puppy'
+            },
+            methods: {
+                showInfo() {
+                    alert('第一次提示')
+                    alert(event)
+                },
+                showInfo2(number, a) {
+                    alert(number)
+                    alert('第二次提示')
+                }
+            }
+        })
+    </script>
+```
+
+
+
+##### 7.2 事件修饰符
+
+`Vue`中的事件修饰符：
+
+1. `prevent`阻止默认事件（比如`a标签`的默认跳转）
+
+   ```javascript
+    // HTML
+   <div id="root">
+        <a href="http://www.atguigu.com" @click.prevent="showInfo">点击提示信息</a>
+       </div>
+   //JS
+   new Vue({
+       el: '#root',
+       methods: {
+       showInfo() {
+       alert('Hi')
+       }
+       }
+   })
+   ```
+
+   
+
+2. `stop`阻止事件冒泡
+
+   ```html
+    <div id="root" @click="showInfo">
+           <div>
+               <button @click.stop="showInfo">我是按钮</button>
+           </div>
+       </div>
+   ```
+
+   
+
+3. `once`事件只触发一次
+
+   ```html
+     <div id="root">
+           <button @click.once="showInfo">我是按钮</button>
+       </div>
+   ```
+
+   
+
+4. `capture`使用事件的捕获模式
+
+   ```html
+   <div id="root">
+       <div class="class1" style="padding: 5px; background: skyblue; " @click.capture="showInfo">
+       div1
+       <div class="class2" style="padding: 5px; background: skyblue; " @click="showInfo2">
+       div2
+       </div>
+           </div>
+    //点击div2之后会先触发showInfo,之后才是showInfo2
+   ```
+
+   ```javascript
+    Vue.config.productionTip = false
+           new Vue({
+               el: '#root',
+               methods: {
+                   showInfo() {
+                       alert('盒子1')
+                   },
+                   showInfo2() {
+                       alert('盒子2')
+                   }
+               }
+           })
+   ```
+
+   
+
+5. `self`只有`event.target`是当前操作的元素时才触发事件
+
+   ```javascript
+    <div class="demo1" @click.self="showInfo">
+               <button @click="showInfo">点我提示信息</button>
+           </div>
+   new Vue({
+               el: '#root',
+               methods: {
+                   showInfo(e) {
+                       console.log(e.target);
+                   },
+   
+               }
+           })
+   //这样的执行结果是(冒泡的结果)
+   //<button>点我提示信息</button>
+   //<button>点我提示信息</button>
+   
+   //加上self之后，只执行了btn里的，所以其实这样也可以阻止冒泡
+   //<button>点我提示信息</button>
+   
+   ```
+
+   
+
+6. `passive`事件的默认行为立即执行，无需等待事件回调执行完毕（比如`wheel`事件）
+
+   ```javascript
+    <ul style="height: 200px; background-color: aqua; overflow: auto;" @wheel.passive="showInfo">
+               <li style="height: 100px; ">1</li>
+               <li style="height: 100px; ">2</li>
+               <li style="height: 100px; ">3</li>
+               <li style="height: 100px; ">4</li>
+           </ul>
+   showInfo() {
+   for (let i = 0; i < 100000; i++) 
+   {
+       console.log('#');
+   }
+        console.log('累坏了');
+        // 整个函数执行完之后 wheel才会真的动滚动条
+        // 给wheel事件加上passive之后 就会立即执行滚动条 
+    }
+   
+   ```
+
+   
+
+##### 7.3 键盘事件
+
+1. `Vue`中常用的按键别名：
+
+- 回车 `enter`
+
+- 删除`delete`(捕获删除和退格键)
+
+- 退出`esc`
+
+- 空格`space`
+
+- 换行`tab`(特殊，必须配合`keydown`去使用)
+
+- 上`up`
+
+- 下`down`
+
+- 左`left`
+
+- 右`right`
+
+  ```html
+   <div id="root">
+          <input type="text" placeholder="按下回车键提示输入" @keyup.delete="showInfo">
+  
+      </div>
+  ```
+
+  
+
+2. `Vue`未提供别名的按键，可以使用按键原始的`key`值去绑定，但要注意转为`keytab-case`(短横线命名)
+
+3. 系统修饰键(用法特殊):ctrl, alt, shift, meta
+
+   - 配合`keyup`使用：按下键修饰的同时，再按下其他键，随后释放其他键，事件才被触发。
+   - 配合`keydown`使用：正常触发事件。
+
+4. `Vue.config.keyCodes.`自定义健名 = 键码， 可以去定制按键别名
+
+   ```html
+    <div id="root">
+           <input type="text" placeholder="按下回车键提示输入" @keyup.huichen="showInfo">
+   
+       </div>
+   ```
+
+   ```javascript
+   <script>
+           Vue.config.productionTip = false
+           Vue.config.keyCodes.huichen = 13
+           //输入huichen后按回车 打印的是13
+           new Vue({
+               el: '#root',
+               methods: {
+                   showInfo(e) {
+                       console.log(e.keyCode);
+   
+                   }
+               }
+           })
+   ```
+
+   
+

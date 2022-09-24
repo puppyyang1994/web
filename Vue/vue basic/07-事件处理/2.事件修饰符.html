@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>事件修饰符</title>
+    <script src="./vue.js"></script>
+    <style>
+        * {
+            margin-top: 20px;
+        }
+
+        .demo1 {
+            height: 50px;
+            background-color: skyblue;
+        }
+
+        .box1 {
+            padding: 5px;
+            background-color: skyblue;
+
+        }
+
+        .box2 {
+            padding: 5px;
+            background-color: skyblue;
+
+        }
+
+        .list {
+            width: 200px;
+            height: 200px;
+            background-color: peru;
+            overflow: auto;
+        }
+
+        li {
+            height: 100px;
+        }
+    </style>
+</head>
+<!-- Vue中的事件修饰符 -->
+<!--1. prevent：阻止默认事件（常用）-->
+<!-- 
+        2. stop阻止事件冒泡（常用）
+        3. once：事件只触发一次（常用）
+        4. capture： 使用事件的捕获模式
+        5. self: 只有event.target是当前操作的元素时才触发事件 
+        6. passive: 事件的默认行为立即执行，无序等待事件回调执行完毕-->
+
+<body>
+    <div id="root">
+        <h2>欢迎来到{{name}}</h2>
+        <!-- .prevent 阻止默认事件 -->
+        <a href="www.baidu.com" @click.prevent="showInfo">点击我跳转</a>
+        <div class="demo1" @click="showInfo">
+            <button @click.stop="showInfo">点我提示信息</button>
+        </div>
+        <!-- 事件只触发一次 -->
+        <button @click.once="showInfo">点我提示信息</button>
+
+        <!-- 使用事件的捕获模式 -->
+        <div class="box1" @click.capture="showMSG(1)">
+            div1
+            <div class="box2" @click="showMSG(2)">
+                div2
+            </div>
+        </div>
+        <!-- 5. self: 只有event.target是当前操作的元素时才触发事件  -->
+        <div class="demo1" @click.self="showInfo">
+            <button @click="showInfo">点我提示信息</button>
+        </div>
+
+        <!-- 6. passive: 事件的默认行为立即执行，无序等待事件回调执行完毕 -->
+        <ul @wheel.passive="demo" class="list">
+            <!-- wheel 和scroll 是不同的 -->
+            <li>1</li>
+            <li>2</li>
+            <li>3</li>
+            <li>4</li>
+        </ul>
+    </div>
+    <!-- 修饰符可以连续写 -->
+    <script>
+        Vue.config.productionTip = false
+        const vm = new Vue({
+            el: '#root',
+            data: {
+                name: 'Beijing'
+            },
+            methods: {
+                showInfo(e) {
+                    // 阻止a标签的默认跳转
+
+                    // e.preventDefault()
+                    // alert('跳转成功')
+                    console.log(e.target)
+                },
+                showMSG(message) {
+                    console.log(message);
+                },
+                demo() {
+                    for (let i = 0; i < 100000; i++) {
+                        console.log('#');
+
+                    }
+
+                    console.log('累坏了');
+
+                    // 整个函数执行完之后 wheel才会真的动滚动条
+                    // 给wheel事件加上passive之后 就会立即执行滚动条 
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>

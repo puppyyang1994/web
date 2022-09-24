@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./vue.js"></script>
+</head>
+
+<body>
+    <div id="root">
+        <h2>欢迎来到{{name}}</h2>
+        <input type="text" placeholder="按下回车提示输入" @keyup.ctrl="showInfo">
+    </div>
+
+    <script>
+        // 1. Vue中常用的按键别名：
+        // 回车： enter
+        //删除 delete (捕获删除和delete)
+        // 退出 esc
+        // 空格 space
+        //换行 tab (必须配合keydown去使用)
+        //上 up  下 down  左  left  右 right
+        // ctrl 也要配合keydown使用  win键 alt  shift
+        Vue.config.prodcutionTip = false;
+        new Vue({
+            el: '#root',
+            data: {
+                name: '尚硅谷'
+            },
+            methods: {
+                showInfo(e) {
+                    // if (e.key === 'Enter') return console.log(e.target.value);
+                    console.log(e.target.value);
+                    // console.log(e.key, e.keyCode);
+
+
+
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>
