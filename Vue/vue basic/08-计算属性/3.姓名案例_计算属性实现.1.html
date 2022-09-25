@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="./vue.js"></script>
+</head>
+<body>
+    <!-- 计算属性：
+    1： 定义： 通过已有的属性，计算出来的属性 
+    2： 远离： 底层借助了Object.defineproperty方法提供的getter和setter
+    3： get函数什么时候执行
+    4： 优势： 与methods相比 内部有缓存机制（复用） 效率更高，调试方便
+    5: 备注：
+        1. 计算属性最终会出现在vm上，直接读取使用即可
+        2. 如果计算属性要被修改，那必须写set函数去响应修改，且set中要引起计算时依赖的数据的改变-->
+        <div id="root">
+              
+                姓：<input type="text" v-model="firstName"> <br><br>
+                名：<input type="text" v-model="lastName"> <br><br>
+                姓名： <span>{{fullName}}</span><br><br>
+                <!-- get只调用了一次 fullName调用一次后就缓存了  但methods会吊好多次-->
+                姓名： <span>{{fullName}}</span><br><br>
+                <!-- 姓名： <span>{{fullName}}</span><br><br>
+                姓名： <span>{{fullName}}</span><br><br>
+              -->
+            </div>
+        
+            <script>
+            Vue.config.productionTip = false;
+           const vm = new Vue({
+                el: '#root',
+                data: {
+                    firstName: '张',
+                    lastName: '三'
+                },
+                computed: {
+                    // fullName这里不能理解成对象
+                    fullName: {
+                        // set和get不能写成箭头函数
+                        // get的作用： 当有人读取fullName时，get就会被调用
+                        // get什么时候调用： 初次读取fullName时会被调用； 所依赖的数据发生变化时
+                        get(){
+                            // get的指向Vue已经调成vm了
+                          
+                            // console.log('get被调用了');
+                            
+                            return this.firstName + '-' + this.lastName
+                        },
+                        // set什么时候调用：当fullName被修改时
+                        set(value){
+                            console.log('set', value);
+                            // 把字符串变成数组
+                           const arr = value.split('-')
+                           this.firstName = arr[0]
+                           this.lastName = arr[1]
+                            
+                        }
+                    }
+                }
+                
+            })
+    
+            
+            </script>
+</body>
+</html>

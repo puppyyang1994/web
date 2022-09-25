@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="./vue.js"></script>
+</head>
+<body>
+  <!-- computed能完成的watch都能完成
+    2. watch能完成的功能，computed不一定能完成， 例如watch可以进行异步操作
+    3. 两个重要的小原则：
+        a. 所有被Vue管理的函数，最好也称普通函数，这样this的指向才是vm或者组件实例对象
+        b. 所有不被this管理的函数（定时器的回调函数，ajax的回调函数，promise的回调函数等）最好写成箭头函数，这样
+            this的指向才是vm或组件实例对象 -->
+    <div id="root">
+        姓：<input type="text" v-model="firstName"><br><br>
+        名：<input type="text" v-model="lastName"> <br><br>
+        全名：<span>{{fullName}}</span><br><br>
+  
+    </div>
+    <script>
+      const vm =  new Vue({
+            el:'#root',
+            data:{
+                firstName:'张',
+                lastName: '三',
+                fullName:'张-三'
+            },
+            watch:{
+                // watch能开启异步任务但是computed不能开
+                firstName(val){
+                    // 让他延迟一秒钟
+                   setTimeout(()=>{
+                    //    箭头函数没有自己的this 所以往外找 找到的是vm
+                    this.fullName = val + '-' + this.lastName 
+                   }, 1000)
+                },
+               lastName(val){
+                    this.fullName = this.firstName + '-' + this.lastName 
+                },
+
+            }
+      })
+        </script>
+</body>
+</html>

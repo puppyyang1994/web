@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="./vue.js"></script>
+</head>
+<body>
+    <!-- 1. 党建室属性变化时，回调函数自动调用，进行相关操作
+            2. 监视的属性必须存在才能进行监视
+            3. 监视的两张写法：
+                a. new Vue 时传入watch配置
+                b. 通过vm.$watch 监视 -->
+    <div id="root">
+        <h2>今天天气很{{info}}</h2>
+        <!--绑定事件的时候 @xxx='yyy', yyy可以写一些简单的语句 -->
+        <!-- <button @click="changeWeather" >切换天气</button> -->
+        <button @click="isHot = !isHot" >切换天气</button>
+    </div>
+    <script>
+      const vm =  new Vue({
+            el:'#root',
+            data:{
+                isHot: true
+            },
+            computed:{
+                info(){
+                    return this.isHot ? '炎热' :'凉爽'
+                }
+            },
+            methods: {
+                // changeWeather(){
+                //     this.isHot = !this.isHot
+                // }
+            },
+
+        //   watch:{
+        //       isHot: {
+        //         //   初始化时让handler调用一下
+        //         immediate:true,
+        //           handler(newValue, oldValue){
+        //             //   当isHot发生改变时调用
+        //             console.log('isHot被改变了', newValue, oldValue);
+                    
+        //           },
+                  
+        //       }
+        //   }
+        // 计算属性也可以被监视
+        //     //   info: {
+        //     //     //   初始化时让handler调用一下
+        //     //     immediate:true,
+        //     //       handler(newValue, oldValue){
+        //     //         //   当isHot发生改变时调用
+        //     //         console.log('info被改变了', newValue, oldValue);
+                    
+        //     //       },
+                  
+        //       }
+        //   }
+        })
+
+        // 创建实例时知道监视谁时用这个
+        vm.$watch('isHot', {
+            immediate:true,
+                  handler(newValue, oldValue){
+                    //   当isHot发生改变时调用
+                    console.log('isHot被改变了', newValue, oldValue);
+                  }        
+
+        })
+        </script>
+</body>
+</html>

@@ -595,3 +595,391 @@ const vm = new Vue({
 
    
 
+#### 8. 计算属性
+
+##### 8.1 姓名案例
+
+1. 插值语法实现
+
+   ```html
+    <div id="root">
+           姓：<input type="text" v-model="firstName"><br><br>
+           名：<input type="text" v-model="lastName"><br><br>
+   // 从0开始截取三位 不包括第三位
+           姓名：<span>{{firstName.slice(0,3)}}-{{lastName}}</span>
+       </div>
+   ```
+
+   ```javascript
+    <script>
+           new Vue({
+               el: '#root',
+               data: {
+                   firstName: '张',
+                   lastName: '三'
+               }
+           })
+       </script>
+   ```
+
+   2. `methods`实现
+
+      ```html
+       <div id="root">
+              姓：<input type="text" v-model="firstName"><br><br>
+              名：<input type="text" v-model="lastName"><br><br>
+              <!-- 展示的是函数调用返回的结果，所以（）一定要加上 -->
+              姓名：<span>{{fullName()}}</span>
+          </div>
+      ```
+
+      ```javascript
+       <script>
+              new Vue({
+                  el: '#root',
+                  data: {
+                      //只要data中的值发生改变Vue一定会重新解析模板
+                      firstName: '张',
+                      lastName: '三'
+                  },
+                  methods: {
+                      fullName() {
+                          return this.firstName + '-' + this.lastName
+                      }
+                  }
+              })
+          </script>
+      ```
+
+   ##### 8.2 姓名案例__计算属性实现
+
+   - 定义：要用的属性不存在，要通过已有属性计算得来。
+   - 原理：底层借助了Object.defineproperty方法提供的`getter`和`setter`.
+   - `get函数什么时候执行`：
+     1. 初次读取时会执行一次
+     2. 当依赖的数据发生改变时会被再次调用
+   - 优势：与`methods`实现相比，内部有缓存机制（复用），效率更高，调试方便
+   - 备注：
+     1. 计算属性最终会出现在`vm`上，直接读取即可使用。
+     2. 如果计算属性要被修改，那必须写`set`函数去响应修改，且`set`中要引起计算时依赖的数据发生改变。
+
+   ```html
+    <div id="root">
+           姓：<input type="text" v-model="firstName"><br><br>
+           名：<input type="text" v-model="lastName"><br><br>
+   //fullName调用一次后就缓存了，而methods要多次调用     
+           姓名: <span>{{fullName}}</span><br><br>
+   
+       </div>
+   ```
+
+   ```javascript
+    <script>
+           const vm = new Vue({
+               el: '#root',
+               data: {
+                   firstName: '张',
+                   lastName: '三'
+               },
+               computed: {
+                   //fullName这里不能当成函数看待
+                   fullName: {
+                       //初次读取fullName时，get函数会被调用，且返回值就作为fullName的值
+                       // 当fullName所依赖的数据（这里是firstName或lastName)发生改变时，get函数会被调用(比如往input框里输入文字)
+                       get() {
+                           // 这个时候get的指向Vue已经调成了vm
+                           console.log('get被调用了');
+                           return this.firstName + '-' + this.lastName
+                       },
+                       // 当fullName被修改的时候，set函数会被调用
+   
+                       set(val) {
+                           console.log('set函数被调用了');
+                           // 把名字字符串变成数组
+                           const arr = val.split('-')
+                           this.firstName = arr[0]
+                           this.lastName = arr[1]
+                       }
+                   }
+               }
+           })
+       </script>
+   ```
+
+   - 计算属性简写：
+
+     ```javascript
+      computed: {
+                     fullName() {
+                         return this.firstName + '-' + this.lastName
+                     }
+                 }
+     ```
+
+#### 9. 监视属性
+
+##### 9.1 监视属性`watch`:
+
+1. 当被监视的属性变化时，回调函数自动调用进行相关操作。
+2. 监视的属性必须存在，才能进行监视。
+3. 监视的两种写法：
+   - `new Vue`时传入`watch配置`
+   - 通过`vm.$watch`监视
+
+##### 9.2 天气案例
+
+```html
+<div id="root">
+        <h2>今天天气很{{info}}</h2>
+     <!--绑定事件的时候 @xxx='yyy', yyy可以写一些简单的语句 -->
+        <button @click="changeWeather">切换天气</button>
+    </div>
+```
+
+```javascript
+const vm = new Vue({
+            el: '#root',
+            data: {
+                isHot: true
+            },
+            computed: {
+                info() {
+                    return this.isHot ? '炎热' : '凉爽'
+                }
+            },
+            methods: {
+                changeWeather() {
+                    this.isHot = !this.isHot
+                }
+            },
+        })
+```
+
+监视属性
+
+```javascript
+watch: {
+isHot: {
+immediate: true,//初始化时让handler调用一下
+// 什么时候调用handler？当isHot发生改变时
+handler(newVal, oldVal) {
+console.log('isHot被修改了', newVal, oldVal);
+}
+}
+}
+```
+
+另一种写法
+
+```javascript
+vm.$watch('isHot', {
+            immediate: true,
+            handler(newVal, oldVal) {
+                console.log('isHot被修改了');
+            }
+        })
+```
+
+计算属性`info`也可以被监视
+
+监视属性-简写（只有当配置项只有handler的时候才可以简写）
+
+```JavaScript
+watch：{
+isHot(newVal, oldVal){
+console.log('isHot被修改了')
+}
+}
+```
+
+```JavaScript
+vm.$watch('isHot',function(newVal, oldVal){
+console.log('isHot被修改了', newVal, oldVal)
+})
+//不要写成箭头函数
+```
+
+
+
+##### 9.3 深度监视
+
+1. Vue中的watch默认不监测对象内部值的改变（一层）
+2. 配置deep:true 可以监测对象内部值改变（多层）
+3. Vue自身可以监测对象内部值的改变，但Vue提供的watch默认不可以
+4. 使用watch时根据数据的具体结构，决定是否采用深度监测
+
+```html
+<div id="root">
+        <h2>今天天气很{{info}}</h2>
+        <button @click="changeWeather">切换天气</button>
+        <hr>
+        <h3>a的值是:{{numbers.a}}</h3>
+        <button @click="numbers.a++">点我让a+1</button>
+        <h3>b的值是:{{numbers.b}}</h3>
+        <button @click="numbers.b++">点我让b+1</button>
+        <button>彻底替换掉numbers</button>
+    </div>
+```
+
+```javascript
+ const vm = new Vue({
+            el: '#root',
+            data: {
+                isHot: true,
+                numbers: {
+                    a: 1,
+                    b: 1,
+                    c: 1
+                }
+            },
+            computed: {
+                // 计算属性的简写
+                info() {
+                    return this.isHot ? '炎热' : '凉爽'
+                }
+            },
+            methods: {
+                changeWeather() {
+                    this.isHot = !this.isHot
+                }
+            },
+            watch: {
+                isHot: {
+                    immediate: true,//初始化时让handler调用一下
+                    // 什么时候调用handler？当isHot发生改变时
+                    handler(newVal, oldVal) {
+                        console.log('isHot被修改了', newVal, oldVal);
+                    }
+                },
+                // 监视多级结构中某个属性的变化
+                'numbers.a': {
+                    handler() {
+                        console.log('a变化了');
+                    }
+                },
+                numbers: {
+                    deep: true,
+                    handler() {
+                        console.log('numbers变化了');
+                    }
+                }
+            }
+        })
+```
+
+##### 9.4 姓名案例_`watch`实现_
+
+```html
+<div id="root">
+        姓：<input type="text" v-model="firstName"><br><br>
+        名：<input type="text" v-model="lastName"><br><br>
+        全名: <span>{{fullName}}</span>
+    </div>
+```
+
+```javascript
+ const vm = new Vue({
+            el: '#root',
+            data: {
+                firstName: '张',
+                lastName: '三',
+                fullName: '张-三'
+            },
+            watch: {
+                firstName(val) {
+                    //watch能开启异步任务但是computed不能
+                    setTimeout(() => {
+   //箭头函数没有自己的this,所以往外找，找到vm                     console.log(this);
+                        this.fullName = val + '-' + this.lastName
+                    }，1000)
+                },
+                lastName(val) {
+                    this.fullName = this.firstName + '-' + val
+                }
+            }
+        })
+
+```
+
+##### 9.5 计算属性与监视属性的区别
+
+1. `computed`能完成的功能，`watch`都能完成。
+2. `watch`能完成的功能，`computed`不一定能完成，比如`watch`可以进行异步操作。
+3. 原则：
+   - 所有被Vue管理的函数，最好写成普通函数，这样this的指向才是vm或者组件实例对象。
+
+
+
+#### 10. 绑定样式
+
+##### 10.1 class样式
+
+- 写法:`class='xxx'`, xxx可以是字符串，对象，数组。
+  - 字符串写法适用于：类名不确定，要动态获取。
+  - 对象写法适用于：要绑定的样式个数不确定，名字也不确定。
+  - 对象写法适用于：要绑定的样式个数不确定，但名字确定，不确定用不用。
+
+##### 10.2 style样式
+
+- `:style="{fontSize:xxx}"`其中xxx是动态值
+- `:style="[a,b]"`其中a,b是样式对象
+
+##### 10.3 代码实现
+
+- class样式
+
+  ```html
+   <div id="root">
+          <!-- 字符串写法，适用于：样式的类名不确定，需要动态指定 -->
+          <div class="basic" :class="mood" @click="changeMood">{{name}}</div><br><br>
+          <!-- 数组写法，适用于：要绑定的样式个数不确定、名字也不确定 -->
+          <div class="basic" :class="classArr">{{name}}</div><br><br>
+          <!--对象写法，适用于：要绑定的样式个数确定、名字也确定，但要动态决定用不用  -->
+          <div class="basic" :class="classObj">{{name}}</div>
+      </div>
+  ```
+
+  ```javascript
+  const vm = new Vue({
+              el: '#root',
+              data: {
+                  name: 'shangguige',
+                  mood: 'normal',
+                  classArr: ['atguigu1', 'atguigu2', 'atguigu3'],
+                  // 可以通过vm.arr.splice()或者push()来操作数组
+                  classObj: {
+                      atguigu1: false,
+                      atguigu2: false,
+                  }
+              },
+              methods: {
+                  changeMood() {
+                      const arr = ['happy', 'sad', 'normal']
+                      const index = Math.floor(Math.random() * 3)
+                      this.mood = arr[index]
+                  }
+              },
+          })
+  ```
+
+- style样式
+
+```html
+<div class="basic" :style="styleObj"> {{name}}</div><br><br>
+        <!-- 绑定style样式--数组写法  -->
+        <div class="basic" :style="styleArr">{{name}}</div>
+```
+
+```javascript
+ styleObj: {
+     fontSize: '40px',
+         color: 'red'
+ },
+     styleArr: [{
+         fontSize: '40px',
+         color: 'blue'
+     }, {
+         backgroundColor: 'gray'
+     }]
+```
+

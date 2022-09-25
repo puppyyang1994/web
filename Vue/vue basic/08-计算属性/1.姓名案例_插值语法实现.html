@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="./vue.js"></script>
+</head>
+<body>
+    <div id="root">
+        <!-- v-model:value 的简写形式是v-model    v-bind只是绑定 但是v-model是双向绑定 -->
+        姓：<input type="text" v-model="firstName"> <br><br>
+        名：<input type="text" v-model="lastName"> <br><br>
+        姓名： <span>{{firstName.slice(0,3)}} - {{lastName}}</span>
+        <!-- slice截取0和1位 不包括3位 -->
+    </div>
+
+    <script>
+    Vue.config.productionTip = false;
+    new Vue({
+        el: '#root',
+        data: {
+            firstName: '张',
+            lastName: '三'
+        }
+    })
+    </script>
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="./vue.js"></script>
+</head>
+<body>
+        <div id="root">
+              
+                姓：<input type="text" v-model="firstName"> <br><br>
+                名：<input type="text" v-model="lastName"> <br><br>
+                姓名： <span>{{fullName()}}</span>
+                <!-- 插值是来自于一个函数的调用 -->
+              <!-- fullName()是函数调用的结果（）一定要加上 -->
+            </div>
+        
+            <script>
+            Vue.config.productionTip = false;
+            new Vue({
+                el: '#root',
+                data: {
+                    // 只要data中的值发生改变Vue一定会重新解析模板
+                    firstName: '张',
+                    lastName: '三'
+                },
+                methods:{
+                    fullName(){
+                        return this.firstName + '-' + this.lastName
+                        // this就是实例vm 所以vm.firstName是可以读取的
+                    }
+                }
+            })
+            </script>
+</body>
+</html>
