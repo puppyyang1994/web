@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="vue.js"></script>
+</head>
+
+<body>
+    <div id="root">
+        <h1>学校信息</h1>
+        <h2>名称：{{school.name}}</h2>
+        <h2>地址：{{school.address}}</h2>
+        <h2>校长：{{school.leader}}</h2>
+        <hr>
+        <h2>姓名{{student.name}}</h2>
+        <!-- undefined 不报错 -->
+        <h1>学生信息</h1>
+        <button @click="addSex">添加一个性别属性，默认值为男</button>
+        <h2 v-if="student.sex">姓别:{{student.sex}}</h2>
+        <h2>真实年龄{{student.age.rAge}}, 对外{{student.age.sAge}}</h2>
+        <h2>朋友们</h2>
+        <ul>
+            <li v-for="(f,index) in student.friends" :key="index">
+                {{f.age}}-{{f.name}}
+            </li>
+        </ul>
+    </div>
+
+    <script>
+        const vm = new Vue({
+            el: '#root',
+            data: {
+                // Vue.set()不能直接用在data或者vm实例上，所以要先给一个school属性
+                school: {
+                    name: '尚硅谷',
+                    address: '北京',
+                },
+                student: {
+                    name: 'tom',
+                    age: {
+                        rAge: 40,
+                        sAge: 20
+                    },
+                    friends: [{ name: 'jerry', age: 23 }]
+                }
+            },
+            methods: {
+                addSex() {
+                    // Vue.set(this.student, 'sex', '男')
+                    this.$set(this.student, 'sex', '男')
+                }
+            },
+        })
+    </script>
+</body>
+
+</html>

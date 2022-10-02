@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="./vue.js"></script>
+</head>
+
+<body>
+    <div id="root">
+        <h2>人员列表</h2>
+        <input type="text" placeholder="请输入名字" v-model="keyWord">
+        <ul>
+            <!-- <li v-for="(p,index) in persons" :key="p.id">
+                {{p.name}} - {{p.age}} -- {{p.sex}}
+            </li> -->
+            <li v-for="(p,index) in filPersons" :key="p.id">
+                {{p.name}} - {{p.age}} --{{p.sex}}
+            </li>
+        </ul>
+    </div>
+
+    <script>
+        // new Vue({
+        //     el:'#root',
+        //     // 按住alt键添加多项
+        //     data: {
+        //         // 收集用户的输入：要把输入的数字都保存下来，所以需要自己建一个空字符串，v-model实现双向绑定
+        //         keyWord:'',
+        //         persons: [
+        //         {id:'001', name: '马冬梅', age:19, sex:'女'} ,   
+        //         {id:'002', name: '周冬雨', age:20, sex:'女'},
+        //         {id:'003', name: '周杰伦', age:21, sex:'男'},
+        //         {id:'004', name: '温兆伦', age:22, sex:'男'}
+        //         ],
+        //         // 新数据
+        //         filPersons:[{id:'001', name: '马冬梅', age:19, sex:'女'} ,   
+        //         {id:'002', name: '周冬雨', age:20, sex:'女'},
+        //         {id:'003', name: '周杰伦', age:21, sex:'男'},
+        //         {id:'004', name: '温兆伦', age:22, sex:'男'}]
+        //     },
+        //     // 监视数据的变化（input框内）
+        //     //#region
+        //     // watch:{
+        //     //     keyWord(val){
+        //     //         // filter 过滤后会返回一个新数组（符合条件的数组），不会改变原数组
+        //     //         // 所以 把拿到的数据重新赋值给原数组，这样数组内容就改变了
+        //     //       this.persons = this.persons.filter((p)=>{
+        //     //          return p.name.indexOf(val) !==-1 
+        //     //         //  indexOf 字符串中是否包含 -1 是不包含  其他都是包含
+        //     //        })
+
+        //     //     }
+        //     // }
+        //     // watch:{
+        //     //     keyWord:{
+        //     //         // 立即执行 先实现一遍
+        //     //         immediate:true,
+        //     //         handler(val){
+        //     //             this.filPersons = this.persons.filter((p)=>{
+        //     //          return p.name.indexOf(val) !==-1 
+
+        //     //        })
+        //     //         }
+        //     //     }
+        //     // }
+
+        //     //#endregion
+
+        //     
+        // }) 
+        // 用computed实现
+        new Vue({
+            el: '#root',
+            data: {
+                keyWord: '',
+                persons: [
+                    { id: '001', name: '马冬梅', age: 19, sex: '女' },
+                    { id: '002', name: '周冬雨', age: 20, sex: '女' },
+                    { id: '003', name: '周杰伦', age: 21, sex: '男' },
+                    { id: '004', name: '温兆伦', age: 22, sex: '男' }
+                ],
+            },
+            computed: {
+                filPersons() {
+                    return this.persons.filter((p) => {
+                        return p.name.indexOf(this.keyWord) !== -1
+                    })
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>
