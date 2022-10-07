@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="vue.js"></script>
+</head>
+<!-- 生命周期：
+1. 又名：生命周期回调函数，生命周期函数，生命周期钩子
+2. 是什么： Vue在关键时刻帮我们调用一些特殊名称的函数
+3. 生命周期函数的名字不可更改，但函数的具体内容是程序员根据需求编写的
+4. 生命周期函数中的this指向是vm 或组件实例对象 -->
+
+<body>
+    <div id="root">
+        <!-- 动态绑定样式 里面写成对象 -->
+        <h2 :style="{opacity: opacity}">欢迎学习Vue</h2>
+        <!-- 简写 -->
+        <!-- 对象里面 属性名和属性值一样的 可以简写 -->
+        <h2 :style="{opacity}">欢迎学习Vue</h2>
+    </div>
+
+    <script>
+        new Vue({
+            el: '#root',
+            data: {
+                opacity: 1
+            },
+            methods: {
+
+            },
+            // Vue完成模板的解析并把初识的真实的DOM元素放入页面后（挂载完毕），调用mounted
+            //在关键性的时候Vue调用mounted
+            mounted() {
+                // 挂载：把真实DOM放入页面
+                setInterval(() => {
+                    this.opacity -= 0.01
+                    if (this.opacity <= 0) this.opacity = 1
+                })
+            }
+        })
+        // 通过外部定时器实现  不推荐
+        // setInterval(() => {
+        //     vm.opacity -= 0.01
+        //     if (vm.opacity <= 0) vm.opacity = 1
+        // }, 16)
+
+        // window.onload()
+
+        // vm的生命周期：在关键的时间点调用关键的函数
+
+        // ????       调用????函数
+        // 挂载完毕了   调用mounted函数
+        // ????    调用????函数
+    </script>
+</body>
+
+</html>

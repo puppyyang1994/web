@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="vue.js"></script>
+</head>
+
+
+<body>
+    <div id="root">
+        <!-- 动态绑定样式 里面写成对象 -->
+        <h2 :style="{opacity: opacity}">欢迎学习Vue</h2>
+        <button @click="opacity=1">透明度设置为1</button>
+        <button @click="stop">点我停止变换</button>
+    </div>
+
+    <script>
+        new Vue({
+            el: '#root',
+            data: {
+                opacity: 1
+            },
+            methods: {
+                stop() {
+                    // methods和mounted里的this.timer都可访问
+                    // clearInterval(this.timer)
+                    // 不通过清理定时器，直接暴力干掉vm
+                    // 但是定时器没关掉
+                    this.$destroy()
+                }
+            },
+            // Vue完成模板的解析并把初识的真实的DOM元素放入页面后（挂载完毕），调用mounted
+            //在关键性的时候Vue调用mounted
+            mounted() {
+                // 挂载：把真实DOM放入页面
+                this.timer = setInterval(() => {
+                    this.opacity -= 0.01
+                    if (this.opacity <= 0) this.opacity = 1
+                })
+            },
+            // 清除定时器写在销毁前更合适，万一不需要stop函数 
+            beforeDestroy() {
+                // 在这里清除定时器 而不是放在methods里
+                clearInterval(this.timer)
+            },
+        })
+
+    </script>
+</body>
+
+</html>

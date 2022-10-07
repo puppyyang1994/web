@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="vue.js"></script>
+</head>
+
+<body>
+    <!-- 需求1：定义一个v-big指令和v-text通能类似，但把绑定的数值放大10倍 -->
+    <!-- 需求2：定义一个v-fbind指令，和v-bind功能类似，但可以让其所绑定的input元素默认获取焦点。 -->
+    <div id="root">
+        <h2>{{name}}</h2>
+        <h2>当前的N值是：<span v-text="n"></span></h2>
+        <!-- <h2>放大10倍后的n值是：<span v-big-number="n"></span></h2> -->
+        <h2>放大10倍后的n值是：<span v-big="n"></span></h2>
+        <button @click="n++">点我n+1</button>
+        <hr>
+        <input type="text" v-fbind:value="n">
+    </div>
+    <script>
+        Vue.directive('fbind', {
+            //指令与元素成功绑定时（一上来）
+            bind(element, binding) {
+                element.value = binding.value
+            },
+            //指令所在元素被插入页面时
+            inserted(element, binding) {
+                element.focus()
+            },
+            //指令所在的模板被重新解析时
+            update(element, binding) {
+                element.value = binding.value
+            }
+        })
+        new Vue({
+            el: '#root',
+            data: {
+                name: '尚硅谷',
+                n: 1
+            },
+            // 这里面的都是局部指令 只能给指定的实例用
+            directives: {
+                // 'big-number'(element, binding) {
+                //     element.innerText = binding.value * 10
+                // }
+                // binding span和指令绑在一起
+                // big函数何时会被调用：1. 指令与元素成功绑定时， 2. 指令所在的模板被重写解析时
+                big(element, binding) {
+                    console.log('big', this); //此处的this是window
+                    console.log('big');
+                    element.innerText = binding.value * 10
+                },
+                // 写成对象式的 里面放好几个函数
+                fbind: {
+                    bind(element, binding) {
+                        element.value = binding.value
+                    },
+                    inserted(element, binding) {
+                        element.focus()
+                    },
+                    uppdate(element, binding) {
+                        element.value = binding.value
+                    }
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>

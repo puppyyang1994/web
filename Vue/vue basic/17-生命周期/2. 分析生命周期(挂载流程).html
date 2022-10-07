@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="vue.js"></script>
+</head>
+
+<body>
+    <!-- el's outerHTML 整个div都算模板 -->
+    <div id="root" :x="n">
+        <h2>当前的n值是: {{n}}</h2>
+        <h2 v-text="n"></h2>
+        <button @click="add">点我N+1</button>
+        <button @click="bye">销毁vm</button>
+    </div>
+    <script>
+        new Vue({
+            el: '#root',
+            //     template: `
+            //     <div>
+            //         <h2>当前的n值是: {{n}}</h2>
+            // <button @click="add">点我N+1</button>
+            //         </div>
+            //     `,
+            data: {
+                n: 1
+            },
+            methods: {
+                add() {
+                    this.n++
+                },
+                bye() {
+                    this.$destroy()
+                    console.log('bye');
+                }
+            },
+            // 数据代理还没开始 没有vm._data n
+            beforeCreate() {
+                console.log('beforeCreate');
+                // console.log(this);
+                // debugger
+            },
+            // 数据监测和数据代理完成
+            created() {
+                console.log('created');
+                // console.log(this);
+                // debugger
+            },
+            beforeMount() {
+                console.log('beforeMount');
+                // console.log(this);
+                // document.querySelector('h2').innerHTML = 'haha'
+
+            },
+            mounted() {
+                console.log('mounted');
+                console.log(this);
+                // debugger
+            },
+            beforeUpdate() {
+                console.log('beforeUpdate');
+                // console.log(this.n);
+                // debugger
+            },
+            updated() {
+                console.log('updated')
+
+            },
+        })
+    </script>
+</body>
+
+</html>
