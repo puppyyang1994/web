@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {
+            width: 150px;
+            height: 150px;
+            background-color: pink;
+        }
+    </style>
+</head>
+
+<body>
+    <div>粉红色</div>
+    <script>
+        let box = document.querySelector('div')
+        // box.innerText = '有点意思'
+        // box.innerText = '<strong>哈哈</strong>'
+        // innerHTML 可以解析标签  innerText不可以
+        box.innerHTML = '<strong>哈哈</strong>'
+        document.write('你是谁呀')//只能追加到body中 推荐使用innerHTML
+    </script>
+</body>
+
+</html>

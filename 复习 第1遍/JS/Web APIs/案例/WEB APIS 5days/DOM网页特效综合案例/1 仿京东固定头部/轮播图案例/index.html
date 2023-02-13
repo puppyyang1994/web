@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>轮播图</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+
+        li {
+            list-style: none;
+        }
+
+        .main {
+            width: 700px;
+            margin: auto;
+            background: #000;
+        }
+
+        .slides {
+            height: 320px;
+            position: relative;
+        }
+
+        .slides ul li {
+            position: absolute;
+            top: 0;
+            left: 0;
+            opacity: 0;
+            transition: all .3s;
+        }
+
+        .slides li.active {
+            opacity: 1;
+        }
+
+        .slides .extra {
+            width: 700px;
+            height: 53px;
+            line-height: 53px;
+            position: absolute;
+            bottom: 0px;
+            background-color: rgba(0, 0, 0, 0.8);
+            z-index: 10;
+        }
+
+        .slides .extra h3 {
+            width: 82%;
+            color: #98E404;
+            margin: 0;
+            margin-right: 20px;
+            padding-left: 20px;
+            font-size: 28px;
+            float: left;
+            font-weight: 500;
+            font-family: "Microsoft Yahei", Tahoma, Geneva;
+        }
+
+        .slides .extra a {
+            display: block;
+            width: 30px;
+            height: 29px;
+            background-image: url(./assets/icon_focus_switch.png);
+            float: left;
+            margin-top: 12px;
+            margin-right: 3px;
+
+        }
+
+        .slides .extra .prev {
+            background-position: 0 0;
+        }
+
+        .slides .extra .prev:hover {
+            background-position: -30px 0;
+        }
+
+        .slides .extra .next {
+            background-position: -60px 0;
+        }
+
+        .slides .extra .next:hover {
+            background-position: -90px 0;
+        }
+
+        .indicator {
+            padding: 10px 0;
+
+        }
+
+        .indicator ul {
+            list-style-type: none;
+            margin: 0 0 0 4px;
+            padding: 0;
+            overflow: hidden;
+
+        }
+
+        .indicator ul li {
+            position: relative;
+            float: left;
+            width: 60px;
+            cursor: pointer;
+            margin: 0 4px 0 5px;
+            text-align: center;
+        }
+
+        .indicator li img {
+            display: block;
+            border: 0;
+            width: 100%;
+            height: 60px;
+            text-align: center;
+
+
+        }
+
+        .indicator ul li .mask {
+            width: 60px;
+            height: 60px;
+            position: absolute;
+            top: 0;
+            left: 0;
+            background-color: rgba(0, 0, 0, 0.4);
+        }
+
+        .indicator li .border {
+            /* 开始不显示 */
+            display: none;
+            width: 54px;
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            border: 3px solid #98E404;
+            z-index: 20;
+        }
+
+        .indicator .active .mask {
+            display: none;
+        }
+
+        .indicator .active .border {
+            display: block;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="main">
+        <!-- 上部分 -->
+        <div class="slides">
+            <ul>
+                <li class="active"><a href="#"><img src="./assets/b_01.jpg" alt=""></a></li>
+                <li><a href="#"><img src="./assets/b_02.jpg" alt=""></a></li>
+                <li><a href="#"><img src="./assets/b_03.jpg" alt=""></a></li>
+                <li><a href="#"><img src="./assets/b_04.jpg" alt=""></a></li>
+                <li><a href="#"><img src="./assets/b_05.jpg" alt=""></a></li>
+                <li><a href="#"><img src="./assets/b_06.jpg" alt=""></a></li>
+                <li><a href="#"><img src="./assets/b_07.jpg" alt=""></a></li>
+                <li><a href="#"><img src="./assets/b_08.jpg" alt=""></a></li>
+                <li><a href="#"><img src="./assets/b_09.jpg" alt=""></a></li>
+                <li><a href="#"><img src="./assets/b_10.jpg" alt=""></a></li>
+            </ul>
+            <div class="extra">
+                <h3>第一张图的描述信息</h3>
+                <a href="javascript:;" class="prev"></a>
+                <a href="javascript:;" class="next"></a>
+            </div>
+        </div>
+        <!-- 下部分 -->
+        <div class="indicator">
+            <ul>
+                <li class="active">
+                    <img src="./assets/b_01.jpg" alt="">
+                    <span class="mask"></span>
+                    <span class="border"></span>
+                </li>
+                <li class="active">
+                    <img src="./assets/b_02.jpg" alt="">
+                    <span class="mask"></span>
+                    <span class="border"></span>
+                </li>
+                <li class="active">
+                    <img src="./assets/b_03.jpg" alt="">
+                    <span class="mask"></span>
+                    <span class="border"></span>
+                </li>
+                <li class="active">
+                    <img src="./assets/b_04.jpg" alt="">
+                    <span class="mask"></span>
+                    <span class="border"></span>
+                </li>
+                <li class="active">
+                    <img src="./assets/b_05.jpg" alt="">
+                    <span class="mask"></span>
+                    <span class="border"></span>
+                </li>
+                <li class="active">
+                    <img src="./assets/b_06.jpg" alt="">
+                    <span class="mask"></span>
+                    <span class="border"></span>
+                </li>
+                <li class="active">
+                    <img src="./assets/b_07.jpg" alt="">
+                    <span class="mask"></span>
+                    <span class="border"></span>
+                </li>
+                <li class="active">
+                    <img src="./assets/b_08.jpg" alt="">
+                    <span class="mask"></span>
+                    <span class="border"></span>
+                </li>
+                <li class="active">
+                    <img src="./assets/b_09.jpg" alt="">
+                    <span class="mask"></span>
+                    <span class="border"></span>
+                </li>
+                <li class="active">
+                    <img src="./assets/b_10.jpg" alt="">
+                    <span class="mask"></span>
+                    <span class="border"></span>
+                </li>
+            </ul>
+        </div>
+
+    </div>
+
+    <script>
+        // 1. 鼠标经过小图标 当前高亮 其余的变淡 添加类
+        let lis = document.querySelectorAll('.indicator li')
+        let imgLis = document.querySelectorAll('.slides ul li')
+        let text = document.querySelector('.extra h3')
+        let next = document.querySelector('.next')
+        let prev = document.querySelector('.prev')
+        let main = document.querySelector('.main')
+        // 设一个全局变量
+        let index = 0
+
+        // li 绑定事件
+        for (let i = 0; i < lis.length; i++) {
+            lis[i].addEventListener('mouseenter', function () {
+                // 选出唯一的active 删除类
+                document.querySelector('.indicator .active').classList.remove('active')
+                //鼠标经过谁给谁加上
+                this.classList.add('active')
+                // 2. 大图跟着变化
+                document.querySelector('.slides ul .active').classList.remove('active')
+                imgLis[i].classList.add('active')
+                // 同时文字也要变化
+                text.innerHTML = `第${i + 1}张图的信息`
+                // 解决播放顺序混乱  让变量index重新赋值为 当前鼠标经过的索引号
+                index = i
+
+            })
+        }
+
+        // 点击右侧按钮 播放
+        next.addEventListener('click', function () {
+            index++
+            if (index === lis.length) {
+                index = 0
+            }
+            common()
+        })
+        prev.addEventListener('click', function () {
+            index--
+            if (index < 0) {
+                index = lis.length - 1
+            }
+            common()
+        })
+
+
+        // 左侧按钮和右侧按钮相同的功能 所以封装一个common函数
+        function common() {
+            document.querySelector('.indicator .active').classList.remove('active')
+            lis[index].classList.add('active')
+
+            document.querySelector('.slides ul .active').classList.remove('active')
+            imgLis[index].classList.add('active')
+            text.innerHTML = `第${index + 1}的描述信息`
+        }
+
+        // 做一个定时器 实现自动播放
+        let timer = setInterval(function () {
+            next.click()
+        }, 1000)
+
+        // 鼠标经过停止定时器
+
+        main.addEventListener('mouseenter', function () {
+            clearInterval(timer)
+        })
+        // 鼠标离开 开启定时器
+        main.addEventListener('mouseleave', function () {
+            next.click()
+        }, 1000)
+
+    </script>
+</body>
+
+</html>

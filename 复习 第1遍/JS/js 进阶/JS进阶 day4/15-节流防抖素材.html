@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Document</title>
+  <style>
+    .box {
+      width: 500px;
+      height: 500px;
+      background-color: #ccc;
+      color: #fff;
+      text-align: center;
+      font-size: 100px;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="box"></div>
+  <script>
+    let box = document.querySelector('.box')
+    let i = 1
+
+    // 要执行的鼠标移动函数
+    function mouseMove() {
+      box.innerHTML = ++i
+      // 很明显 如果这个之后还有大量的DOM操作 那会很卡顿
+    }
+
+
+    // 核心思想是 移动后的时间- 刚开始移动的时间 鼠标过了500s后数字才显示（才执行mouseMove函数）
+
+    // 1. 写一个节流函数throttle 控制鼠标移动函数 让他满足500s后才执行
+    // 由此而知就会有两个参数 一个是mouseMove函数 一个是指定时间t
+    // 节流函数 throttle
+    function throttle(fn, t) {
+      // 起始时间
+      let startTime = 0
+      return function () {
+        // 当前时间
+        let now = Date.now()
+        // 得到当前时间
+        if (now - startTime >= t) {
+          // 达到条件后 调用鼠标函数
+          fn()
+          // 然后重新重置时间 这样下一次500的时候又会调用
+          startTime = now
+        }
+      }
+    }
+    box.addEventListener('mousemove', throttle(mouseMove, 500))
+  </script>
+</body>
+
+</html>

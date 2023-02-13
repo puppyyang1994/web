@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        console.log(3 > 5);
+        console.log(5 >= 5);
+        console.log(5 == 5);
+        // 不管数据类型 只要值一样
+        console.log(5 == '5');
+        console.log(5 == 'pink');
+        // 开发常用 要求值和数据类型都一样
+        console.log(5 === 5);
+        console.log(5 === '5');
+        // 特殊情况
+        console.log('pink' > 'red');//false
+        console.log('pink' > 'pin');//true
+        console.log(1 === NaN);//false
+        console.log(NaN === NaN);//false
+        console.log(0.1 + 0.2 === 0.3); //false
+        console.log(3 > '2'); //true
+        console.log(0.1 + 0.2);//结果不是0.3
+    </script>
+</body>
+
+</html>

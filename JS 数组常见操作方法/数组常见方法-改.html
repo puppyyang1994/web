@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // splice() 修改原数组的内容  经常用这个 
+        // 参数1 表示起始位置
+        // 第二个参数 表示删除的元素个数
+        // 其余的参数 表示要加入的新元素
+        let colors = ['red', 'green', 'yellow']
+        let count = colors.splice(1, 1, 'pink', 'blue')
+        console.log(colors);//['red', 'pink', 'blue', 'yellow']
+        console.log(count);// ['green']
+    </script>
+</body>
+
+</html>

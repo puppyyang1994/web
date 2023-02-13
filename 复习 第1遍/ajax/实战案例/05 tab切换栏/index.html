@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+
+<body>
+    <img src="./img/header.png" alt="" class="header">
+    <div class="cq-wrap">
+        <!-- 导航 -->
+        <div class="nav">
+            <ul>
+                <li class="active">
+                    <img src="./img/sword.png" alt=""><span>剑士</span>
+                </li>
+                <li>
+                    <img src="./img/sword.png" alt=""><span>骑士</span>
+                </li>
+                <li>
+                    <img src="./img/sword.png" alt=""><span>弓手</span>
+                </li>
+                <li>
+                    <img src="./img/sword.png" alt=""><span>猎人</span>
+                </li>
+                <li>
+                    <img src="./img/sword.png" alt=""><span>法师</span>
+                </li>
+                <li>
+                    <img src="./img/sword.png" alt=""><span>祭司</span>
+                </li>
+            </ul>
+        </div>
+        <table class="cq-list">
+            <thead>
+                <!-- 表头 -->
+                <th>勇士</th>
+                <th>技能</th>
+                <th>武器</th>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>
+                        <img src="http://p6.qhimg.com/dr/72__/t01b8063ea608652431.png" alt="" class="icon">
+                        <span>涅斯军长官尤莉娅</span>
+                    </td>
+                    <td>
+                        <img src="http://p9.qhimg.com/dr/52__/t01087d8e61575ab25d.png" alt="" class="skill">
+                        <span>注射!</span>
+                    </td>
+                    <td>
+                        <img src="http://p6.qhimg.com/dr/45__/t0178ac936dcb72650f.png" alt="" class="weapon">
+                        <span>疫苗-G</span>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <!-- 遮罩层 -->
+    <div class="cover" style="display:none">
+        <img src="./img/loading01.gif" alt="">
+    </div>
+    <!-- 引入ajax -->
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script>
+        /* 需求： 点击tab栏 切换
+        1. 排他思想修改tab栏
+        2.获取当前点击的type
+        3.发送ajax
+        4.渲染数据
+        */
+        // 对数组的每一项都传入函数 没有返回值
+        // forEach(item)遍历数组 没有返回值
+        document.querySelectorAll('.nav li').forEach(item => {
+            // 给数组元素 也就是li添加点击事件
+            item.addEventListener('click', function () {
+                // 用排他思想
+                //去掉类为active的样式
+                document.querySelector('.active').classList.remove('active')
+                // 将当前的点击的那个的类改为active
+                this.classList.add('active')
+                // 2. 获取当前点击的span里的文本内容
+                const type = this.children[1].innerHTML
+
+                // 为了添加效果 在数据渲染前 启用遮罩效果
+                document.querySelector('.cover').style.display = 'block'
+                // 发送ajax请求 要拿到相应的数据来渲染页面了
+                axios({
+                    url: 'https://autumnfish.cn/api/cq/category',
+                    method: 'get',
+                    params: { type }
+                }).then(res => {
+                    // console.log(res);
+                    // 渲染数据  渲染函数再单独封装
+                    renderData(res.data.data.heros)
+
+                    // 让遮罩效果消失
+                    document.querySelector('.cover').style.display = 'none'
+                })
+
+            })
+        })
+        // 渲染函数
+        const renderData = arr => {
+            // map(item) 遍历数组 执行相应的函数 不会改变原数组 返回一个包含转换后元素的新数组\
+            // 注意箭头函数 有 return的时候{}不可省略
+            document.querySelector('tbody').innerHTML = arr.map(item => {
+                return `
+            <tr>
+                    <td>
+                        <img src="${item.heroIcon}" alt="" class="icon">
+                        <span>${item.heroName}</span>
+                    </td>
+                    <td>
+                        <img src="${item.skillIcon}" alt="" class="skill">
+                        <span>${item.skillName}</span>
+                    </td>
+                    <td>
+                        <img src="${item.weaponIcon}" alt="" class="weapon">
+                        <span>${item.weaponName}</span>
+                    </td>
+                </tr>
+            `}).join('')
+        }
+    </script>
+</body>
+
+</html>

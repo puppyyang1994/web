@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+
+        ul {
+            width: 550px;
+            height: 300px;
+            margin: 100px auto;
+        }
+
+        ul li {
+            float: left;
+            list-style: none;
+            margin: 0 5px 5px 0;
+        }
+
+        img {
+            width: 100px;
+            height: 75px;
+        }
+
+        ul li div {
+            /* 图片的父盒子div一定要给宽高 如果不给 hover事件实执行的时候 当前div不占位 后面的盒子就会挤上来 */
+            position: relative;
+            width: 100px;
+            height: 75px;
+        }
+
+        ul div:hover img {
+            position: absolute;
+            z-index: 1;
+            width: 200px;
+            height: 150px;
+            top: -50px;
+            left: -37px;
+        }
+    </style>
+</head>
+
+<body>
+    <ul>
+        <li>
+            <div><img src="./images/photo01.png" alt=""></div>
+        </li>
+        <li>
+            <div><img src="./images/photo02.png" alt=""></div>
+        </li>
+        <li>
+            <div><img src="./images/photo03.png" alt=""></div>
+        </li>
+        <li>
+            <div><img src="./images/photo04.png" alt=""></div>
+        </li>
+        <li>
+            <div><img src="./images/photo05.png" alt=""></div>
+        </li>
+        <li>
+            <div><img src="./images/photo06.png" alt=""></div>
+        </li>
+        <li>
+            <div><img src="./images/photo07.png" alt=""></div>
+        </li>
+        <li>
+            <div><img src="./images/photo08.png" alt=""></div>
+        </li>
+        <li>
+            <div><img src="./images/photo09.png" alt=""></div>
+        </li>
+        <li>
+            <div><img src="/images/photo10.png " alt=""></div>
+        </li>
+    </ul>
+</body>
+
+</html>

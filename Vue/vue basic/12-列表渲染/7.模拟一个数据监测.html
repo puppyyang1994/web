@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>重要</title>
+  
+</head>
+<body>
+  
+    <script>
+      let data = {
+          name:'尚硅谷',
+          address:'北京',
+        //   a:{
+        //       b:1
+        //   }
+        // 如果再加上一个对象属性 下面的代码就不可用 但是Vue可以监测多层
+      }
+
+    //   创建一个监视的实例对象，用于监视data中属性的变化
+    const obs = new Observer(data)
+    console.log(obs);
+
+    // 准备一个vm实例对象
+
+    // vm._data 是在vm对象里创建了一个_data的属性，属性值是obs 对象，同时给对象data改变地址的赋值
+    let vm = {}
+    vm._data = data = obs
+    // 可以理解为原数据里的data被劫持，然后包装成了另一个_data
+    
+
+    function Observer(obj){
+    // 汇总对象中所有的属性形成一个数组
+    const keys = Object.keys(obj)
+    // 遍历
+    keys.forEach((k)=>{
+        // 函数体
+        Object.defineProperty(this,k,{
+            get(){
+                return obj[k]
+            },
+            set(val){
+                // Vue到了这一步没有做输出 而是去重新解析模板了
+                console.log(`${k}被改了，我要去解析模板，生成虚拟DOM，进行比较`);
+                
+                obj[k] = val
+            }
+        })
+    })
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // reduce 返回函数累计处理的结果 经常用于求和
+        // const arr = [1, 5, 9]
+        // const count = arr.reduce((pre, item) => pre + item)
+        // console.log(count);
+
+        // 
+        const arr = [{
+            name: '张三',
+            salary: 10000
+        }, {
+            name: '李四',
+            salary: 10000
+        }, {
+            name: '王五',
+            salary: 10000
+        },
+        ]
+        const res = arr.reduce((prev, item) => prev += item.salary * 0.3, 0)
+        // 0 表示传给函数的初始值
+        console.log(res);
+
+    </script>
+</body>
+
+</html>

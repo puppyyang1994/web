@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // for(起始条件；退出条件； 变化量)
+        /* for (let i = 1; i <= 10; i++) {
+            document.write(`月薪过万<br>`)
+        } */
+        // let i = 1只会执行一次
+        /*  for (let i = 1; i <= 100; i++) {
+             document.write(`我今年${i}岁了<br>`)
+         } */
+        /* let sum = 0
+        for (let i = 1; i <= 100; i++) {
+            if (i % 2 === 0) {
+                sum += i
+            }
+
+        }
+        document.write(sum) */
+        // 页面打印5个小星星
+        // for (let i = 1; i <= 5; i++) {
+        //     document.write(`◇`)
+        // }
+        // 循环的最大价值就是遍历数组
+        // let arr = ['马超', '赵云', '张飞', '关羽', '黄忠', 'pink老师']
+        // document.write(arr[0])
+        // for (let i = 0; i < arr.length; i++) {
+        //     document.write(`名字是：${arr[i]} <br>`)
+        // }
+        // 退出循环
+        /* for (let i = 0; i < 6; i++) {
+            if (i === 2) {
+                break
+            }
+            document.write(i)
+        } */
+        // 嵌套循环
+        // for (let i = 1; i < 6; i++) {
+        //     for (let j = 1; j < 6; j++) {
+        //         document.write('星')
+        //     }
+        // }
+        // for (let i = 1; i < 4; i++) {
+
+        //     document.write(`第${i}天 <br>`)
+        //     for (let j = 1; j < 6; j++) {
+        //         document.write(`记住第${j}个单词 <br>`)
+        //     }
+        // }
+
+        /* let num1 = prompt('请输入行数')
+        let num2 = prompt('请输入列数')
+        for (let i = 1; i < num1; i++) {
+            for (let j = 1; j < num2; j++) {
+                document.write('★')
+            }
+            // 星星打完了 再换行
+            document.write('<br>')
+        } */
+        // 倒星星
+        for (let i = 1; i < 6; i++) {
+            for (let j = 1; j <= i; j++) {
+                document.write('★')
+            }
+            document.write('<br>')
+        }
+    </script>
+</body>
+
+</html>

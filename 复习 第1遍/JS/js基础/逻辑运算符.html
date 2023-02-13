@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 逻辑与 一假则假
+        console.log(true && true);
+        console.log(false && false);
+        // 逻辑或 一真则真
+        console.log(false || true);
+        console.log(false || false);
+        // 取反
+        console.log(!true);
+        console.log(!false);
+
+        // 有五个值是当false来看的 其余的都是真
+        // false 0 '' undefined null
+
+
+        function fun(x, y) {
+            x = x || 0
+            y = y || 0
+
+            console.log(x);
+        }
+
+        fun(3, 4);
+    </script>
+</body>
+
+</html>

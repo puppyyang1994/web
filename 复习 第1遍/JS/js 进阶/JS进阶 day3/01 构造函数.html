@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 封装是面向对象中比较重要的一部分
+        // JS面向对象可以通过构造函数实现的封装
+        // 构造函数实例创建的对象 彼此互不影响
+        function Star(uname, age) {
+            this.uname = uname
+            this.age = age
+            // 公共的方法写到了构造函数里  这样费内存
+            // this.sing = function () {
+            //     console.log('changge');
+            // }
+        }
+        const ldh = new Star('刘德华', 30)
+        const zxy = new Star('张学友', 19)
+
+        // 公共的方法写到原型对象身上 节约了内存
+        // 构造函数 通过原型分配的方法是所有对象共享的
+        // JS规定 每一个构造函数都有一个prototype属性，指向另一个对象 我们称为原型对象
+        // 这个对象可以挂在函数，对象实例化不会多次创建原型上函数 节约内存
+        // 我们可以把那些不变的方法 直接定义在prototype对象上，这样所有的实例对象都可以共享这些方法
+        // 构造函数和原型对象中的this 都指向 实例化的对象
+        Star.prototype.sing = function () {
+            console.log('唱歌');
+        }
+
+        ldh.sing()
+        zxy.sing()
+        console.log(ldh.sing === zxy.sing); //true  说明这两个函数一样 注意这里没加() 函数可以直接做变量
+        console.dir(Star.prototype)
+    </script>
+</body>
+
+</html>

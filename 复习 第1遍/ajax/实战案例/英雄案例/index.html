@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>首页</title>
+    <!-- 导包 -->
+    <link rel="stylesheet" href="./lib/css/bootstrap.min.css">
+</head>
+
+<body>
+    <div class="wrap">
+        <nav class="navbar  navbar-inverse navbar-static-top">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#mymenu">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="#"><img src="images/logo.png" /></a>
+                </div>
+            </div>
+        </nav>
+
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="panel panel-default">
+                        <div class="panel-heading clearfix">
+                            <div class="row">
+                                <div class="col-md-6 page-title">英雄列表</div>
+                                <div class="col-md-6 text-right">当前位置：首页</div>
+                            </div>
+                        </div>
+                        <div class="panel-body">
+                            <div class="row">
+                                <div class="col-md-3">
+                                    <input class="search form-control" type="text" placeholder="请输入英雄名称,enter键搜索" />
+                                </div>
+                                <div class="col-md-5"></div>
+                                <div class="col-md-3">
+                                    <a href="./add.html" class="btn btn-success pull-right">新增</a>
+                                </div>
+                            </div>
+
+                            <table id="my-table" class="table table-bordered mp15">
+                                <thead>
+                                    <tr>
+                                        <th width="25%">头像</th>
+                                        <th width="25%">姓名</th>
+                                        <th width="25%">技能</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td><img src="./lib/img/盖伦.png" alt="" /></td>
+                                        <td>盖伦</td>
+                                        <td>躲草丛</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- 导入JS包 -->
+    <script src="./lib/js/jquery-1.12.4.js"></script>
+    <script src="./lib/js/bootstrap.min.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+
+    <script>
+        // 页面一加载 就发送ajax请求
+        axios({
+            url: 'https://autumnfish.cn/api/cq/page',
+            method: 'get',
+            params: { pageNum: 1, pageSize: 20 }
+        }).then(res => {
+            // 渲染页面列表
+            // console.log(res);
+            renderData(res.data.list)
+        })
+
+        // 输入框enter事件 搜索
+        document.querySelector('.search').onkeydonw = function (e) {
+            if (e.key == 'Enter') {
+                axios({
+                    url: 'https://autumnfish.cn/api/cq',
+                    method: 'get',
+                    params: { query: this.value }
+                }).then(res => {
+                    renderData(res.data.list)
+                })
+            }
+        }
+
+        // 封装渲染函数
+        const renderData = arr => {
+            // 对数组里的每一项进行操作
+            document.querySelector('tbody').innerHTML = arr.map(item => `
+            <tr>
+                <td><img src="${item.icon}" alt="" /></td>
+                <td>${item.name}</td>
+                <td>${item.skill}</td>
+            </tr>
+            `).join('')
+        }
+    </script>
+</body>
+
+</html>

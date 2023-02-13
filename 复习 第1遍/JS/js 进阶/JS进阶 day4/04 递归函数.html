@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 简单来说 递归就是函数直接或间接的调用自己
+        // 两个要素  自己调用自己  结束条件
+        // 递归的作用和循环效果类似
+        let i = 1
+        function fn() {
+            console.log(`这是第${i}次`);
+            if (i > 6) {
+                return
+            }
+            i++
+            fn()
+        }
+        fn()
+    </script>
+</body>
+
+</html>

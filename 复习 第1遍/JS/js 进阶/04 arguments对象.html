@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 正常模式下 arguments 对象可以在运行时修改
+        /*  let f = function (a, b) {
+             arguments[0] = 3;
+             arguments[1] = 2;
+             return a + b;
+         }
+         console.log(f(1, 1)); //5 */
+
+        // 严格模式下 修改arguments对象不会影响到实际的函数参数
+        /*  let f = function (a, b) {
+             'use strict';
+             arguments[0] = 3;
+             arguments[1] = 2;
+             return a + b;
+         }
+         console.log(f(1, 1)); //2 */
+        // arguments可以动态获取函数的实参 通过for循环依次得到实参
+        // 通过arguments对象的length属性，可以判断函数调用时到底带几个参数
+        /*  function f() {
+             return arguments.length
+ 
+         }
+         console.log(f(1, 2, 3)); //3 */
+
+        /*   function sum() {
+              let s = 0;
+              for (let i = 0; i < arguments.length; i++) {
+                  s += arguments[i]
+              }
+              console.log(s);
+          }
+          sum(5, 10) //15
+          sum(2, 4, 6) //12 */
+
+        /*  // arguments和数组的关系：要让arguments对象使用数组方法，真正的解决方法是
+         // 将arguments转换为真正的数组
+         // 方法一：
+         let args = Array.prototype.slice.call(arguments)
+         // 方法二：
+         let args2 = []
+         for (let i = 0; i < arguments.length; i++) {
+             args2.push(arguments[i])
+         } */
+
+        // callee属性 返回它所对应的原函数
+        let f = function () {
+            console.log(arguments.callee === f);
+        }
+        f()//true
+
+        // 通过arguments.callee 达到调用函数自身的目的 这个属性在strict模式下禁用 因此不建议使用
+    </script>
+</body>
+
+</html>

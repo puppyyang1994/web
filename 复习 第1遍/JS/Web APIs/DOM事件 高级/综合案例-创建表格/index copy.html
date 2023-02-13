@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>本地存储信息版</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+
+<body>
+    <!-- 会员信息 -->
+    <div class="newMember w">
+        <h1>新增学员</h1>
+        姓名：<input type="text" class="uname">
+        年龄：<input type="text" name="age" id="" class="age">
+        性别：<select name="gender" id="gender" class="gender">
+            <option value="男">男</option>
+            <option value="女">女</option>
+        </select>
+        薪资: <input type="text" class="salary">
+        就业城市：
+        <select name="city" id="city">
+            <option value="北京">北京</option>
+            <option value="上海">上海</option>
+            <option value="大连">大连</option>
+            <option value="广州">广州</option>
+            <option value="武汉">武汉</option>
+        </select>
+        <button class="write">录入</button>
+        <h1>就业榜</h1>
+        <!-- 数据展示表格 -->
+        <div class="showTable">
+            <table>
+                <thead>
+                    <tr>
+                        <th>学号</th>
+                        <th>姓名</th>
+                        <th>年龄</th>
+                        <th>性别</th>
+                        <th>薪资</th>
+                        <th>就业城市</th>
+                        <th>操作</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- <tr>
+                        <td>1</td>
+                        <td>1</td>
+                        <td>1</td>
+                        <td>1</td>
+                        <td>1</td>
+                        <td>1</td>
+                        <td><a href="javascript:;" id="1">删除</a></td>
+                    </tr> -->
+                </tbody>
+            </table>
+        </div>
+
+
+    </div>
+
+    <script>
+        // 读取本地存储的数据  封装为函数
+        // 如果本地存储有数据 则返回JSON.parse()之后的对象
+        // 如果本地无存储数据，则默认写入三条数据，注意用JSON.stringify()转成JSON字符串
+        function getLocalData() {
+            let data = localStorage.getItem('data')
+            if (data) {
+                return JSON.parse(data)
+            } else {
+                // 如果无存储信息 默认写入三条
+                let arr = [
+                    { stuId: 1001, uname: '欧阳霸天', age: 19, gender: '男', salary: '20000', city: '上海' },
+                    { stuId: 1002, uname: '令狐霸天', age: 29, gender: '男', salary: '30000', city: '北京' },
+                    { stuId: 1003, uname: '诸葛霸天', age: 39, gender: '男', salary: '2000', city: '北京' },
+                ]
+                // 写入到本地存储
+                localStorage.setItem('data', JSON.stringify(arr))
+            }
+        }
+        // 先调用一次
+        getLocalData()
+
+        // 获取元素
+        let write = document.querySelector('.write')
+        let tbody = document.querySelector('tbody')
+
+        // 获取表单元素
+        let uname = document.querySelector('.uname')
+        let age = document.querySelector('.age')
+        let gender = document.querySelector('.gender')
+        let salary = document.querySelector('.salary')
+        let city = document.querySelector('#city')
+
+        // 把后台数据渲染到页面中
+        function render() {
+            // 先读取本地数据 然后渲染
+            let arr = getLocalData()
+            // 清除掉以前的数据 让tbody里的tr没有
+            tbody.innerHTML = ''
+
+            // 先看看给定的数据有几条 再来增加和渲染tr
+            for (let i = 0; i < arr.length; i++) {
+                let tr = document.createElement('tr')
+                tr.innerHTML = `
+               <td>${arr[i].stuId}</td>
+                        <td>${arr[i].uname}</td>
+                        <td>${arr[i].age}</td>
+                        <td>${arr[i].gender}</td>
+                        <td>${arr[i].salary}</td>
+                        <td>${arr[i].city}</td>
+                        <td><a href="javascript:;" id="${i}">删除</a></td>
+               `
+                //    tr追加给 tobody
+                tbody.appendChild(tr)
+            }
+
+        }
+        // 页面一加载就调用函数
+        render()
+
+        // 添加数据操作
+        // 获得input里的值 并且追加给arr
+        write.addEventListener('click', function () {
+            // 先取的最新的本地存储数据 然后追加
+            // 新增了数据 要把数据存储到本地
+            let arr = getLocalData()
+            arr.push({
+                stuId: arr[arr.length - 1].stuId + 1,
+                uname: uname.value,
+                age: age.value,
+                gender: gender.value,
+                salary: salary.value,
+                city: city.value
+
+            })
+            // 春村到本地
+            localStorage.setItem('data', JSON.stringify(arr))
+            // push完之后要重新渲染页面
+            render()
+
+            // 复原表单里的数据
+            uname.value = age.value = salary.value = ''
+            gender.value = '男'
+            city.value = '北京'
+        })
+        // 删除操作 e.target
+        tbody.addEventListener('click', function (e) {
+
+            // 读取本地存储的数据
+            let arr = getLocalData()
+
+            if (e.target.tagName === 'A') {
+                // 这里的Id的值和上面的i是一样的 删除行就是删除数组里的数据
+                arr.splice(e.target.dataset.id, 1)
+                // console.log(e.target);
+
+                // 保存到本地
+                localStorage.setItem('data', JSON.stringify(arr))
+            }
+            // 重新渲染页面
+            render()
+        })
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <input type="text" name="" id="">
+    <input type="password" name="" id="">
+    <script>
+        let input = document.querySelector('input')
+        // input事件 只要输入就会触发
+        // change 事件 离开表单时才会触发 并且只有变化
+        input.addEventListener('change', function () {
+            console.log(111);
+        })
+    </script>
+</body>
+
+</html>

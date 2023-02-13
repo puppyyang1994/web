@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 静态方法：只能给构造函数使用的方法
+        // Object.keys()获取对象所有的属性 
+        // Object.values()获取对象中所有的属性值
+        const o = { uname: 'pink', age: 18 }
+        console.log(Object.keys(o));//返回数组 ['uname', 'age']
+        console.log(Object.values(o));// ['pink', 18]
+
+        // 对象的拷贝  使用的场景 给对象添加新属性
+        const oo = {}
+        Object.assign(oo, o)
+        console.log(oo);
+        Object.assign(o, { gender: '女' })
+        console.log(o);
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <button>点击</button>
+    <script>
+        /* //  普通函数 谁调用我 this就指向谁
+
+        console.log(this);//window
+
+        function f() {
+            console.log(this);
+        }
+        f() //window
+
+        window.setTimeout(function () {
+            console.log(this);
+        }, 1000) //window
+
+
+        // 
+        document.querySelector('button').addEventListener('click', function () {
+            console.log(this); //指向button
+        })
+
+        const obj = {
+            sayHi: function () {
+                console.log(this); //指向对象obj
+            }
+        }
+        obj.sayHi()
+
+ */
+
+        // 2. 箭头函数中的this与普通函数完全不一样也不受调用方式的影响，事实上箭头函数中并不存在this
+        // 箭头函数会默认帮我们绑定外层this的值，所以箭头函数中的this的值和外层函数this的值是一样的
+        // 向外层作用域中，一层一层查找this,知道有this的定义
+
+        console.log(this);//window
+        const sayHi = function () {
+            console.log(this);
+        }
+        sayHi() //window
+
+        const user = {
+            name: '小明',
+            walk: () => {
+                console.log(this);
+            }
+        }
+        user.walk() //window
+
+
+        // 注意情况1
+        // 事件回调函数使用箭头函数时，this指向window，所以再DOM事件回调函数
+        // 如果里面需要DOM对象this， 则不推荐使用箭头函数
+        const btn = document.querySelector('button')
+        // btn.addEventListener('click', () => {
+        //     console.log(this); //此时指向的是window
+        // })
+
+        // 写成普通函数 此时指向DOM对象
+        btn.addEventListener('click', function () {
+            console.log(this);
+        })
+
+
+        // 注意情况2 基于原型的面向对象也不推荐采用箭头函数
+        function Person() {
+
+        }
+        Person.prototype.walk = () => {
+            console.log('人都要走路的');
+            console.log(this); //指向window
+        }
+        const p1 = new Person()
+        p1.walk()
+
+
+        // 总结 箭头函数不适用于 构造函数 圆形函数 DOM事件函数等
+
+        // 适用于 需要使用上层this的地方
+    </script>
+</body>
+
+</html>

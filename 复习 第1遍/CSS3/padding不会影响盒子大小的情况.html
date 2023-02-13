@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        h1 {
+            height: 200px;
+            background-color: pink;
+            padding: 30px;
+        }
+
+        div {
+            width: 300px;
+            height: 200px;
+            background-color: purple;
+        }
+
+        /* 盒子本身没有指定width/height属性, 则此时padding不会撑开盒子大小 */
+        div p {
+            /* p本身没有设置width 他继承的是父元素div的300 
+            所以就算给p 设置了30的padding 盒子依然不会被撑开 */
+            padding: 30px;
+            background-color: skyblue;
+        }
+    </style>
+</head>
+
+<body>
+    <h1></h1>
+    <div>
+        <p></p>
+    </div>
+</body>
+
+</html>

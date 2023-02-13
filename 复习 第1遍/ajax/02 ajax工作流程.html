@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 1. ajax技术 可以在不刷新页面的情况下 向服务器发送数据请求  作用：局部刷星
+
+        //2. HMLHttpRequest对象：负责实现ajax技术的对象
+        /* 流程：
+        - 创建xhr对象  let xhr = new XMLHttpRequest()
+        - 设置请求方法和地址 xhr.open('请求方法', '请求地址')
+        - 发送请求 xhr.send()
+        - 注册响应事件 xhr.onload = function(){xhr.responseText} */
+
+        // 1. 创建小黄人
+        let xhr = new XMLHttpRequest()
+        // 2. 设置请求方法
+        xhr.open('get', 'https://autumnfish.cn/api/joke')
+        // 3. 发送请求
+        xhr.send()
+        // 4. 注册完成响应事件
+        // 这个事件不会立即执行 而是等服务器相应之后才执行 
+        // 时间不固定：取决于 宽带 请求大小 天气 高峰期等等因素
+        xhr.onload = function () {
+            console.log(xhr.responseText);
+        }
+    </script>
+</body>
+
+</html>

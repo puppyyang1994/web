@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- action=url地址  用于指定接收并处理表单数据的服务器程序的url地址 -->
+    <!-- method= get/post 设置表单数据的提交方式 -->
+    <!-- name=名称  指定表单的名称 以区分同一个页面中的多个表单 -->
+    <form action="#">
+        用户名：<input type="text" value="请输入用户名"><br>
+        密码：<input type="password" name="" id=""><br>
+        性别：
+        <label for="nan">男</label>
+        <input type="radio" name="sex" id="nan">
+        女<input type="radio" name="sex">
+        人妖<input type="radio" name="sex">
+        <br>
+        爱好：
+        吃饭<input type="checkbox" name="interest">
+        睡觉<input type="checkbox" name="interest">
+        打豆豆<input type="checkbox" name="interest">
+        <br>
+        <input type="submit" value="免费注册">
+        <input type="reset" value="重新填写">
+        <input type="button" value="获取短信验证码">
+        <br>
+        上传头像:
+        <input type="file" name="image" id="">
+        <br>
+        籍贯：
+        <select name="" id="">
+            <option value="">火星</option>
+            <option value="">地球</option>
+            <option value="" selected="selected">中国</option>
+        </select>
+        <br>
+        今日反馈：
+        <textarea name="" id="" cols="30" rows="10">
+请写下你的想法。。。
+        </textarea>
+    </form>
+</body>
+
+</html>

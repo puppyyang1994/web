@@ -1,0 +1,24 @@
+header {
+  text-align: center;
+}
+
+h1 {
+  font-weight: 400;
+}
+
+.search {
+  margin: 0 10px;
+}
+a {
+  text-decoration: none;
+}
+p {
+  text-indent: 50px;
+}
+.pic {
+  text-align: center;
+}
+footer {
+  font-size: 12px;
+  color: gray;
+}

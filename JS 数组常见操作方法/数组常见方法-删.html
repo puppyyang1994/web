@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 1. pop()从数组中删除最后一项 同时减少数组的length 返回的是被删除的项
+        let fruits = ["Banana", "Orange", "Apple", "Mango"]
+        fruits.pop()
+        console.log(fruits);//["Banana", "Orange", "Apple"]
+
+        // 2. shift() 删除首个数组元素 同时减少数组的length 返回的是被删除的项
+        let colors = ['red', 'pink', 'yellow']
+        let newColors = colors.shift()
+        console.log(colors) //['pink', 'yellow']
+        console.log(newColors); //red
+
+        // 3. splice() 传入两个参数 分别是开始位置 删除元素的数量 返回包含删除元素的数组
+        let color1 = ['red', 'pink', 'yellow']
+        let removed = color1.splice(2, 1)
+        console.log(color1);//['red', 'pink']
+        console.log(removed);['yellow']
+
+
+        // 4. slice()创建一个包含原有数组中一个或多个元素的新数组（用数组的某个片段切出新数组）
+        // 不会影响原数组
+        let fruits2 = ["Banana", "Orange", "Lemon", "Apple", "Mango"];
+        let s = fruits2.slice(1);
+        // 参数1 代表从数组元素1开始 切出一段新数组
+        console.log(s);//["Orange", "Lemon", "Apple", "Mango"]
+
+        let m = fruits2.slice(1, 4)
+        // 参数1 表示从数组元素1开始 截取到元素4这一段的数组元素  但4不包括
+        console.log(m);// ['Orange', 'Lemon', 'Apple']
+    </script>
+</body>
+
+</html>

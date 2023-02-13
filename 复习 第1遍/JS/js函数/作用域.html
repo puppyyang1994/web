@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 全局变量 
+        // let num = 10
+        // function fn() {
+        //     console.log(num);
+        // }
+        // fn()
+        // if (true) {
+        //     console.log(num);
+        // }
+
+        // 局部作用域
+        // function fn() {
+        //     let num = 10
+        //     console.log(num);
+        //     function fn1() {
+        //         console.log(num)
+        //         let num2 = 20
+        //     }
+        //     fn1()
+        //     console.log(num2);
+        // }
+        // fn()
+
+        // // 块级作用域{}
+        // if (true) {
+        //     let num = 10
+        // }
+        // console.log(num);//undefined
+        // for (let i = 0; i < 5; i++) {
+        //     console.log(i);
+        // }
+        // console.log(i);
+
+        let num = 10
+        function fn() {
+            let num = 20
+            console.log(num);
+        }
+        fn()
+    </script>
+</body>
+
+</html>

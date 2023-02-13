@@ -1,0 +1,57 @@
+* {
+  padding: 0;
+  margin: 0;
+}
+
+.w {
+  width: 1200px;
+  margin: 20px auto;
+}
+body {
+  background-color: #f3f5f7;
+}
+li {
+  list-style: none;
+}
+a {
+  text-decoration: none;
+  color: #000;
+}
+.box {
+  position: relative;
+}
+.box-hd {
+  margin-bottom: 15px;
+}
+.searchAll {
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+.box-bd ul li {
+  width: 228px;
+  height: 270px;
+  background-color: #fff;
+  float: left;
+  margin: 0 15px 15px 0;
+}
+/* 4的倍数 li 的右边距要去掉 */
+.box-bd ul li:nth-child(4n) {
+  margin-right: 0;
+}
+.box-bd ul li img {
+  width: 100%;
+}
+.box-bd ul li h4 {
+  margin: 20px 20px 20px 25px;
+  font-size: 14px;
+  font-weight: 500;
+  color: #050505;
+}
+.box-bd .info {
+  font-size: 12px;
+  margin-left: 25px;
+}
+.box-bd .info span {
+  color: #ff7c2d;
+}

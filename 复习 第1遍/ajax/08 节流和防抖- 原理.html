@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script>
+
+
+        // 在事件被触发N秒后再执行回调函数，如果这中间再触发 则从新开始算时间
+
+        let timer
+        function debounce(fn, delay) {
+            // 防抖是一个函数包装器 所以返回的也应该是一个函数
+            return function () {
+                // 这个函数他可能带参数
+                const args = arguments;
+                clearTimeout(timer)
+                timer = setTimeout(() => {
+                    fn.apply(this, args)
+                }, delay)
+            }
+        }
+
+
+
+
+        //    函数节流  每隔一段时间 只执行一次函数
+        // 这里给出通常版本和立即执行版本（也就是第一次触发就立即处理，而不是需要等一个timer）
+        function throttle(fn, delay) {
+            let timer = null;
+            return function () {
+                const args = arguments;
+                if (!timer) {
+                    timer = setTimeout(() => {
+                        timer = null;
+                        fn.apply(this, args);
+                    }, delay);
+                }
+            }
+        }
+
+        function immeThrottle(fn, delay) {
+            let timer = null;
+            return function () {
+                const args = arguments;
+                if (!timer) {
+                    fn.apply(this, args);
+                    timer = setTimeout(() => {
+                        timer = null;
+                    }, delay);
+                }
+            }
+        }
+
+        // 时间戳版本要怎么做呢？这里就不再是定义timer了，而是通过一前一后两个时间戳作差对比，我们默认单位都是毫秒，所以也不用考虑单位转换的问题。
+        function throttle(fn, delay) {
+            let prev = 0;
+            return function () {
+                const now = Date.now();
+                const args = arguments;
+                if (now - prev > delay) {
+                    fn.apply(this, args);
+                    prev = now;
+                }
+            }
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <button class="btn1">基本使用</button>
+    <button class="btn2">点我发送get请求</button>
+    <button class="btn3">点我发送post请求</button>
+
+    <!-- 导入axios库 -->
+    <!-- 我直接从官网通过连接的方式引用 -->
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+
+    <script>
+        // axios的基本使用
+        // axios.get(url, {}).then(res =>{}).catch(err=>{}).then(()=>{})
+        document.querySelector('.btn1').addEventListener('click', function () {
+            axios
+                .get('https://autumnfish.cn/api/joke/list?num=10')
+                // 成功回调
+                .then(res => {
+                    // res里面存储很多数据：服务器响应数据 请求头 请求配置 请求xhr对象
+                    console.log(res);
+                    // res.data:服务器响应的数据 相当于之前ajax中的xhr.responseText
+                    console.log(res.data)
+                })
+                // 失败回调 一般可以不懈
+                .catch(err => {
+                    // 请求错误
+                    console.log(err);
+                })
+                // 完成回调 一般可省略不写
+                .then(() => {
+                    // 请求完成：无论成功还是失败，请求完成就会执行
+                    console.log('请求完成')
+                })
+        }
+        )
+
+        // get请求
+        // get(url, {params:get参数})
+        document.querySelector('.btn2').onclick = function () {
+            axios.get('https://autumnfish.cn/api/joke/list?num=10', {
+                params: { num: 10 }
+            }).then(({ data }) => {
+                // 获取服务器返回的数据
+                // 解构赋值
+
+                // let { data } = res
+                console.log(data);
+            })
+
+        }
+
+        // post请求
+        // post(url, {post参数})
+        document.querySelector('.btn3').addEventListener('click', function () {
+
+            axios.post('http://www.liulongbin.top:3009/api/login', {
+                username: '1423543',
+                password: 'afsfs'
+            })
+                .then(({ data }) => {
+                    console.log(data);
+                })
+        })
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 通过构造函数创建的对象称为实例对象，实例对象中的属性和方法称为实例成员
+        // 构造函数
+        function Person() {
+            // 构造函数内部的this 就是实例对象
+            // 实例对象中动态添加属性
+            this.name = '小明'
+            // 添加方法
+            this.sayHi = function () {
+                console.log('hahah');
+            }
+        }
+
+        // 实例化
+        const p1 = new Person()//p1 q其实就是构造函数内部的this
+        console.log(p1);
+        // 访问实例化成员
+        p1.sayHi()
+        console.log(p1.name);
+
+        // 构造函数的属性和方法被称为静态成员
+        function Person1() {
+            // 省略实例成员
+        }
+        // 静态属性
+        Person1.eyes = 2
+        Person1.arms = 2
+        // 静态方法
+        Person1.walk = function () {
+            console.log('走了')
+            // this 指向Person1
+            console.log(this.eyes);
+        }
+        Person1.walk()
+        // 构造函数的属性和方法被称为静态成员
+        // 一般公共特征的属性或方法静态成员设置为静态成员
+        // 静态成员方法中的this指向构造函数本身
+
+    </script>
+</body>
+
+</html>

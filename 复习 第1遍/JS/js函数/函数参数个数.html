@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // function fn(x, y) {
+        //     // x = 1
+        //     // y = undefined
+        //     console.log(x + y);
+        // }
+        // fn(1) //NaN 实际参数个数少于实参
+        function fn() {
+            console.log(arguments); //[1,2,3]
+            let sum = 0
+            for (let i = 0; i < arguments.length; i++) {
+                sum += arguments[i]
+            }
+            console.log(sum);
+        }
+        fn(1, 2, 3)
+    </script>
+</body>
+
+</html>

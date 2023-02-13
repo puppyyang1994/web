@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .father {
+            margin: 100px auto;
+            width: 500px;
+            height: 500px;
+            background-color: pink;
+        }
+
+        .son {
+            width: 200px;
+            height: 200px;
+            background-color: aqua;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="father">
+        <div class="son"></div>
+    </div>
+    <!-- 事件冒泡：当一个元素的事件被触发时，同样的事件将会在该元素的所有祖先元素中依次被触发 -->
+    <!-- 事件冒泡是默认存在的 -->
+    <script>
+        let fa = document.querySelector('.father')
+        let son = document.querySelector('.son')
+        // 参数有true 表示捕获阶段触发 但实际很少这样用 默认的是false  在捕获阶段触发
+        fa.addEventListener('click', function (e) {
+            alert('我是爸爸')
+            // 若想把时间就限制在当前元素内 就需要阻止事件流动 
+            e.stopPropagation()
+        })
+        son.addEventListener('click', function (e) {
+            alert('我是儿子')
+            e.stopPropagation()
+        })
+        // document.addEventListener('click', function () {
+        //     alert('我是爷爷')
+        // })
+        // 使用onclick 只有冒泡 没有捕获
+    </script>
+</body>
+
+</html>

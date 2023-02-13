@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // JS 中大部分是通过原型对象prototype实现继承特性的
+        // function Man() {
+        //     this.head = 1
+        //     this.eyes = 2
+        //     this.legs = 2
+        //     this.say = function () { }
+        //     this.eat = function () { }
+        // }
+
+        // function Woman() {
+        //     this.head = 1
+        //     this.eyes = 2
+        //     this.legs = 2
+        //     this.say = function () { }
+        //     this.eat = function () { }
+        //     this.baby = function () { }
+        // }
+
+        // const pink = new Man()
+        // const red = new Woman()
+
+        // 封装  抽取公共部分
+        // 人
+        // const People = {
+        //     head: 1,
+        //     eyes: 2,
+        //     legs: 2,
+        //     say: function () { },
+        //     eat: function () { }
+        // }
+        // // 男人
+        // function Man() { }
+        // // 女人
+        // function Woman() {
+        //     this.baby = function () { }
+        // }
+        // // 继承 让男人和女人都能继承人类的一些属性和方法
+        // // 把公共的属性和方法给原型 这样就可以共享了
+        // Man.prototype = People
+        // // 让原型对象里的constructor 指向Man 找自己的爸爸
+        // Man.prototype.constructor = Man
+
+        // const pink = new Man()
+        // console.log(pink);
+
+        // // 给男人添加一个吸烟的方法
+        // Man.prototype.smoking = function () { }
+
+        // Woman.prototype = People
+        // Woman.prototype.constructor = Woman
+
+        // const red = new Woman()
+        // console.log(red);
+        // 此时会发现 女人也自动添加了该方法
+        // 这是因为 男人和那帮人 都同时使用了一个对象，根据引用类型的特点
+        // 一旦一个修改另一个也会修改
+
+
+        // 因为如此 所以我们如何解决 男人和女人 能够使用不同的对象 但里面是同样的属性和方法
+        // 构造函数 可以解决
+        function Person1() {
+            this.head = 1
+            this.eyes = 2
+            this.legs = 2
+            this.say = function () { }
+            this.eat = function () { }
+        }
+        console.log(new Person1());
+
+        function Man() { }
+        // 用new Person()代替刚才的固定对象people
+
+        // 通过原型 继承Person1
+        Man.prototype = new Person1()
+        // 指回原来的构造函数
+        Man.prototype.constructor = Man
+        const pink = new Man()
+        Man.prototype.smoking = function () { }
+
+        function Woman() { }
+        Woman.prototype = new Person1()
+        // console.log(Man.prototype === Woman.prototype);// false  这说明Man和Woman指向的是不同的对象 但是有同样的属性
+        Woman.prototype.constructor = Woman
+        const red = new Woman()
+        console.log(red); //此时red 就没有smoking方法了
+    </script>
+</body>
+
+</html>

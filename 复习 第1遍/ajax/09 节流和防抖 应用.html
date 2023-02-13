@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <input type="text" placeholder="输入文字">
+
+    <script>
+        /* 
+       1.函数防抖 : 单位时间内，频繁触发一个事件， 以'最后一次'触发为准
+       2.防抖应用场景: 输入框输入事件
+       3.防抖流程 :
+           3.1 声明一个全局变量存储定时器ID
+           3.2 每一次触发交互的时候，先清除上一次定时器。 然后把本次事件处理代码放入定时器中
+       */
+        let timeID = null
+        document.querySelector('input').oninput = function () {
+            // 先清除之前的定时器
+            clearTimeout(timeID)
+            // 开启本次定时器
+            timeID = setTimeout(() => {
+                // 这里的this是上一级 name就是input
+                console.log(`发送ajax，搜索内容是${this.value}`);
+            })
+        } 
+    </script>
+</body>
+
+</html>

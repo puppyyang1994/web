@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- history对象与浏览器地址栏的操作相对应，如前进，后退，历史记录等 -->
+    <!-- 常用属性和方法
+    back()
+forward()
+go(参数) 参数为1 前进一个页面 参数为-1 后退一个页面
+history对象 一般在实际开发中比较少用，但会在一些OA办公系统中见到 -->
+    <button class="forward">前进</button>
+    <button class="backward">后退</button>
+    <script>
+        let forward = document.querySelector('.forward')
+        let backward = document.querySelector('.backward')
+        forward.addEventListener('click', function () {
+            history.go(1)
+        })
+        backward.addEventListener('click', function () {
+            history.go(-1)
+        })
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div></div>
+    <script>
+        let div = document.querySelector('div')
+        function fn() {
+            div.innerHTML = new Date().toLocaleString()
+            setTimeout(fn, 1000)
+        }
+        fn()
+
+        // setInterval 和 setTimeout的区别
+        // setInterval的特征是重复执行 首次执行会延时
+        // setTimeout 的特征是延时执行 只执行一次   clearTimeout清除
+    </script>
+
+</body>
+
+</html>

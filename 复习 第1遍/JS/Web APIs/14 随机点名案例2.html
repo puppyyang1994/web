@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            text-align: center;
+        }
+
+        div {
+
+            width: 100px;
+
+        }
+
+        h3 {
+            font-weight: normal;
+            font-size: 30px;
+        }
+
+        input {
+            border: none;
+            font-size: 30px;
+            color: red;
+        }
+
+
+
+        button {
+
+            width: 100px;
+            height: 45px;
+            margin: 20px 20px;
+
+        }
+    </style>
+</head>
+
+<body>
+    <h2>随机点名</h2>
+    <h3>名字是：<input type="text" value="这里显示名字"></h3>
+
+    <button class="start">开始</button>
+    <button class="end">结束</button>
+    <script>
+        let startBtn = document.querySelector('.start')
+        let endBtn = document.querySelector('.end')
+        let ipt = document.querySelector('input')
+
+        function getRandom(min, max) {
+            return Math.floor(Math.random() * (max - min + 1)) + min
+        }
+        let arr = ['关羽', '张飞', '刘备', '曹操', '诸葛亮']
+        let timer = 0
+        let index = 0
+        startBtn.addEventListener('click', function () {
+
+            timer = setInterval(function () {
+                index = getRandom(0, arr.length - 1)
+                ipt.value = arr[index]
+            }, 40)
+            // 当只剩下一个人时，禁用按钮
+            if (arr.length === 1) {
+                startBtn.disabled = endBtn.disabled = true
+            }
+        })
+        endBtn.addEventListener('click', function () {
+            clearInterval(timer)
+            // 暂停一次 就删除相应的数据
+            arr.splice(index, 1)
+            // console.log(arr);
+
+        })
+
+
+    </script>
+</body>
+
+</html>

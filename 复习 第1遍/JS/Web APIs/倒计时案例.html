@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+
+        .countDown {
+            width: 240px;
+            height: 305px;
+            background-color: brown;
+            text-align: center;
+            color: #fff;
+            /* 由字体来决定 1倍行距 */
+            line-height: 1;
+            /* background-size: 240px; */
+            /* float: left; */
+            /* overflow: hidden; */
+        }
+
+        .countDown .today {
+            font-size: 18px;
+            padding: 25px 0 25px;
+        }
+
+        .countDown .title {
+            font-size: 35px;
+        }
+
+        .countDown .now {
+            margin-top: 80px;
+            font-size: 23px;
+        }
+
+        .countDown .clock {
+            width: 142px;
+            margin: 18px auto 0;
+            overflow: hidden;
+            /* 子盒子 span 和 i 都浮动了 所以父元素clock要清除浮动 */
+        }
+
+        .countDown .clock span,
+        .countDown .clock i {
+            display: block;
+            text-align: center;
+            float: left;
+            line-height: 34px;
+            font-size: 23px;
+        }
+
+        .countDown .clock span {
+            width: 34px;
+            height: 34px;
+            border-radius: 2px;
+            background-color: #303430;
+        }
+
+        .countDown .clock i {
+            width: 20px;
+            font-style: normal;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="countDown">
+        <p class="today">今天是2023年1月16日</p>
+        <p class="title">2023倒计时</p>
+        <div class="clock">
+            <span id="hour">00</span>
+            <i>:</i>
+            <span id="minute">25</span>
+            <i>:</i>
+            <span id="second">00</span>
+        </div>
+        <p class="now"></p>
+    </div>
+    <script>
+        let hour = document.querySelector('#hour')
+        let minute = document.querySelector('#minute')
+        let second = document.querySelector('#second')
+        let nowTime = document.querySelector('.now')
+        getTimeNow()
+        setInterval(getTimeNow, 1000)
+
+        function getTimeNow() {
+            let now = +new Date()
+            let future = +new Date('2023-1-17 24:00:00')
+            let count = (future - now) / 1000
+
+            let h = parseInt(count / 60 / 60 % 24)
+            h = h < 10 ? '0' + h : h
+            let m = parseInt(count / 60 % 60)
+            m = m < 10 ? '0' + m : m
+            let s = parseInt(count % 60)
+            s = s < 10 ? '0' + s : s
+            hour.innerHTML = h
+            minute.innerHTML = m
+            second.innerHTML = s
+
+        }
+        let y = new Date().getHours()
+        let j = new Date().getMinutes()
+        let k = new Date().getSeconds()
+
+        nowTime.innerHTML = `现在是${y}:${j}:${k}`
+
+    </script>
+</body>
+
+</html>

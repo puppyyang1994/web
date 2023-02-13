@@ -1,0 +1,64 @@
+* {
+  padding: 0;
+  margin: 0;
+}
+.w {
+  width: 900px;
+  margin: auto;
+  text-align: center;
+}
+a {
+  color: #666;
+  text-decoration: none;
+}
+h1 {
+  margin: 30px 0;
+}
+input[type="text"] {
+  width: 80px;
+  height: 25px;
+  border-radius: 5px;
+  outline: none;
+  border: 1px solid #b8daff;
+}
+input[type="text"]:nth-child(3) {
+  width: 50px;
+}
+.write {
+  width: 60px;
+  height: 25px;
+  background-color: #004085;
+  outline: none;
+  border: 0;
+  color: #fff;
+  border-radius: 5px;
+  cursor: pointer;
+}
+select {
+  margin-right: 5px;
+  border-radius: 5px;
+}
+.showTable {
+  padding-left: 50px;
+}
+table {
+  width: 800px;
+  border-collapse: collapse;
+  color: #004085;
+}
+table th {
+  padding: 10px;
+  background-color: #cfe5ff;
+  font-size: 20px;
+  font-weight: normal;
+}
+table th,
+table td {
+  border: 1px solid #b8daff;
+}
+
+table td {
+  padding: 10px;
+  font-size: 16px;
+  color: #666;
+}

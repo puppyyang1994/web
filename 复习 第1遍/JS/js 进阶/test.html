@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //name属性 获取参数函数的名字
+        let myFunc = function () { };
+        function test(f) {
+            console.log(f.name);
+        }
+        test(myFunc)//myFunc
+        // length 属性 返回函数预期传入的参数个数
+        // toString()属性
+        let multiline = function (fn) {
+            let arr = fn.toString().split('\n')
+            return arr.slice(1, arr.length - 1).join('\n')
+        }
+        function f() {
+            /* 这是一个多行注释 */
+        }
+        multiline(f)
+    </script>
+</body>
+
+</html>

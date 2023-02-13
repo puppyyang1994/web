@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <button>
+        发送短信
+    </button>
+
+    <script>
+        // call(thisArg, arg1, arg2)使用call 
+        // thisArg 在函数运行时指定的this值
+        // arg1 arg2 传递的其他参数
+        // 返回值就是函数的返回值 因为它就是调用函数
+        const obj = {
+            uname: 'pink'
+        }
+        function fn(x, y) {
+            console.log(this);//本来是指向window的 但使用call之后就指向了指定的obj对象了
+            console.log(x + y);
+        }
+        // fn.call(obj, 1, 2)
+        // 总结call的作用就是 调用函数 并且改变被调用函数里边的this
+
+        // 2 apply(thisArg, [数组参数])
+        fn.apply(obj, [1, 2])
+
+        // 3. 返回值 本身就是在调用函数 所以返回值就是函数的返回值
+        // 使用场景 求数组最大值
+        /* const max = Math.max(1, 2, 3)
+        console.log(max); */
+
+        const arr = [100, 44, 77]
+        const max = Math.max.apply(Math, arr)
+        const min = Math.min.apply(null, arr)
+        console.log(max, min); //100 44
+        // 利用展开运算符
+        console.log(Math.max(...arr));
+
+        // 总结：call 和 apply 都是能调用函数 改变this指向 但apply的参数必须是数组
+
+
+        // bind() 不会直接调用函数 但是可以改变函数内部的this指向 应用很广泛
+
+        const obj2 = {
+            age: 18
+        }
+        function fn2() {
+            console.log(this);//obj2{}
+        }
+
+        // bind不会调用函数 但能改变this指向 返回值是个函数(改造后的原函数拷贝)  但是这个函数里面的this 是更改过的Obj2
+        const fun = fn2.bind(obj2)
+        console.log(fun);
+        fun()
+
+
+        // 需求： 有一个按钮 点击里面就禁用 两秒钟之后开启
+        document.querySelector('button').addEventListener('click', function () {
+            this.disabled = true
+            window.setTimeout(function () {
+                // this 要有window变为button
+                this.disabled = false
+            }.bind(this), 2000)
+            // 这里的this 和函数调用者btn一样
+        })
+    </script>
+</body>
+
+</html>

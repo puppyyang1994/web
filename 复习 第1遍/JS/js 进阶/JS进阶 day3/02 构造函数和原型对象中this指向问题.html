@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        let that
+        function Star(uname) {
+            this.uname = uname
+        }
+        Star.prototype.sing = function () {
+            // 原型对象里面的函数this指向的还是 实例对象ldh
+            that = this
+            console.log('唱歌');
+        }
+
+        const ldh = new Star('刘德华')
+
+        ldh.sing()
+        console.log(that === ldh); //true
+    </script>
+</body>
+
+</html>

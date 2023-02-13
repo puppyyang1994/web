@@ -1,0 +1,50 @@
+* {
+  padding: 0;
+  margin: 0;
+}
+a {
+  text-decoration: none;
+  color: #050505;
+  font-size: 18px;
+}
+header {
+  height: 100px;
+  line-height: 100px;
+  background-color: #f3f5f7;
+}
+.wrapper {
+  position: relative;
+  width: 1200px;
+  margin: 0 auto;
+  line-height: 100px;
+}
+.wrapper a img {
+  vertical-align: middle;
+  width: 190px;
+}
+.wrapper a {
+  padding: 0 20px;
+}
+.wrapper input {
+  height: 35px;
+  width: 360px;
+  border: 1px solid #00a4ff;
+  outline: none;
+  padding-left: 25px;
+}
+.wrapper .btn {
+  height: 38px;
+  position: absolute;
+  padding: 32px 0px;
+}
+.wrapper .user {
+  width: 30px;
+  position: absolute;
+  padding: 35px 60px;
+}
+.wrapper a span {
+  position: absolute;
+  padding: 0px 105px;
+  font-size: 14px;
+  color: #666666;
+}

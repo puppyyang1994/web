@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        function getRandom(min, max) {
+            return Math.floor(Math.random() * (max - min + 1)) + min
+        }
+        let arr = ['赵云', '黄忠', '关羽', '张飞', '马超', '刘备', '曹操']
+        let random = getRandom(0, arr.length - 1)//随机数作为索引号 index
+        document.write(arr[random])
+
+        // 不允许重复点名  删除这个人的名字
+        arr.splice(random, 1)
+        console.log(arr);
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        img {
+            position: absolute;
+            left: 0;
+            bottom: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <img src="./images/ad.png" alt="">
+    <!-- setTimeout(回调函数，等待的毫秒数) -->
+    <!-- js内置的一个用来让代码延迟执行的函数 它只执行一次 -->
+
+    <!-- <button>解除定时器</button>
+    <script>
+        let btn = document.querySelector('button')
+        let timer = setTimeout(function () {
+            // 仅仅执行一次
+            console.log(111);
+        }, 1000)
+        btn.addEventListener('click', function () {
+            clearTimeout(timer)
+        }) -->
+
+    <!--  -->
+    <!-- </script> -->
+    <script>
+        let img = document.querySelector('img')
+        setTimeout(function () {
+            img.style.display = 'none'
+        }, 3000)
+    </script>
+</body>
+
+</html>

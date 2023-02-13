@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .pink {
+            background-color: aqua;
+        }
+    </style>
+</head>
+
+<body>
+    <button class="pink">1</button><button>2</button><button>3</button><button>4</button>
+
+
+    <script>
+        // 当前元素为A，其他元素为B
+        // 使用 干掉所有人（for循环） 2. 复活自己 通过this 或者下标找到找到自己或对应的元素
+        let btns = document.querySelectorAll('button')
+        /* for (let i = 0; i < btns.length; i++) {
+            btns[i].addEventListener('click', function () {
+                // 干掉所有人 
+                for (let j = 0; j < btns.length; j++) {
+                    btns[j].classList.remove('pink')
+                }
+                // 复活自己
+                this.classList.add('pink')
+
+
+            })
+        } */
+        //更简单的写法
+        for (let i = 0; i < btns.length; i++) {
+            btns[i].addEventListener('click', function () {
+                document.querySelector('.pink').classList.remove('pink')
+                this.classList.add('pink')
+            })
+        }
+    </script>
+</body>
+
+</html>

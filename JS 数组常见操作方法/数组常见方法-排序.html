@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 1. sort() 以字母顺序对数组进行排序
+        let fruits = ['Banana', 'Orange', 'Apple', 'Mango']
+        fruits.sort()
+        console.log(fruits);//['Apple','Banana', 'Orange','Mango' ]
+        // 常用来判断哪个值应该排在前面
+        let points = [40, 100, 1, 5]
+        points.sort(function (a, b) { return a - b }) //[1, 5, 40, 100]
+        console.log(points);
+
+
+        // 2. reverse() 反转数组中的元素
+        fruits.reverse()
+        console.log(fruits); // ['Orange', 'Mango', 'Banana', 'Apple']
+    </script>
+</body>
+
+</html>

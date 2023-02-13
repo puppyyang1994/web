@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+
+        a {
+            text-decoration: none;
+
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        .wrapper {
+            width: 1000px;
+            height: 475px;
+            /* background-color: pink; */
+            margin: 0 auto;
+            margin-top: 100px;
+        }
+
+        .tab {
+            border-bottom: 0;
+            width: 320px;
+            height: 36px;
+            border: 1px solid #ddd;
+
+        }
+
+        .tab li {
+            position: relative;
+            float: left;
+            width: 80px;
+            height: 34px;
+            text-align: center;
+            line-height: 34px;
+            cursor: pointer;
+            border-top: 4px solid #fff;
+        }
+
+        /* 这个span竖线直接用背景色做出来 */
+
+        .tab li span {
+            position: absolute;
+            right: 0;
+            top: 10px;
+            background: #ddd;
+            width: 1px;
+            height: 14px;
+        }
+
+        .product {
+            width: 1002px;
+            height: 476px;
+            border: 1px solid #ddd;
+        }
+
+        .product .main {
+            /* float: left; */
+            display: none;
+        }
+
+        .tab li.active {
+            /* border: 1px solid red; */
+            border-color: red
+        }
+
+        .product div.active {
+            display: block;
+        }
+    </style>
+</head>
+
+<body>
+
+</body>
+<div class="wrapper">
+    <ul class="tab">
+        <li class="tab-item active">国际大牌<span></span></li>
+        <li class="tab-item">国妆名牌<span></span></li>
+        <li class="tab-item">清洁用品<span></span></li>
+        <li class="tab-item">男士精品</li>
+    </ul>
+    <div class="product">
+        <div class="main active"><a href="#"><img src="./imgs/guojidapai.jpg" alt=""></a></div>
+        <div class="main"><a href="#"><img src="./imgs/guozhuangmingpin.jpg" alt=""></a></div>
+        <div class="main"><a href="#"><img src="./imgs/qingjieyongpin.jpg" alt=""></a></div>
+        <div class="main"><a href="#"><img src="./imgs/nanshijingpin.jpg" alt=""></a></div>
+    </div>
+    <script>
+
+        let lis = document.querySelectorAll('.tab .tab-item')
+        let divs = document.querySelectorAll('.product .main')
+        // 1. tab栏切换 （排他思想）
+        for (let i = 0; i < lis.length; i++) {
+            lis[i].addEventListener('click', function () {
+                document.querySelector('.tab .active').classList.remove('active')
+                this.classList.add('active')
+                // 底部显示对应的模块
+                document.querySelector('.product .active').classList.remove('active')
+                divs[i].classList.add('active')
+
+            })
+        }
+    </script>
+</div>
+
+</html>

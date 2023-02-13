@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>手风琴案例</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        div {
+            width: 1200px;
+            height: 400px;
+            margin: 50px auto;
+            border: 1px solid skyblue;
+            overflow: hidden;
+
+        }
+
+        div li {
+            width: 240px;
+            height: 400px;
+            float: left;
+            /* 滑动的时候添加动画效果 */
+            transition: all 5s;
+
+
+        }
+
+        div ul {
+            width: 1200px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box">
+        <ul>
+            <li>
+                <a href="#">
+                    <img src="./images/1.jpg" alt="">
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <img src="./images/2.jpg" alt="">
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <img src="./images/3.jpg" alt="">
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <img src="./images/4.jpg" alt="">
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <img src="./images/5.jpg" alt="">
+                </a>
+            </li>
+        </ul>
+    </div>
+    <script>
+        // 初始化的时候设置li的宽度为240， 当鼠标经过时 把li的宽度变为800 其余的li变为100
+        // 同理 当鼠标离开时 li的宽度要复原
+        let lis = document.querySelectorAll('li')
+        // 绑定鼠标离开和经过事件
+        for (let i = 0; i < lis.length; i++) {
+            lis[i].addEventListener('mouseenter', function () {
+                // 这里用到了排他思想
+                for (let j = 0; j < lis.length; j++) {
+                    lis[j].style.width = '100px'
+                }
+                this.style.width = '800px'
+            })
+
+            // 鼠标离开
+            lis[i].addEventListener('mouseleave', function () {
+                for (let j = 0; j < lis.length; j++) {
+                    lis[j].style.width = '240px'
+                }
+            })
+        }
+    </script>
+</body>
+
+</html>

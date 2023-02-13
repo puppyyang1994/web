@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 剩余参数 允许我们将不定数量的参数 表示为一个数组
+        /* function getSum(a, b, ...arr) {
+            console.log(arr);
+        }
+        getSum(3, 5)
+        getSum(1, 2, 3, 4, 5) */
+
+        function sum(...theArgs) {
+            let total = 0;
+            for (const arg of theArgs) {
+                total += arg
+            }
+            return total
+        }
+        console.log(sum(1, 2, 3));
+
+        // 剩余参数和arguments的区别：
+        // 剩余参数只包含那些没有对应形参的实参，而arguments对象包含了所有实参
+        // arguments对象不是一个真正的数组，而剩余参数是真正的Array实例
+        // 可以使用sort map forEach 或pop等方法
+        // arguments对象有callee等属性
+
+
+        // 解构剩余参数
+        function f(...[a, b, c]) {
+            return a + b + c;
+        }
+        f(1)
+        f(1, 2, 3)
+        f(1, 2, 3, 4)
+    </script>
+</body>
+
+</html>

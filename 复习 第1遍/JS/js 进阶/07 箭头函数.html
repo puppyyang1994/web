@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 箭头函数 更适合那些本来需要匿名函数的地方
+        const fn = function () {
+            console.log('我是普通函数');
+        }
+        fn();
+        const f1 = () => { }
+        const fn2 = function (x) {
+            return x + 2;
+        }
+        // 只有一个参数的时候可以省略（）
+        const fn3 = x => {
+            return x + 2;
+        }
+        // 如果函数体只有一行代码， 可以直接写在上面 return可以省略
+        const f4 = (x, y) => x + y;
+        console.log(f4(3, 4));// 7
+
+        // 箭头函数可以直接返回一个对象
+        // 加括号的函数体返回对象字面量表达式
+        const fn5 = unname => ({ uname: uname })
+
+        // 普通函数有arguments动态参数 箭头函数没有
+        // 箭头函数 有剩余参数...
+        const getSum = (...args) => {
+            let sum = 0;
+            for (let i = 0; i < args.length; i++) {
+                sum += args[i]
+            }
+            return sum
+
+        }
+        console.log(getSum(1, 2, 3));//6
+
+        const headAndTail = (head, ...tail) => [head, tail]
+        headAndTail(1, 2, 3, 4, 5) //[1, [2,3,4,5]]
+    </script>
+</body>
+
+</html>

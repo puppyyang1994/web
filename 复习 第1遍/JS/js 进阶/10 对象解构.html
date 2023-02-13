@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 对象解构是将对象属性和方法快速批量赋值给一系列变量的简介语法
+        let user = {
+            uname: 'puppy',
+            age: 18
+
+        }
+        // 1. 对象的属性没有次序,变量必须与属性名一致，才能取到正确的值
+        // 和顺序无关 但是数组解构是按顺序的
+        /*  const { uname, age, sport } = user
+         console.log(uname);//puppyf
+         console.log(sport);//undefined */
+        // 2. 对象中如果找不到和变量名一致的属性时变量值为undefined
+        // 3. 对象的解构赋值，可以很方便地将现有对象的方法赋值给某个变量
+
+        const { log } = console;
+        log('hello');//hello
+
+        // 4. 给新的变量名赋值：可以从一个对象中提取变量并同时修改新的变量名
+        const { uname: myname, age } = user
+        console.log(myname); //puppy
+        console.log(age);//18
+
+        // 也可以
+        let { foo: baz } = { foo: 'aaa', bar: 'bbb' }
+        console.log(baz);//aaa
+
+    </script>
+</body>
+
+</html>

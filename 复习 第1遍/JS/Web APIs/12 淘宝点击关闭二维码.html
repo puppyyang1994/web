@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .code {
+            position: relative;
+            margin: 50px auto;
+            width: 100px;
+            height: 100px;
+        }
+
+        .code .close {
+            position: absolute;
+            left: -22px;
+            top: 0;
+            border: 1px solid#ccc;
+            width: 20px;
+            height: 20px;
+
+            font-size: 12px;
+            line-height: 20px;
+            text-align: center;
+        }
+
+        .code .close:hover {
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="code">
+        <img src="./images2/code.png" alt="">
+        <i class="close">×</i>
+    </div>
+    <script>
+        let close_btn = document.querySelector('.close')
+        let code = document.querySelector('.code')
+        close_btn.addEventListener('click', function () {
+            code.style.display = 'none'
+        })
+    </script>
+</body>
+
+</html>

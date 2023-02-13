@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // throw 抛出异常信息，程序会中止
+        function counter(x, y) {
+            if (!x || !y) {
+                // throw后面跟的是错误提示信息
+                throw new Error('参数不能为空')
+            }
+            return x + y
+        }
+        counter()
+        // Error对象配合throw使用，能够设置更详细的错误信息
+
+        // try/catch 捕获异常 捕获浏览器提供的错误信息
+    </script>
+</body>
+
+</html>

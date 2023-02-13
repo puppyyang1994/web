@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./lib/bootstrap-v4.6.0.css">
+    <style>
+        .thumb-box {
+            text-align: center;
+            margin-top: 50px;
+        }
+
+        .thumb {
+            width: 250px;
+            height: 250px;
+            /* 图片适应的问题 */
+            object-fit: cover;
+            border-radius: 50%;
+        }
+    </style>
+</head>
+
+<body>
+    <a href="http://www.baidu.com">sjhfvgsakfvgaskjgfasjkfgajskgfsakjhfgasj</a>
+    <div class="thumb-box">
+        <!-- 头像 -->
+        <img src="./images/cover.jpg" class="img-thumbnail thumb" alt="">
+        <!-- 文件选择框 -->
+        <!-- accept表示可选的文件类型
+        image/* 表示只能选择图片类型的文件 -->
+        <div class="mt-2">
+            <input type="file" name="" id="iptFile" accept="image/*" style="display:none">
+            <br><br>
+            <!-- 头像上传按钮 -->
+            <button class="btn btn-primary" id="btnChoose">选择 & 上传图片</button>
+        </div>
+
+    </div>
+
+    <!-- label标签 有一个独有的for属性， 它的值是input元素的id -->
+    <label for="intFile">
+        <img src="./images/icon.png" width="60px" alt="">
+    </label>
+
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <!-- 文件上传 -->
+    <script>
+        //    点击自定义按钮
+        // dom元素.onclick()只能触发注册点击事件
+        document.querySelector('#btnChoose').onclick = function () {
+            //    dom元素.click()触发 注册点击事件 和 默认点击事件 （a标签 form按钮 file表单）
+
+            document.querySelector('#iptFile').click()
+        }
+
+        // 给file表单注册onchange事件
+        document.querySelector('#iptFile').onchange = function () {
+            let fd = new FormData()
+
+            // formData.append(name, value);
+            fd.append('avatar', this.files[0])
+            axios({
+                url: 'http://www.liulongbin.top:3009/api/upload/avatar',
+                method: 'post',
+                data: fd,
+            }).then(res => {
+                document.querySelector('img').src = `http://www.liulongbin.top:3009${res.data.url}`
+            })
+        }
+    </script>
+</body>
+
+</html>

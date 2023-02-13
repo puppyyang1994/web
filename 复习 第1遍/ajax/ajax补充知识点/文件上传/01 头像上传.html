@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./lib/bootstrap-v4.6.0.css">
+    <style>
+        .thumb-box {
+            text-align: center;
+            margin-top: 50px;
+        }
+
+        .thumb {
+            width: 250px;
+            height: 250px;
+            /* 图片适应的问题 */
+            object-fit: cover;
+            border-radius: 50%;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="thumb-box">
+        <!-- 头像 -->
+        <img src="./images/cover.jpg" class="img-thumbnail thumb" alt="">
+        <!-- 文件选择框 -->
+        <!-- accept表示可选的文件类型
+        image/* 表示只能选择图片类型的文件 -->
+        <div class="mt-2">
+            <input type="file" name="" id="iptFile" accept="image/*">
+            <br><br>
+            <!-- <button class="btn btn-primary" id="btnChoose">选择 & 上传图片</button> -->
+        </div>
+
+    </div>
+
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <!-- 文件上传 -->
+    <script>
+        /* 1. 前置知识点：
+1.1 file表单 默认自带点击事件 作用是选择文件
+1.2 上传文件必须要使用原生内置的FormData对象
+    - 文件需要设置单独的请求头 miltipart/form-data
+    - 文件已二进制方式传输（文本是utf8编码 但是文件不是）
+1.3 file表单有一个特殊的onchange事件：用户选择了文件就会执行
+
+2. 文件上传流程
+2.1 在file表单的onchange事件中获取用户选择的图片 this.files[0]
+2.2 创建FormData对象 将图片添加到fd对象中 let fd = new FormaData() fd.append('接口参数', 文件数据)
+2.3 ajax发送请求：参数必须是formdata对象 */
+
+        //  a. 给file表单注册onchange事件
+        document.querySelector('#iptFile').onchange = function () {
+            console.log(this);//获取的是file表单
+            // console.log(this.files);
+
+            // b. 获取用户选择的文件
+            console.log(this.files[0]);//第一个文件
+
+            // c. 创建formDate对象
+            let fd = new FormData()
+
+            // d. 调用append方法追加文件
+            fd.append('avatar', this.files[0])
+
+            // e. 发送ajax请求
+
+            axios({
+                url: 'http://www.liulongbin.top:3009/api/upload/avatar',
+                method: 'post',
+                // 将formdata对象作为参数 fd对象会自动帮我们设置请求头 自动处理文件参数
+                data: fd
+            }).then(res => {
+                console.log(res);
+                // 显示上传成功的图片
+                document.querySelector('img').src = 'http://www.liulongbin.top:3009' + `${res.data.url}`
+            })
+
+
+        }
+    </script>
+</body>
+
+</html>

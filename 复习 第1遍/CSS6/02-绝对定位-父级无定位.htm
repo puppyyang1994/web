@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <style>
+        /* 无父亲或父亲无定位 */
+        .father {
+            width: 500px;
+            height: 500px;
+            background-color: aqua;
+        }
+
+        .son {
+            /* 以浏览器为准参考定位 */
+            position: absolute;
+            top: 10px;
+            left: 20px;
+            width: 200px;
+            height: 200px;
+            background-color: antiquewhite;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="father">
+        <div class="son"></div>
+    </div>
+</body>
+
+</html>

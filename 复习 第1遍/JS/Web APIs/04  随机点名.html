@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {
+            display: inline-block;
+            width: 150px;
+            height: 30px;
+            border: 1px solid pink;
+            vertical-align: middle;
+            line-height: 30px;
+
+        }
+    </style>
+</head>
+
+<body>
+    抽中的选手: <div></div>
+    <script>
+        // 先要封装一个随机函数
+        function getRandom(min, max) {
+            return Math.floor(Math.random() * (max - min + 1)) + min
+        }
+        // 给出抽签的数据
+        let arr = ['赵云', '黄忠', '关羽', '张飞', '马超', '刘备', '曹操', 'pink老师']
+        // 数组的index 就可以决定随机点名  arr[random]
+        let random = getRandom(0, arr.length - 1)
+        //拿到数组的 index之后 把数据写到div里
+
+        let div = document.querySelector('div')
+        div.innerHTML = arr[random]
+        // 之后删除这个名字
+
+        console.log(arr.splice(random, 1));
+        // return Math.floor(Math.random()*(max-min+1))+min
+
+
+    </script>
+</body>
+
+</html>

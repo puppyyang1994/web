@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 1. 增删改查
+        // 1.push()在数组结尾处添加一个新元素，s返回新数组的长度
+        let colors = []
+        let count = colors.push('red', 'green')
+        console.log(colors);//['red', 'green']
+        console.log(count);//2
+
+        // 2.unshift()在数组开头添加任意多个值，返回新数组的长度
+        let fruits = ["Banana", "Orange", "Apple", "Mango"]
+        let counts = fruits.unshift('Lemon', 'Pear')
+        console.log(fruits);
+
+        // 3. splice()向数组添加新项  返回一个包含已删除项的数组
+        let c = ["Banana", "Orange", "Apple", "Mango"]
+        c.splice(2, 0, 'Kiwi', 'Lemon')
+        // 参数2 代表的是新添加元素的位置
+        // 参数0 代表的是删除多少个元素
+        // 其余的参数是指要添加的新元素
+        console.log(c);//['Banana', 'Orange', 'Kiwi', 'Lemon', 'Apple', 'Mango']
+        console.log(c.splice(2, 0, 'Kiwi', 'Lemon')); //[] 什么也没删除 所以返回【
+
+        // 4. concat()通过合并现有数组来创建新数组 并不会影响原有数组， 总是返回一个新数组
+        // 可以使用任意数量的数组参数
+        let arr1 = ["Cecilie", "Lone"];
+        let arr2 = ["Emil", "Tobias", "Linus"];
+        let arr3 = arr1.concat(arr2, 'Puppy')
+        console.log(arr3);//['Cecilie', 'Lone', 'Emil', 'Tobias', 'Linus', 'Puppy']
+
+    </script>
+</body>
+
+</html>

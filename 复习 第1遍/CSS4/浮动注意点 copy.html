@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>为什么要清除浮动</title>
+    <style>
+        .box {
+            width: 800px;
+            border: 1px solid blue;
+            margin: 0 auto;
+        }
+
+        .damao {
+            float: left;
+            width: 300px;
+            height: 200px;
+            background-color: purple;
+        }
+
+        .ermao {
+            float: left;
+            width: 200px;
+            height: 20px;
+            background-color: red;
+        }
+
+        /* 标准流的foot而收到了影响 */
+        .footer {
+
+            height: 200px;
+            background-color: rgb(33, 33, 34);
+        }
+    </style>
+</head>
+
+<body>
+    <!-- 父盒子很多情况下不方便给高度
+    但子盒子浮动又不占有位置 最后父级盒子高度为0 就会影响下面标准流的盒子 -->
+    <div class="box">
+        <div class="damao">大毛</div>
+        <div class="ermao">二毛</div>
+
+    </div>
+    <div class="footer"></div>
+</body>
+
+</html>

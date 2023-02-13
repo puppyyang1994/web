@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 每个原型对象里都有constructor属性 constructor构造函数
+        // 作用：该属性指向该原型对象的构造函数
+
+        //使用场景
+        // 如果有多个对象的方法 我们可以给原型对象采取对象形式赋值
+        // 但是这样就会覆盖构造函数原型对象原来的内容
+
+        // Star.prototype.sing = function () {
+        //     console.log('唱歌');
+        // }
+        // Star.prototype.dance = function () {
+        //     console.log('跳舞');
+        // }
+
+        // 简写
+        Star.prototype = {
+            // 重新指回创造这个原型对象的构造函数
+            constructor: Star,
+            sing: function () { console.log('唱歌'); },
+            dance: function () { console.log('跳舞'); }
+        }
+        function Star() {
+
+        }
+
+        console.log(Star.prototype);
+        console.log(Star.prototype.constructor);
+
+        const ldh = new Star()
+        console.log(Star.prototype.constructor === Star); //true
+
+
+    </script>
+</body>
+
+</html>

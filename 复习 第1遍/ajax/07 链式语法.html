@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 链式语法：对象可以连续调用方法
+        // 链式语法底层原理：在对象的方法中返回自身
+
+        let obj = {
+            name: 'ikun',
+            sex: 'nan',
+            age: 17
+        }
+        obj.setName = function (str) {
+            this.name = str
+            return this
+        }
+        obj.setAge = function (num) {
+            this.age = num
+            return this
+        }
+        obj.setSex = function (str) {
+            this.sex = str
+            return this
+        }
+
+        obj.setName('黑马').setAge(28).setSex('nv')
+        console.log(obj);
+    </script>
+</body>
+
+</html>

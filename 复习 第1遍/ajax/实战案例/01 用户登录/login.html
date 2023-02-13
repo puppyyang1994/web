@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./CSS/bootstrap-v4.6.0.css">
+    <link rel="stylesheet" href="./CSS/style.css">
+</head>
+
+<body>
+    <div class="login-box">
+        <form>
+            <div class="form-group">
+                <label for="username">用户名</label>
+                <!-- 账号 -->
+                <input type="text" class="form-control" id="username" autocomplete="off">
+                <small id="emailHelp" class="form-text text-muted">默认用户名为：<strong>admin</strong></small>
+            </div>
+            <!-- 密码 -->
+            <div class="form-group">
+                <label for="password">密码</label>
+                <input type="text" class="form-control" id="password">
+                <small id="emailHelp" class="form-text text-muted">默认密码为：<strong>123456</strong></small>
+            </div>
+            <!-- 登录 -->
+            <!-- 这里的类型要改为button 不然input提交后会闪退 -->
+            <button type="button" class="btn btn-primary" id="btnLogin">登录</button>
+        </form>
+    </div>
+
+    <script>
+        // 需求：点击登录按钮 1. 获取输入框文本  2. 判断是否为空 3. 发送ajax请求 4. 服务器响应
+
+        document.querySelector('#btnLogin').addEventListener('click', function () {
+            // console.log(1);
+
+            let username = document.querySelector('#username').value
+            let password = document.querySelector('#password').value
+            console.log(username, password);
+            if (username == '' || password == '') {
+                alert('请输入用户名或密码')
+                return
+            }
+
+            let xhr = new XMLHttpRequest()
+            xhr.open('post', 'http://www.liulongbin.top:3009/api/login')
+            xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded')
+            xhr.send(`username=${username}&password=${password}`)
+            xhr.onload = function () {
+                let res = JSON.parse(xhr.responseText)
+                console.log(xhr.responseText);
+                if (res.code == 200) {
+                    alert('登录成功')
+
+                } else {
+                    alert(res.msg)
+
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // ^和$ 在一起 表示必须是精准匹配
+        console.log(/abc/.test('abc'));
+        console.log(/abc/.test('ab'));//false
+
+        // 字符类
+        console.log(/[abc]/.test('abc'));//true 只要满足【】里的任意一个返回true
+        // [-]连字符 表示一个范围
+        console.log(/^[a-z]$/.test('c'));
+        console.log(/[a-z]/.test('az'));
+        // [a-zA-Z]表示大小写都可以
+        // [0-9]表示0-9的数字都可以
+        // 注意 [^a-z]写在里面 表示取反 匹配除了小写字母以外的字符
+        // . 匹配换行字符之外的任何单个字符
+        console.log(/./.test('2'));//true
+    </script>
+</body>
+
+</html>

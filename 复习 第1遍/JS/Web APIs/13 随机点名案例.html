@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        input {
+            display: block;
+            width: 200px;
+            height: 80px;
+            border: 1px solid pink;
+            margin-bottom: 1px;
+        }
+    </style>
+</head>
+
+<body>
+    <input type="text" value="开始抽奖吧">
+    <button>点名</button>
+    <script>
+        let ipt = document.querySelector('input')
+        let btn = document.querySelector('button')
+        let arr = ['胖', '不胖', '你很瘦', '我最美']
+        // 先封装一个随机函数
+        function getRandom(min, max) {
+            return Math.floor(Math.random() * (max - min + 1)) + min
+        }
+
+        btn.addEventListener('click', function () {
+            let index = getRandom(0, arr.length - 1)
+            ipt.value = arr[index]
+            // 点完一个删除一个
+            arr.splice(index, 1)
+            if (arr.length === 0) {
+                btn.disabled = true
+                btn.innerHTML = '抽完了'
+            }
+
+        })
+
+
+    </script>
+</body>
+
+</html>

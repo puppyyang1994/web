@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./css/main.css">
+
+
+</head>
+
+<body>
+    <div class="wrap">
+        <!-- 头部区域header -->
+        <div class="header">
+            <h3>小思同学</h3>
+            <img src="./img/person01.png" alt="">
+        </div>
+        <!-- 中间聊天区域 main -->
+        <div class="main">
+            <ul class="talk_list">
+                <li class="left_word">
+                    <img src="./img/person01.png" alt="">
+                    <span>你好</span>
+                </li>
+                <!-- <li class="right_word">
+                    <img src="./img/person02.png" alt="">
+                    <span>你好哦</span>
+                </li> -->
+            </ul>
+            <!-- 右侧滚动条 -->
+            <div class="drag_bar">
+                <div class="drager ui-draggable ui-draggable-handle" style="height:412.628px;"></div>
+            </div>
+        </div>
+        <!-- 底部消息区 -->
+
+        <div class="footer">
+            <img src="./img/person02.png" alt="icon">
+            <input type="text" name="" id="" placeholder="说点什么..." class="input_txt">
+            <input type="button" name="" id="" value="发送" class="input_sub">
+        </div>
+    </div>
+    <script src="./lib/jquery-1.12.4.min.js"></script>
+    <script src="./lib/jquery-ui.min.js"></script>
+    <script src="./lib/jquery.mousewheel.js"></script>
+    <script src="./lib/scroll.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+
+    <script>
+        // 1需求： 点击按钮后 （1.获取input框内的文本 判断是否为空 如果为空 给出提示
+        // 2. 用innerHTML 动态生成小Li 生成客户对话列表
+        // 3. 向ajax请求 后台数据聊天
+        // 4. 生成机器人的聊天框
+
+        // 数据驱动的思路：把DOM的增删改查 改成数组的增删改查
+        /* a 声明一个全局空数组 用于存储聊天内容 Let list = [
+            b 将聊天内容添加到数组 list.push()
+            c 渲染数组
+        ] */
+
+        let list = []
+        //    封装机器人聊天函数
+        document.querySelector('.input_sub').addEventListener('click', function () {
+            const spoken = document.querySelector('.input_txt').value
+            if (spoken == '') {
+                alert('请输入聊天内容')
+                return
+            }
+            // 生成客户的聊天内容
+
+            list.push({
+                text: spoken,
+                isMe: true
+            })
+            // 渲染数组
+            renderData(list)
+
+            resetui()
+            // 清空输入框
+            document.querySelector('.input_txt').value = ''
+
+            // 2. 机器人
+            axios({
+                url: 'http://www.liulongbin.top:3006/api/robot',
+                method: 'get',
+                params: { spoken }
+            }).then(res => {
+                // 回调函数
+                // console.log(res.data);
+                list.push({
+                    text: res.data.data.info.text,
+                    isMe: false
+                })
+                renderData(list)
+                resetui()
+            })
+        })
+        // 封装渲染函数
+        const renderData = arr => {
+            document.querySelector('.talk_list').innerHTML = arr.map(item =>
+                item.isMe ? `
+                <li class="right_word">
+					<img src="img/person02.png" />
+					<span>${item.text}</span>
+				</li>`: `<li class="left_word">
+					<img src="img/person01.png" />
+					<span>${item.text}</span>
+				</li>
+                `
+            ).join('')
+        }
+        // 设置enter键触发
+
+        document.body.addEventListener('keyup', function (e) {
+            e.preventDefault()
+            if (e.code === 'Enter') {
+                document.querySelector('.input_sub').click()
+            }
+        })
+
+
+
+    </script>
+</body>
+
+</html>

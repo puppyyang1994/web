@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        function Star() {
+
+        }
+        const ldh = new Star()
+        // 对象原型 __proto__指向  该构造函数的原型对象
+        console.log(ldh.__proto__ === Star.prototype); //true
+        // [[prototype]]和__proto__意义相同
+        // 用来表明当前实例对象指向哪个原型对象prototype
+        // __proto__对象原型里面也有个constructor属性 指向创建该对象的构造函数
+        console.log(ldh.__proto__.constructor === Star); // true
+    </script>
+</body>
+
+</html>

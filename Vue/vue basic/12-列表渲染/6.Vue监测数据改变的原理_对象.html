@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>重要</title>
+    <script src="./vue.js"></script>
+</head>
+<body>
+    <!-- vue监测对象属性的改变 -->
+    <div id="root">
+            <h2>学校名称：{{name}}</h2>
+            <h2>学校地址：{{address}}</h2>
+    </div>
+    
+    <script>
+        // vm身上有的name和data其实都是来自_data上
+        // _data里的数据都是来自于你所传入的data配置项  vm._data = data (这已经是第二步 第一步是：加工一下所传入的data， 加工后就能做响应式（有了getter和setter）， 能够实现对对象里边属性的监视)
+        // 比如 修改了name会引起name对应的setter的调用， setter一调用就会重新解析模板， 生成新的虚拟DOM， 新旧虚拟DOM对比，更新页面
+       const vm=  new Vue({
+         el:'#root',
+         data:{
+             name:'尚硅谷',
+             address:'北京',
+             student:{
+                 name:'mix',
+                 age:{
+                     rAge:40,
+                     sAge:50
+                 },
+                 friends:[{
+                     name:'jerry', age:35
+                 }]
+             }
+         }
+        })
+    </script>
+</body>
+</html>
+
+<!-- 加工能做响应式  数据变了页面变了  1. 加工data  2. vm._data = data
+当修改了name时，就会引起 set name的调用 -->

@@ -1,0 +1,83 @@
+* {
+  padding: 0;
+  margin: 0;
+}
+.w {
+  position: relative;
+  width: 900px;
+  margin: 100px auto;
+}
+ul {
+  list-style: none;
+}
+#area {
+  width: 100%;
+  border-radius: 10px;
+  padding-left: 15px;
+  resize: none;
+  outline: none;
+}
+.w .control .releaseInfo {
+  position: absolute;
+  right: 0;
+}
+.releaseInfo .count {
+  color: red;
+}
+.control #release {
+  width: 100px;
+  height: 30px;
+  outline: none;
+  background-color: rgb(0, 132, 255);
+  border: none;
+  color: #fff;
+  font-size: 15px;
+  cursor: pointer;
+}
+.control #release:hover {
+  background: rgb(0, 225, 255);
+}
+.control #release:disabled {
+  background: rgb(0, 255, 255, 0.5);
+}
+.contentlist {
+  margin-top: 50px;
+}
+.contentlist li {
+  padding: 20px 0;
+  border-bottom: 1px dashed #ccc;
+  position: relative;
+}
+.contentlist li .info {
+  position: relative;
+}
+.contentlist li .info span {
+  position: absolute;
+  top: 15px;
+  left: 100px;
+  font: bold 16px "宋体";
+}
+.contentlist li .info p {
+  position: absolute;
+  top: 40px;
+  left: 100px;
+  color: #aaa;
+  font-size: 12px;
+}
+.contentlist img {
+  width: 80px;
+  border-radius: 50%;
+}
+.contentlist li .content {
+  padding-left: 100px;
+  color: #666;
+  /* 怎样断行 */
+  word-break: break-all;
+}
+.contentlist li .the_del {
+  position: absolute;
+  right: 0;
+  top: 0;
+  font-size: 28px;
+  cursor: pointer;
+}

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        let obj = {
+            uname: 'pink',
+            age: 18,
+            family: {
+                baby: 'little pink'
+            }
+        }
+
+        // 浅拷贝
+
+        // 拷贝对象之后，里面的属性值是简单数据类型直接拷贝值
+        // 如果属性值是引用数据类型则拷贝的是地址
+        // 对象
+        // 1. JS扩展运算符的方式 实现浅拷贝
+        // console.log(obj);
+        // 单层不会影响 但是多层就会
+        // const o = { ...obj }
+        // console.log(o.age);
+        // o.age = 20
+        // console.log(obj);
+
+
+        // 2. Object.assign()方法   ES6 中的一个方法
+        let o = {}
+        Object.assign(o, obj)
+        console.log(o);
+        o.age = 20
+        o.family.baby = '老pink'
+        console.log(obj);//此时 obj会被影响
+
+
+        // 数组
+        // concat() 
+        let arr = [1, 2, 3]
+        let newArr = arr.concat()
+        console.log(newArr); //[1,2,3]
+        newArr[1] = 100
+        console.log(newArr); //[1,100,3]
+        console.log(arr); //[1,2,3]
+
+        // slice()
+
+
+        // 深拷贝  
+        // 原生JSON.stringify() 把一个对象序列化为JSON字符串，并将对象里面的内容转化成字符串，最后再用
+        // JSON.parse()的方法将JSON字符串生成一个新的对象
+
+        let obj1 = { a: 1, b: [1, 2, 3] }
+        // 把对象变成字符串
+        let str = JSON.stringify(obj1)
+        console.log(str);// { "a": 1, "b": [1, 2, 3] }
+        // 把字符串变成对象
+        let obj2 = JSON.parse(str)
+        console.log(obj2);
+        obj1.a = 2
+        obj2.b.push(4)
+        console.log(obj1);// {a: 2, b:[1,2,3]}
+        console.log(obj2);// {a:1, b:[1,2,3,4]}
+
+
+    </script>
+</body>
+
+</html>

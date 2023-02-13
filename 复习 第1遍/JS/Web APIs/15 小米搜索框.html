@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+
+        .box {
+            width: 150px;
+            height: 50px;
+            margin: 50px auto;
+        }
+
+        .box .search {
+            width: 100%;
+            height: 50px;
+            outline: none;
+            line-height: 50px;
+            padding-left: 20px;
+            border: 1px solid #e0e0e0;
+            transition: all .3s;
+            /* 加上一个动画效果 过渡 */
+        }
+
+        .showInfo {
+            /* ul是块级元素 */
+            display: none;
+            width: 100%;
+            list-style: none;
+            border: 1px solid #ff6700;
+            border-top: 0;
+
+        }
+
+        .showInfo li a {
+            display: block;
+            width: 100%;
+            height: 25px;
+            text-decoration: none;
+            color: #424242;
+            font-size: 12px;
+            padding-left: 25px;
+            line-height: 25px;
+        }
+
+        .showInfo li a:hover {
+            background-color: antiquewhite;
+        }
+
+        /* 通过创建动态类来改变样式 */
+        /* 要注意权重的问题 */
+        .box .active {
+            border: 1px solid #ff6700;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box">
+        <input type="text" name="" id="" class="search" placeholder="小米笔记本">
+        <ul class="showInfo">
+            <li><a href="#">全部商品</a></li>
+            <li><a href="#">全部商品</a></li>
+            <li><a href="#">全部商品</a></li>
+            <li><a href="#">全部商品</a></li>
+            <li><a href="#">全部商品</a></li>
+            <li><a href="#">全部商品</a></li>
+        </ul>
+    </div>
+    <script>
+        let ipt = document.querySelector('.search')
+        let showInfo = document.querySelector('.showInfo')
+        ipt.addEventListener('focus', function () {
+            showInfo.style.display = 'block'
+            // this.style.border = '1px solid #ff6700'
+            this.classList.add('active')
+
+
+        })
+        ipt.addEventListener('blur', function () {
+            showInfo.style.display = 'none'
+            // this.style.border = '1px solid #e0e0e0'
+            this.classList.remove('active')
+        })
+    </script>
+</body>
+
+</html>

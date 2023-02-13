@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        let arr = ['red', 'green', 'blue']
+        // 删除最后一个元素 改变原数组
+        console.log(arr.pop());//返回的是被删除的元素
+        console.log(arr);
+        // 删除第一个元素
+        console.log(arr.shift());//返回的是被删除的元素
+        console.log(arr);
+
+        // splice（从哪里开始删， 删除几个）
+        let arr1 = ['pink', 'yellow', 'orange']
+        // arr1.splice(1, 2)
+        // console.log(arr1);
+        arr1.splice(2)
+        console.log(arr1);
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 1. 最大值
+        const arr = [1, 2, 3]
+        Array.prototype.max = function () {
+            return Math.max(...this)
+            // 原型函数里的this 指向的还是实例对象arr
+        }
+        Array.prototype.min = function () {
+            return Math.min(...this)
+        }
+
+        console.log(arr.min());//1
+        console.log(arr.max());//3
+        console.log([3, 5, 6].max()); //6
+
+        /*    const arr1 = new Array(6, 7)
+           console.log(arr1); */
+
+        //    2. 求和
+        Array.prototype.sum = function () {
+            return this.reduce((prev, item) => prev + item, 0)
+        }
+        console.log([1, 2, 3].sum());//6
+    </script>
+</body>
+
+</html>

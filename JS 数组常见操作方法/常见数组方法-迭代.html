@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 1. some() 检查某些数组是否通过了测试
+        // some(function(value, index, arr){})
+        let numbers = [45, 4, 9, 16, 25]
+        let someOver18 = numbers.some(item => item > 18)
+        console.log(someOver18); //true
+
+        // 2. every()检查所有数组是否通过测试
+        // every(function(value, index, arr){})
+        console.log(numbers.every(item => item > 10)); //false
+
+        // 3. forEach()对数组每一项都运行传入的函数 没有返回值
+        // arr.forEach((item, index, arr){执行某些操作})
+        numbers.forEach(item => console.log(item))
+
+        // 4. filter()包含通过所提供函数实现的测试的所有元素。 函数返回true的项会组成数组后返回
+        // filter()不会改变原数组
+        let newNumbers = numbers.filter(item => item > 10)
+        console.log(newNumbers); //[45, 16, 25]
+
+
+        // 5. map()通过对每个数组元素执行函数来创建新数组
+        // 方法不会对没有值的数组元素执行函数。 不会改变原数组
+        let newNumbers2 = numbers.map(item => item * 2)
+        console.log(newNumbers2); // [90, 8, 18, 32, 50]
+    </script>
+</body>
+
+</html>

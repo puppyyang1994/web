@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./css/news.css">
+</head>
+
+<body>
+    <div id="news-list"></div>
+    <!-- <div id="news-list">
+        <div class="news-item">
+            <img src="" alt="" class="thumb">
+            <div class="right-box">
+                <h1 class="title">5G商用在即三大运营商营收持续下降</h1>
+                <div class="footer">
+                    <div>
+                        <span>视频来源&nbsp;&nbsp;</span>
+                        <span>2019-10-28 10:14:38</span>
+                    </div>
+                    <span>评论数:66</span>
+                </div>
+            </div>
+        </div>
+    </div> -->
+    <script>
+        // 1.请求数据：页面一加载 立刻获得数据 不需要事件的触发
+        // 2. 页面渲染
+
+
+        // 1.
+        let xhr = new XMLHttpRequest()
+        xhr.open('get', 'http://www.liulongbin.top:3009/api/news')
+        xhr.send()
+        xhr.onload = function () {
+
+            let res = JSON.parse(xhr.responseText)
+            // 拿到数据后 开始渲染
+            renderData(res.data)
+        }
+
+        // 2. 页面渲染的函数
+        const renderData = arr => {
+            // map() 方法创建一个新数组，这个新数组由原数组中的每个元素都调用一次提供的函数后的返回值组成。
+            document.querySelector('#news-list').innerHTML = arr.map(item =>
+                `
+            <div class="news-item">
+            <img src="http://www.liulongbin.top:3009${item.img}" alt="" class="thumb">
+            <div class="right-box">
+                <h1 class="title">${item.title}</h1>
+                <div class="footer">
+                    <div>
+                        <span>${item.source}&nbsp;&nbsp;</span>
+                        <span>${item.time}</span>
+                    </div>
+                    <span>评论数:${item.cmtcount}</span>
+                </div>
+            </div>
+        </div>`).join(' ') //把数组变字符串
+        }
+    </script>
+</body>
+
+</html>

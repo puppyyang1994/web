@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="referrer" content="never" />
+  <title>综合案例</title>
+  <style>
+    * {
+      padding: 0;
+      margin: 0;
+      box-sizing: border-box;
+    }
+
+    .container {
+      width: 1200px;
+      margin: 0 auto;
+    }
+
+    .video video {
+      width: 100%;
+      padding: 20px 0;
+    }
+
+    .elevator {
+      position: fixed;
+      top: 280px;
+      right: 20px;
+      z-index: 999;
+      background: #fff;
+      border: 1px solid #e4e4e4;
+      width: 60px;
+    }
+
+    .elevator a {
+      display: block;
+      padding: 10px;
+      text-decoration: none;
+      text-align: center;
+      color: #999;
+    }
+
+    .elevator a.active {
+      color: #1286ff;
+    }
+
+    .outline {
+      padding-bottom: 300px;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <div class="header">
+      <a href="http://pip.itcast.cn">
+        <img src="https://pip.itcast.cn/img/logo_v3.29b9ba72.png" alt="" />
+      </a>
+    </div>
+    <div class="video">
+      <video src="https://v.itheima.net/LapADhV6.mp4" controls></video>
+    </div>
+    <div class="elevator">
+      <a href="javascript:;" data-ref="video">视频介绍</a>
+      <a href="javascript:;" data-ref="intro">课程简介</a>
+      <a href="javascript:;" data-ref="outline">评论列表</a>
+    </div>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/lodash@4.17.21/lodash.min.js"></script>
+  <script>
+    // 需求：页面打开 可以记录上一次视频的播放的位置
+    // 两个事件  ontimeupdate 在音频/视频当前的播放位置发生改变时触发
+    // onloadeddata 在当前帧的数据加载完成且还没有足够的数据播放音频/视频的下一帧时触发
+
+    // ontimeupdate的触发频率太高了 所以需要节流 设置1秒钟触发一次
+    // 在ontimeupdate事件触发的时候 每个1s 就记录当前时间到本地存储
+    // 下次发开页面 onloadeddata 事件触发 就可以从本地存储去除时间 让视频从取出的时间播放， 如果没有就默认为0S
+    // 获得当前的时间video.currentTime
+
+    // 代码
+
+    const video = document.querySelector('video')
+    // 必须用这种传统的书写方式 addEven不行
+    video.ontimeupdate = _.throttle(() => {
+      // console.log(video.currentTime);
+      // 把时间存储到本地
+      localStorage.setItem('currentTime', video.currentTime)
+    }, 1000)
+
+    // 打开页面就触发事件 从本地存储里面取出事件 赋值给video.currentTime
+    video.onloadeddata = () => {
+      video.currentTime = localStorage.getItem('currentTime') || 0
+    }
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./lib/bootstrap-v4.6.0.css">
+    <style>
+        :root {
+            font-size: 15px;
+        }
+
+        body {
+            padding-top: 15px;
+        }
+
+        .loading-box {
+            position: fixed;
+            top: 30%;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            box-shadow: 1px 1px 3px #efefef;
+            display: none;
+        }
+    </style>
+</head>
+<!-- 这里会用到css库 bootstrap -->
+
+<body>
+    <!-- 栅格系统 -->
+    <div class="container-fluid">
+        <!-- 行 -->
+        <div class="row">
+            <!-- 如.col-sm-4或.col-xl-12，这些css类后面的数字用于表明定义div空间想要占用列的数量，每行最多有12列 -->
+            <!-- 表格占了8列 -->
+            <div class="col-sm-8">
+                <table class="table table-bordered table-dark table-hover table-striped text-center">
+                    <thead>
+                        <tr>
+                            <th scope="col">ID</th>
+                            <th scope="col">书名</th>
+                            <th scope="col">作者</th>
+                            <th scope="col">出版社</th>
+                            <th scope="col">操作</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- 表格中的每一行 -->
+                        <tr>
+                            <th scope="row">XXX</th>
+                            <td>XXX</td>
+                            <td>XXX</td>
+                            <td>XXX</td>
+                            <td>
+                                <button type="button" class="btn btn-link btn-sm">删除</button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- 右侧 占了4列 -->
+            <div class="col-sm-4">
+                <div class="card bg-secondary text-white sticky-top">
+                    <div class="card-header">
+                        添加新图书
+                    </div>
+                    <form action="" class="card-body bg-light">
+                        <!-- 书名 -->
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text">书名</span>
+                            </div>
+                            <input type="text" class="form-control" placeholder="请输入图书名称" name="bookname">
+                        </div>
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text">作者</span>
+                            </div>
+                            <input type="text" class="form-control" placeholder="请输入作者" name="author">
+                        </div>
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text">出版社</span>
+                            </div>
+                            <input type="text" class="form-control" placeholder="请输入出版社" name="publisher">
+                        </div>
+                        <button class="btn btn-dark" type="submit">添加</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- loading 区域  Spinners-->
+    <div class="loading-box">
+        <div class="spinner-border m-5 text-center" role="status">
+            <span class="sr-only">Loading...</span>
+        </div>
+    </div>
+
+
+
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <!-- 1. 页面一加载 就请求axios图书列表  就是渲染页面
+        2. 新增图书  form 表单获取函数封装
+        3. 删除 事件委托技术 给动态新增元素注册事件
+        4. loading 效果  
+        5. axios拦截器 
+        6. axios基地址： 一个公司所有的接口文档前面相同的部分 -->
+
+    <script>
+
+        // 设置axios全局基地址“如果url有设置地址 优先用你设置的 没有才会用全局基地址
+        axios.defaults.baseURL = 'http://www.liulongbin.top:3006'
+
+
+        // 拦截器  让loading效果实现
+        // a- 请求拦截器
+        axios.interceptors.request.use(config => {
+            document.querySelector('.loading-box').style.display = 'block'
+            return config
+        }, err => {
+            return Promise.reject(err)
+        })
+
+        // b- 响应拦截器
+        axios.interceptors.response.use(res => {
+            document.querySelector('.loading-box').style.display = 'none'
+            return res
+        }, err => {
+            return Promise.reject(err)
+        })
+        // 1. 封装渲染函数
+        const renderData = arr => {
+            document.querySelector('tbody').innerHTML = arr.map(item => {
+                return `
+            <tr>
+                            <th scope="row">${item.id}</th>
+                            <td>${item.bookname}</td>
+                            <td>${item.author}</td>
+                            <td>${item.publisher}</td>
+                            <td>
+                                <button type="button" class="btn btn-link btn-sm" data-id="${item.id}">删除</button>
+                            </td>
+                        </tr>`
+            }).join('')
+        }
+
+        // 2 封装一个函数 发送ajax请求 渲染页面  获得最新的列表
+
+        const getBookList = () => {
+            axios({
+                url: '/api/getbooks',
+                method: 'GET',
+            }).then(res => {
+                // console.log(res); 拿到数据
+                renderData(res.data.data)
+                // 隐藏loading 服务器响应之后
+                // document.querySelector('.loading-box').style.display = 'none'
+
+            })
+        }
+
+        // 一面一加载就是请求
+        getBookList()
+
+
+        // 获取form表单参数
+        const getFormData = () => {
+            // form表单默认发送ajax请求：自动获取表单的name和value属性 拼接处name=value
+            // form表单name的属性作用：告诉服务器 发的是什么数据
+            // 一般开发中 form表单的name属性设置成与 后台接口参数一致
+            // a 拿到所有的表单
+            let inputList = document.querySelectorAll('form input')
+            // 遍历表单 拼接成对象
+            let obj = {}
+            inputList.forEach(item => {
+                obj[item.name] = item.value
+            })
+
+            return obj
+        }
+
+        // 2.  点击添加按钮新增图书
+        document.querySelector('form .btn').addEventListener('click', function (e) {
+            // 阻止表单的提交和 页面跳转 让表单只负责收集数据 提交由ajax来完成
+            e.preventDefault()
+            // 1. 获取表单参数
+            let data = getFormData()  //拿到的是一个对象
+            // console.log(data);
+
+            // 2. 进行非空判断
+            /* 开关思想： arr.some()判断数组中是否由元素满足条件（只要有一个满足即可）
+            arr.every() 判断数组中是否所有元素满足（必须全部满足）
+            Object.values(对项名) 获取对象所有的属性值 放入数组中 */
+
+            // 判断是否有输入框为空 
+            if (Object.values(data).some(item => item == "")) {
+                return alert('输入框不能为空')
+            }
+            // 发送ajax请求前显示loading效果
+            document.querySelector(".loading-box").style.display = "block"
+            // 3. 发送请求 渲染
+            axios({
+                url: '/api/addbook',
+                method: 'POST',
+                data: data
+            }).then(res => {
+                if (res.data.status != 201) {
+                    return alert(res.data.msg)
+                }
+                // 新增成功：重新请求图书列表
+                getBookList()
+                // 把右边框里的内容清空
+                // reset 方法可以重置一个表单内的所有表单控件的值到初始状态。
+                document.querySelector('form').reset()
+                // 隐藏loading效果  在服务器响应之后
+                // document.querySelector('.loading-box').style.display = 'none'
+            })
+
+        })
+
+        // 3. 点击删除：动态新增按钮需要注册委托事件
+        // 事件委托：给父元素之策事件 委托给子元素处理 注册的父元素也不能是动态新增的
+        // 如果不好分辨 可以直接给body注册  注意点  this:父元素   e.target:事件目标（点击的子元素
+        document.querySelector('tbody').onclick = function (e) {
+            // console.log(e.target);
+            // 1. 判断是否是委托的子元素、
+            // 这样确保是在点击到按钮的时候 才会执行相关的操作（删除）
+            if (e.target.classList.contains('btn-sm')) {
+                // 获取点前点击按钮的自定义属性data-id (渲染的时候给按钮新增自定义属性存储id)
+                let id = e.target.getAttribute('data-id')
+                // console.log(id);
+                //    在发送ajax之前 显示加载效果
+                // document.querySelector('.loading-box').style.display = 'block'
+                // 拿到id后 再发回请求给ajax 删除数据
+                axios({
+                    url: '/api/delbook',
+                    method: 'GET',
+                    params: { id }
+                }).then(res => {
+                    // console.log(res);
+                    if (res.data.status != 200) {
+                        return alert(res.data.msg)
+                    }
+                    alert(res.data.msg)
+                    // 重新获取更新数据 渲染后的图书列表
+                    getBookList()
+                })
+            }
+        }
+    </script>
+</body>
+
+</html>

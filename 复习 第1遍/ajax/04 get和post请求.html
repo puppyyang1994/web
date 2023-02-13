@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // get 和 post的区别 ：传参方式不同
+        // 1. get参数  直接在url后面拼接  url?key=value
+        /* let xhr = new XMLHttpRequest()
+        xhr.open('get', 'https://autumnfish.cn/api/joke/list?num=10')
+        xhr.send()
+        xhr.onload = function () {
+            let res = JSON.parse(xhr.responseText)
+            // 将返回的JSON格式的字符串 转为JS格式
+            console.log(res);
+        } */
+
+
+        // post参数： 需要两个步骤
+        // post需要设置请求头 这是一个固定格式，建议CV
+        // post 参数要在send中发送
+        // xhr.send('key=value')
+
+        let xhr = new XMLHttpRequest()
+        xhr.open('post', 'https://autumnfish.cn/api/user/register')
+        //设置请求头
+        xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded')
+        // 发送请求
+        xhr.send('username=afsafs')
+        xhr.onload = function () {
+            console.log(xhr.responseText);
+        }
+
+
+    </script>
+</body>
+
+</html>
