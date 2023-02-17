@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 1. var 有变量提升
+        // console.log(a); //undefined
+        // var a = 2
+        // 以上代码不会报错，因为var 会被提到前面 先进行声明
+
+
+        //1.let 声明变量  let 没有变量提升
+        // let a = 10
+
+
+        // 2. 是一个块级作用域
+
+        /*  if (1 === 1) {
+             // var b = 10 // 外面可以打印 因为var 会变量提升
+             let b = 10 //外面不能打印
+         }
+         console.log(b); */
+
+
+        // 3. var 可以重复声明 会进行覆盖 但let 不可重复声明
+        // 基本上现在都不会用var了
+
+
+        // const 有以上1,2,3的特性外 const用来声明常量 不允许被修改
+        /*  const max = 30
+         max = 40
+         console.log(max); */
+
+        /*   const person = {
+              name: '小马'
+          }
+          person.name = 'alex'
+          console.log(person); //不能直接修改对象 但是可以修改对象的属性 */
+
+
+        // 作用1： for 循环是个经典的例子
+
+
+
+        // 作用2：不会污染全局变量
+        let RegExp = 10
+        console.log(RegExp);
+        console.log(window.RegExp);
+
+
+        // 建议：默认情况下用const ， 而只有你知道这个变量值需要修改的时候 用let
+    </script>
+</body>
+
+</html>

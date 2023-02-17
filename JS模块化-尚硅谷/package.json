@@ -1,0 +1,7 @@
+{
+    "name": "es6_babel-browserify",
+    "version": "1.0.1",
+    "dependencies": {
+        "jquery": "^1.12.4"
+    }
+}

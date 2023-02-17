@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 1. 带参数默认值的函数
+
+        // es5 写法
+        /*  function add(a, b) {
+             a = a || 10 //a有值的时候赋值给a 没有值的时候10赋值给a
+             b = b || 20;
+
+             return a + b
+         }
+
+         console.log(add()); //30 */
+
+
+
+        // es6写法
+        /*  function add(a = 10, b = 20) {
+             return a + b
+         }
+
+         console.log(add()); //30 */
+
+
+
+        // 2. 默认的表达式也可以是一个函数
+        /*  function add(a, b = getVal(5)) {
+             return a + b
+         }
+         function getVal(val) {
+             return val + 5
+         }
+         add(10) //20 */
+
+
+
+        //
+
+        /*   let book = {
+              title: 'es6教程',
+              author: '小马',
+              year: 2019
+  
+          }
+          let bookData = pick(book, 'author', 'year', 'title')
+          console.log(bookData);
+  
+          function pick(obj) {
+              let result = Object.create(null)
+              for (let i = 1; i < arguments.length; i++) {
+                  result[arguments[i]] = obj[arguments[i]]
+              }
+              return result
+          } */
+
+
+        // es6 剩余参数... 和一个紧跟着的具名参数
+        // 剩余参数 解决了arguments的问题 arguments是一个伪数组
+
+
+        // function pick(obj, ...keys) {
+        //     console.log(keys);//['title', 'author', 'year']
+        //     let result = Object.create(null)
+        //     for (let i = 0; i < keys.length; i++) {
+        //         result[keys[i]] = obj[keys[i]]
+        //     }
+        //     return result
+        // }
+        // let book = {
+        //     title: 'es6教程',
+        //     author: '小马',
+        //     year: 2019
+
+        // }
+        // let bookData = pick(book, 'title', 'author', 'year')
+        // console.log(bookData);
+
+
+        // function checkArgs(...args) {
+        //     console.log(args);//['a', 'b', 'c']
+        //     console.log(arguments); //伪数组
+        // }
+        // checkArgs('a', 'b', 'c')
+
+
+        // 4. 扩展运算符...
+        // 剩余运算符： 把多个独立的合并到一个数组中
+        // 扩展运算法：把一个数组分隔，并且将各个项作为分离的参数传给函数
+
+        // const maxNum = Math.max(20,30)
+        // 求数组中的最大值
+        // const arr = [20, 30, 40, 50, 60, 20, 100]
+
+        // es5 用法
+        // const maxNum = Math.max.apply(null, arr)
+        // console.log(maxNum); //100
+
+        // es6写法
+        // console.log(Math.max(...arr)); //100
+
+
+        // es6 箭头函数  ()=>{}
+
+        // let add = (a, b) => {
+        //     return a + b
+        // }
+        // 一个参数
+        // let add2 = a => a
+        // console.log(10);
+
+
+        // 如果返回的是一个数组 对象等 外面的括号一定要加上
+        // let getObj = id => ({
+        //     id: id,
+        //     name: '小马哥'
+        // })
+
+
+        // 闭包函数
+        // let fn = (function () {
+        //     return function () {
+        //         console.log('hello world');
+        //     }
+        // })()()
+
+        // 第一个立即执行函数 执行完毕后返回的是 function(){log}这个匿名函数
+        // 所以要再加一个()才会执行
+
+        let fn = () => { return () => { console.log('hello world'); } }
+        fn()()
+
+    </script>
+</body>
+
+</html>

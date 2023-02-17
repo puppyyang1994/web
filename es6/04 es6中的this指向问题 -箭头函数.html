@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 没有this绑定
+        // es5中的this指向是取决于调用该函数的对象
+        /*   let pageHandle = {
+              id: 123,
+              init: function () {
+                  document.addEventListener('click', function (e) {
+                      // 此时this指向的是document
+                      this.doSomeThings(e.type)
+                  }.bind(this), false)
+                  // 用bind把this指回pageHandle
+  
+              },
+              doSomeThings: function (type) { console.log(`事件类型是${type}`); }
+          }
+  
+          pageHandle.init() */
+
+
+        // es6改很简单
+        let pageHandle = {
+            id: 123,
+            init: function () {
+                // 箭头函数没有this指向，箭头函数内部this值只能通过查找作用域链来确定
+                document.addEventListener('click', (e) => {
+                    console.log(this);
+                    this.doSomeThings(e.type)
+                })
+
+
+            },
+            doSomeThings: function (type) { console.log(`事件类型是${type}`); }
+        }
+
+        pageHandle.init()
+
+
+        // 使用箭头函数的注意事项：
+        /* 1. 使用箭头函数：函数内部没有arguments  */
+        // let getVal = (a, b) => {
+        //     console.log(arguments);
+        // }
+        // getVal() // not defined
+
+
+        // 2. 箭头函数不能使用new 关键字来实例化对象
+        let Person = () => {
+
+        }
+        let p = new Person()
+        console.log(Person); //Person is not a constructor
+
+        // function 函数， 也是一个对象 但是箭头函数不是一个对象， 它其实就是一个语法糖
+
+
+
+
+    </script>
+</body>
+
+</html>

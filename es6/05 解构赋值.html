@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 结构赋值是对赋值运算符的一种扩展
+        // 针对数组和对象来进行操作
+        // 有点： 代码书写上简洁 易读
+        let node = {
+            type: 'iden',
+            name: 'foo'
+        }
+
+        // es5写法
+        // let type = node.type
+        // let name = node.name
+
+        // es6写法
+        let { type, name } = node
+    </script>
+</body>
+
+</html>

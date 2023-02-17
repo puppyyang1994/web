@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script src="./js/dist/bundle.js"></script>
+    <!-- 如果直接使用 会出现Uncaught SyntaxError: Cannot use import statement outside a module -->
+    <!-- 用browerify转换之后 html页面不会报错 但是会出现undefined 两个 -->
+</body>
+
+<!-- 要重复编译两次下面的命令
+1.  babel js/src -d js/lib
+2.  browserify js/lib/main.js -o js/dist/bundle.js-->
+
+</html>

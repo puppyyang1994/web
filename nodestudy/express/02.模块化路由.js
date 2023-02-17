@@ -5,8 +5,11 @@ const app = express()
 
 // 导入路由模块
 const router = require('./03.router')
+// 使用app.use(router)注册路由
+// 
 
-// 注册路由模块
+// 类似于托管静态资源时，为静态资源统一挂载访问前缀一样
+// 路由模块添加前缀也很简单：
 app.use('/api', router)
 
 // 注意：app.use()函数的作用，就是用来注册全局中间件
