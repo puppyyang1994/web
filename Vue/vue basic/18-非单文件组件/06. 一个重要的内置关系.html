@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../vue.js"></script>
+</head>
+<!-- 一个重要的关系：VueComponent.prototype.__proto__ === Vue.prototype -->
+<!-- 为什么要有这个关系：让组件实例对象vc可以访问Vue原型上的属性和方法 -->
+
+<body>
+    <div id="root">
+        <school></school>
+    </div>
+    <script>
+        Vue.config.productionTip = false
+        // Vue.extend 调用后返回的就是VueComponent构造函数的实例 这里也就是school
+        Vue.prototype.x = 99
+        const school = Vue.extend({
+            template: `
+            <div>
+                    <h2>学校名称：{{schoolName}}</h2>
+            <h2>学校地址：{{address}}</h2>
+            <button @click="showX">点我输出X</button>
+           
+        </div>
+            `,
+            data() {
+                return {
+                    schoolName: '尚硅谷',
+                    address: '北京'
+                }
+            },
+            methods: {
+                showX() {
+                    // this是组件的实例vc
+                    console.log(this.x);
+                }
+            }
+
+        })
+
+        console.log(school.prototype);
+        // VueComponent的实例对象 vc
+        // Vue 实例对象vm
+        // 组件是可复用的vue实例
+        const vm = new Vue({
+            el: '#root',
+            components: {
+                school
+            }
+        })
+
+
+
+
+
+
+
+
+        // 构造函数
+        function Demo() {
+            this.a = 1
+            this.b = 2
+        }
+
+        // 创建一个Demo的实例对象
+        const d = new Demo()
+        console.log(Demo.prototype);//显式原型属性
+        console.log(d.__proto__);//隐式原型属性
+        // 显式原型属性和隐式原型属性都指向了原型对象
+
+        // 通过显式原型属性操作原型对象
+        Demo.prototype.x = 90
+
+        // 隐式原型属性上也有了 d.__proto__
+        console.log(d.x);
+        console.log('@', d);
+
+    </script>
+</body>
+
+</html>

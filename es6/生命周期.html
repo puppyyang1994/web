@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>引出生命周期</title>
+    <script src="./js/vue.js"></script>
+</head>
+
+<body>
+    <div id="root">
+        <h2 :style="{opacity}">欢迎学习Vue
+            <!-- style的后面是表达式  写成对象
+                {opacity: opacity} 第一个opacity是指css属性 第二个opacity是指函数名-->
+            <!-- 重名 所以就用对象的简写 直接写成{opacity} -->
+        </h2>
+    </div>
+    <script>
+        Vue.config.productionTip = false
+        new Vue({
+            el: '#root',
+            data: {
+                opacity: 1
+            },
+            methods: {
+
+            },
+            // mount挂载  Vue找到了模板 开始解析变成虚拟DOM 然后往真实DOM转 然后把真实DOM放入页面 这个“放入”就是挂载
+            // Vue完成模板的解析并把第一次的真实的DOM元素放入页面后（挂载完毕）并调用mounted
+            mounted() {
+                setInterval(() => {
+                    this.opacity -= 0.01
+                    if (this.opacity <= 0) this.opacity = 1
+                }, 16)
+            },
+            c() { },
+            d() { },   //所有的函数 整个是生命周期  关键的时间点Vue给你调用一堆函数
+        })
+       /*  const vm = new Vue({
+                  el: '#root',
+                  data: {
+                      opacity: 1
+                  }
+              })
+             1. 通过外部的定时器实现 不推荐
+              setInterval(() => {
+                  vm.opacity -= 0.01
+                  if (vm.opacity <= 0) vm.opacity = 1
+              }, 16) */
+    </script>
+</body>
+
+</html>

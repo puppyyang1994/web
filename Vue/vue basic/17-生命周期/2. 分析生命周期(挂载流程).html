@@ -34,6 +34,7 @@
                     this.n++
                 },
                 bye() {
+                    // 点了这个销毁之后 再按上面的add就失效了
                     this.$destroy()
                     console.log('bye');
                 }

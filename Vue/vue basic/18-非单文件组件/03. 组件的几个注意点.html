@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../vue.js"></script>
+</head>
+
+<body>
+    <div id="root">
+        <h1>{{msg}}</h1>
+        <!-- 3. 引入组件标签 -->
+        <school></school>
+
+    </div>
+
+    <script>
+        Vue.config.productionTip = false
+        // 1. 创建组件
+        const school = Vue.extend({
+            name: 'atguigu',
+            template: `
+            <div>
+                <h2>学校名称:{{name}}</h2>
+                <h2>学校地址:{{address}}</h2>
+            </div>
+        `,
+            data() {
+                return {
+                    // name: '尚硅谷',   指定在开发者工具中叫什么名
+                    address: '北京'
+                }
+            }
+
+        })
+        // 创建一个组件可以简写成下面的方式
+        /*  const school = {
+             name: 'atguigu',
+             template: `
+             <div>
+                 <h2>学校名称:{{name}}</h2>
+                 <h2>学校地址:{{address}}</h2>
+             </div>
+         `,
+             data() {
+                 return {
+                     // name: '尚硅谷',   指定在开发者工具中叫什么名
+                     address: '北京'
+                 }
+             }
+ 
+         } */
+        // 2. 注册组件
+        new Vue({
+            el: '#root',
+            data: {
+                msg: '你好哈哈'
+            },
+            components: {
+                school
+            }
+        })
+// 组件名称命名建议：
+
+
+    </script>
+
+</body>
+
+</html>

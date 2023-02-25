@@ -23,8 +23,49 @@
         // let name = node.name
 
         // es6写法
+        // 完全解构
         let { type, name } = node
+        console.log(type, name);
+
+
+        // let obj = {
+        //     a: {
+        //         name: 'zhangshan'
+        //     },
+        //     b: [],
+        //     c: 'hello world'
+
+        // }
+        // 不完全解构
+        // let { a } = obj
+        // console.log(a);
+
+
+        // 剩余运算符
+        // let { a, ...res } = obj
+        // console.log(res); //{b: Array(0), c: 'hello world'}
+
+
+        // 默认值
+        // let { c, d = 30 } = { d: 20 }
+
+
+
+        // 对数组解构(完全解构)
+        // let arr = [1, 2, 3]
+        // let [a, b, c] = arr
+        // console.log(a, b, c); //1 2 3
+
+        //  不完全解构
+        // let [d, e] = arr
+        // console.log(d, e);  // 1, 2
+
+
+        // 可嵌套
+        let [a, [b], c] = [1, [2], 3]
+        console.log(b); //2
     </script>
+
 </body>
 
 </html>

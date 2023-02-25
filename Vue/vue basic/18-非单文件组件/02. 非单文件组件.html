@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../vue.js"></script>
+</head>
+<!-- 非单文件组件 一个文件里有n个组件 -->
+
+<body>
+    <div id="root">
+        <h1>{{msg}}</h1>
+        <!-- 第三步：编写组件标签 -->
+        <school></school>
+        <hr>
+        <student></student>
+        <!-- 一个组件 用几次 也不会有影响 -->
+        <student></student>
+
+    </div>
+    <script>
+        // 组件就是一块砖，哪里需要哪里搬
+        Vue.config.productionTip = false
+        // 创建一个school组件 用Vue.extend()
+        const school = Vue.extend({
+            template: `
+            <div> <h2>学校名称:{{schoolName}}</h2>
+        <h2>学校地址:{{address}}</h2> </div>
+        
+            `,
+            // 一定不要写el配置项，因为最终都要被一个vm管理
+            // el: '#root',
+            // 因为对象是有引用关系的 所以不能写成对象 要写成函数
+            data() {
+                return {
+                    schoolName: '尚硅谷',
+                    address: '北京',
+
+                }
+            },
+            // methods: {
+            //     showName() {
+            //         alert(this.schoolName)
+            //     }
+            // }
+        })
+
+        // 创建学生组件（第一步）
+        const student = Vue.extend({
+            template: `
+            <div> <h2>学生:{{studentName}}</h2>
+        <h2>年龄:{{age}}</h2> </div>
+            `,
+            data() {
+                return {
+                    studentName: 'puppy',
+                    age: 18
+
+                }
+            }
+        })
+
+
+        // 第二步：注册组件（局部注册）
+
+        new Vue({
+            el: '#root',
+            // 如果自己想写内容和之前一样直接写就好了
+            data: {
+                msg: '哈哈哈'
+            },
+            components: {
+                // xuexiao:school    学校才是组件名
+                // school: school, 简写 school
+                school,
+                student,
+
+            }
+
+        })
+
+
+        // quanjuzhuce   Vue.component('', '')
+    </script>
+</body>
+
+</html>

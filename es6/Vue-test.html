@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./js/vue.js"></script>
+</head>
+
+<body>
+    <div id="root">
+        <h2>当前的n值是<span v-text="n"></span></h2>
+        <!-- 自定义指令big -->
+        <h2>当前的n值10倍是<span v-big="n"></span></h2>
+        <button @click="n++">点我++</button>
+        <hr>
+        <!-- autofocus属性 自动获取焦点 -->
+        <input type="text" v-fbind:value="n">
+    </div>
+    <div id="root2">
+        <input type="text" v-fbind:value="x">
+    </div>
+    <script>
+        Vue.config.productionTip = false
+        // 全局指令  第二个写的是对象
+        Vue.directive('fbind', {
+            // 指令与元素成功绑定时
+            bind(element, binding) {
+                console.log('bind');
+                element.value = binding.value
+            },
+            // 指令所在的元素插入页面时
+            inserted(element, binding) {
+                console.log('inserted');//1次
+                element.focus()
+            },
+            // 指令所在的模板被重新解析时
+            update(element, binding) {
+                console.log('update');
+                element.value = binding.value
+            }
+        })
+        //  全局指令  第二个写成对象
+        Vue.directive('big', function (element, binding) {
+            console.log('hah');
+        })
+        new Vue({
+            el: '#root',
+            data: {
+                name: '上鬼鬼',
+                n: 1
+            },
+            directives: {
+                // 所谓的自定义指令就是一个函数
+                //   对象式  函数式都行  简单的可以用函数式
+                // big函数 何时会被调用？ 指令与元素成功绑定时，调用； 
+                // 指令所在的模板重新解析时（当你给data里的name更改时，big也会被调用
+                big(element, binding) {
+                    // 不靠返回值 别和计算属性搞混了
+                    // element DOM元素  binding 是一个对象 里面主要用到value
+                    element.innerText = binding.value * 10
+                    // 如果命名是多个单词的要注意加引号
+                    /* 'big-number'(element, binding){ } */
+                },
+                /* fbind(element, binding) {
+                    element.focus()
+                    这个会有时机问题 这么写不合适 写成对象式比较合适
+                } */
+                fbind: {
+                    // 指令与元素成功绑定时
+                    bind(element, binding) {
+                        console.log('bind');
+                        element.value = binding.value
+                    },
+                    // 指令所在的元素插入页面时
+                    inserted(element, binding) {
+                        console.log('inserted');//1次
+                        element.focus()
+                    },
+                    // 指令所在的模板被重新解析时
+                    update(element, binding) {
+                        console.log('update');
+                        element.value = binding.value
+                    }
+                }
+            }
+        })
+
+        new Vue({
+            el: '#root2',
+            data: {
+                x: 1
+            }
+        })
+
+
+        /* 总结： 1，指令名：多个单词用'-'做分隔'
+                  2. 指令相关的this指向的都是window */
+    </script>
+</body>
+
+</html>

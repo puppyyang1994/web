@@ -983,3 +983,17 @@ console.log('isHot被修改了', newVal, oldVal)
      }]
 ```
 
+
+##### 组件
+1. 组件的几个注意点
+
+
+2. 单文件组件
+Vue文件的写法：  MySchool.vue / School.vue
+- 插件 Vetur
+
+
+
+#### Vue脚手架
+没有脚手架， vue的代码浏览器是无法识别的
+选择最新的脚手架  command line interface 命令行接口工具

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./js/vue.js"></script>
+</head>
+
+<body>
+    <div id="root">
+        <h2>当前的n值是:{{n}}</h2>
+        <button @click="add">点我N+1</button>
+    </div>
+    <script>
+        Vue.config.productionTip = false
+        new Vue({
+            el: '#root',
+            data: {
+                n: 1
+            },
+            methods: {
+                add() {
+                    this.n++
+                }
+            },
+            beforeCreate() {
+                console.log('beforeCreate');
+                console.log(this); //此时还没有data 数据代理还没开始
+                // debugger;
+            },
+            created() {
+                // 此时可以通过vm访问到data中的数据 和methods放大
+                console.log('created');
+                console.log(this);
+            },
+            beforeMount() {
+                console.log('beforeMount')
+
+            },
+            mounted() {
+                console.log('mounted');
+                console.log(this);
+
+            },
+            beforeUpdate() {
+
+            },
+            updated() {
+
+            },
+
+        })
+    </script>
+</body>
+
+</html>
