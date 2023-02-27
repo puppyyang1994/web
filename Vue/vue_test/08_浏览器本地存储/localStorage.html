@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- 浏览器存储 -->
+    <!-- 浏览器一关闭就都没了 -->
+    <h2>sessionStorage</h2>
+    <button onclick="saveData()">点我保存数据</button>
+    <button onclick="readData()">点我读取数据</button>
+    <button onclick="deleteData()">点我删除数据</button>
+    <button onclick="deleteAll()">All</button>
+
+    <script>
+        let p = { name: 'zhangshan', age: 18 }
+        let btn = document.querySelector('button')
+        function saveData() {
+            console.log(1);
+            sessionStorage.setItem('msg', 'hello')
+            // 把一个对象变成字符串 
+            sessionStorage.setItem('person', JSON.stringify(p))
+        }
+        function readData() {
+            // 黑色的  代表字符串
+            console.log(sessionStorage.getItem('msg'));
+            console.log(JSON.parse(sessionStorage.getItem('person')));
+        }
+        function deleteData() {
+            sessionStorage.removeItem('msg')
+        }
+        function deleteAll() {
+            sessionStorage.clear()
+        }
+
+        // localSotrage的东西  用户主动清空缓存 里面的东西就没了
+        /*  */
+    </script>
+</body>
+
+</html>

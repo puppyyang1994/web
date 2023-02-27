@@ -29,3 +29,12 @@ See [Configuration Reference](https://cli.vuejs.org/config/).
 插件  本质是一个对象 对象里必须包含install
 安装 nmp i less-loader   这样Vue可以处理less语言
 npm view webpack version 查看webpack的版本
+
+
+### webstorage 
+localStorage
+sessionStorage
+
+
+####
+82集 真没太听懂  组件自定义事件

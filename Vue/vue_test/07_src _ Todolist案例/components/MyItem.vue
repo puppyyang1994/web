@@ -27,7 +27,7 @@ export default {
         
         if(confirm('确定删除吗？')){
           // 通知APP删除对应的项
-          console.log(1);
+          // console.log(1);
           this.deleteTodo(id)
         }
 
