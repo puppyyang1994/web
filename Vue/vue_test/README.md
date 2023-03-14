@@ -85,3 +85,101 @@ xhr.send()
    alt+shift+f  自动格式化
    vue-resource库 vue里的插件库
    npm i vue-resource
+
+ ### 插槽
+
+   作用域插槽
+   可以让父组件向子组件指定位置插入html结构 也是一种组件间的通信方式
+   默认插槽
+   具名插槽
+   作用域插槽：数据在组件的自身，但根据数据生成的结构需要组件的使用者来决定
+
+
+   Vuex 现在建议使用pinia
+   专门在Vue中实现集中式状态（数据）管理的一个Vue插件,对vue应用中多个组件的共享状态进行集中式的管理（读、写）
+   也是一种组件间的通信方式 且适用于任意组件间通信
+   Vue.use()
+
+   什么时候使用？（共享数据） 多个组件依赖于同一状态（数据）来自不同组件的行为需要变更为同一状态
+
+   mutation 加工
+   state状态  本质是一个object对象 里面有数组等{todos:[], sum:0, }
+   Vue components
+   dispatch分发   dispatch('jia', 2)
+   dispatch分发出来的动作 action第一个去响应
+   actions object对象  {jia:functioin, }
+   调用 commit ('jia', 2)
+   mutations { jia:function} state.sum +=
+
+   使用步骤:  
+   1. npm i vuex
+   2. Vue.use(Vuex)
+   3. store
+   4. vc 都能看得到store
+   5. 目前用的是vue2要安装vuex3版本
+
+
+### 路由
+1. 路由route就是一组key:value的对应关系   key是路径  value是组件
+2. 多个路由，需要经过路由器router的管理
+   SPA应用 single page web application 
+   单页面应用:
+   1. 整个应用只有一个完整的页面
+   2. 点击页面中的导航链接不会刷新页面，只会做页面的局部更新
+   3. 数据需要通过ajax请求获取
+   vue-router 是一个插件库 npm i vue-router
+   路由的两种工作模式
+   
+   多页面应用
+
+
+
+3. 搭建路由
+4. vue-router3 才能在vue2中使用  默认的是4 所以安装的时候要注意版本号
+5. query参数  params参数 props参数
+6. 
+历史记录操作模式 
+push模式 不破坏任何一条记录  压栈
+指针默认指向最上一条 点击后退时 指针会后退
+默认router-link开启的是push模式
+
+开启replace模式  只有一条记录   替换当前记录
+
+hash值 不会随http请求发给服务器
+#/后面 是哈希值
+路由器:  hash工作模式 /#/    history工作模式 /   
+区别: 
+1. hash的兼容性好  history兼容性略差
+2. 项目上线：代码写完了 要上线 要通过webpack打包 生成纯粹的.html .css .js文件
+   npm run build 上线
+   打包出来的文件 必须放到服务器上部署 才能打开
+
+   创建文件夹 然后vscode打开  然后 npm init 命名
+   然后 npm i express
+   新建一个服务器主文件 server.js
+   写好代码后运行 node server 
+   通过localhost:5050/person访问
+
+   创建一个static文件静态资源文件
+   通过app.use(express.static)
+   去浏览器里把person 改成index.hmtl就可以访问了
+
+   并不是一定只能用hash模式  用history模式  有一个node.js中间件 可以解决history模式刷新后404的问题
+   npm 网站可以找到 connect-history-api-fallback  然后安装 引入
+
+   ngix解决404   根治要找后端
+
+   UI组件库
+   组件的概念是有了框架之后才出来的
+   组件库是基于什么技术： vue还是react
+   是PC端的还是移动端的
+   Element UI
+   IView UI
+
+webpack 开发依赖和生产依赖 得会区分
+babel.config.js
+UI组件库需要和脚手架配合 才能完成按需引入
+
+模块没找到 就要重新 npm i abc
+
+Ant-Design
